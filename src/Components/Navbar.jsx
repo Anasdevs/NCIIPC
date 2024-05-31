@@ -91,9 +91,9 @@ const Navbar = ({ navRef, aboutUsRef, updatesRef, documentsRef, linksRef, events
           <a onClick={() => scrollToSection(eventsRef)} className="py-2 sm:py-0 sm:mx-2 text-md cursor-pointer">
             EVENTS
           </a>
-          <a href="#" className="py-2 sm:py-0 sm:mx-2 text-md">
+          {/* <a href="#" className="py-2 sm:py-0 sm:mx-2 text-md">
             CONTACT
-          </a>
+          </a> */}
           <a href="#" className="py-2 sm:py-0 sm:mx-2 text-md">
             ENGAGE WITH NCIIPC
           </a>
@@ -152,10 +152,10 @@ const Navbar = ({ navRef, aboutUsRef, updatesRef, documentsRef, linksRef, events
           }} className="text-md cursor-pointer">
             EVENTS
           </a>
-          <hr className="w-full h-[2px] bg-gray-200 border-0"/>
+          {/* <hr className="w-full h-[2px] bg-gray-200 border-0"/>
           <a href="#" className="text-md cursor-pointer" onClick={toggleMenu}>
             CONTACT
-          </a>
+          </a> */}
           <hr className="w-full h-[2px] bg-gray-200 border-0"/>
           <a href="#" className="text-md cursor-pointer" onClick={toggleMenu}>
             ENGAGE WITH NCIIPC

@@ -28,6 +28,7 @@ function App() {
         updatesRef={updatesRef}
         documentsRef={documentsRef}
         linksRef={linksRef}
+        eventsRef={eventsRef}
       />
       <div ref={heroRef}>
         <Hero />
