@@ -1,28 +1,25 @@
 import React, { useState, useEffect } from 'react';
-import './Events.css';;
+import './Events.css';
 import eventImg1 from './Images/events/eventImg1.png';
 import eventImg2 from './Images/events/eventImg2.png';
 import eventImg3 from './Images/events/eventImg3.png';
 import eventImg4 from './Images/events/eventImg4.png';
 import eventImg5 from './Images/events/eventImg5.png';
 import eventImg6 from './Images/events/eventImg6.jpg';
-import eventImg7 from './Images/events/eventImg7.jpg'
-import eventImg8 from './Images/events/eventImg8.jpg'
-import eventImg9 from './Images/events/eventImg9.png'
-
-
+import eventImg7 from './Images/events/eventImg7.jpg';
+import eventImg8 from './Images/events/eventImg8.jpg';
+import eventImg9 from './Images/events/eventImg9.png';
 
 const events = [
-  { image: eventImg1},
-  { image: eventImg2},
-  { image: eventImg3},
-  { image: eventImg4},
-  { image: eventImg5},
-  { image: eventImg6},
-  { image: eventImg7},
-  { image: eventImg8},
-  { image: eventImg9},
-
+  { image: eventImg1 },
+  { image: eventImg2 },
+  { image: eventImg3 },
+  { image: eventImg4 },
+  { image: eventImg5 },
+  { image: eventImg6 },
+  { image: eventImg7 },
+  { image: eventImg8 },
+  { image: eventImg9 },
 ];
 
 const Events = () => {
@@ -54,30 +51,35 @@ const Events = () => {
     setCurrentIndex((currentIndex + 1) % events.length);
   };
 
-  const visibleEvents = isLargeScreen
-    ? events.slice(currentIndex, currentIndex + 3)
-    : [events[currentIndex]];
+  const getVisibleEvents = () => {
+    if (isLargeScreen) {
+      return [
+        events[currentIndex],
+        events[(currentIndex + 1) % events.length],
+        events[(currentIndex + 2) % events.length],
+      ];
+    } else {
+      return [events[currentIndex]];
+    }
+  };
+
+  const visibleEvents = getVisibleEvents();
 
   return (
     <div className="events-container">
-      <h2 className="lg:text-3xl text-2xl text-indigo-600 font-semibold text-center tracking-wide uppercase mt-8 lg:mt-12 mb-8">Events</h2>
+      <h2 className="lg:text-3xl text-2xl text-indigo-600 font-semibold text-center tracking-wide uppercase mt-8 lg:mt-12 mb-8">Events
+      Events</h2>
       <div className="arrow-button left" onClick={handlePrevClick}>
         &lt;
       </div>
       <div className="event-cards">
-        {visibleEvents.map(({ image, title, venue, date }, index) => (
+        {visibleEvents.map(({ image }, index) => (
           <div
             key={index}
             className="event-card"
-          
           >
             <div className="event-image-container">
-              <img src={image} alt={title} className="event-image" />
-              {/* <div className="event-details">
-                <h3>{title}</h3>
-                <p>{venue}</p>
-                <p>{date}</p>
-              </div> */}
+              <img src={image} alt={`Event ${index}`} className="event-image" />
             </div>
           </div>
         ))}
