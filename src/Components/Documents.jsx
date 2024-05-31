@@ -74,11 +74,11 @@ const Documents = () => {
   return (
     <div className="bg-gray-100 py-4">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-3xl text-indigo-600 font-semibold tracking-wide uppercase text-center my-6">Documents</h2>
+        <h2 className="lg:text-3xl text-xl text-indigo-600 font-semibold text-center tracking-wide uppercase mt-6 lg:mt-10 mb-4">Documents</h2>
         {documents.map((document) => (
           <div key={document.id} className="w-full bg-white rounded-lg shadow-md overflow-hidden mb-6">
             <div
-              className="flex items-center p-2 md:p-6 bg-[#3F72AF] text-white cursor-pointer"
+              className="flex items-center p-[5px] md:p-4 bg-[#3F72AF] text-white cursor-pointer"
               onClick={() => toggleAccordion(document.id)}
             >
               <img src={document.imageUrl} alt={document.title} className="h-16 w-16 object-contain mr-4" />

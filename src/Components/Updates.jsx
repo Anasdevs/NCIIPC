@@ -139,9 +139,9 @@ const Updates = () => {
   const currentItems = visiblePdfs.slice(indexOfFirstItem, indexOfLastItem);
 
   return (
-    <div className="bg-gray-100 py-12">
+    <div className="bg-gray-100">
       <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
-        <h2 className="text-3xl text-indigo-600 font-semibold tracking-wide uppercase text-center my-6">Updates</h2>
+        <h2 className="lg:text-3xl text-2xl text-indigo-600 font-semibold text-center tracking-wide uppercase lg:mt-8 mt-4 mb-2">Updates</h2>
         <div className="flex flex-col lg:flex-row items-center justify-center mb-6">
           <div className="mb-2 lg:mb-0">
             <input

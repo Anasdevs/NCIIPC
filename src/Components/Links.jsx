@@ -20,45 +20,47 @@ const linksData = [
 const Links = () => {
   const linksRef = useRef(null);
   const [isHovered, setIsHovered] = useState(false);
+  const [animationStyle, setAnimationStyle] = useState('animate-infinite-scroll');
 
   useEffect(() => {
+    const handleMouseEnter = () => {
+      setIsHovered(true);
+      setAnimationStyle('pause-infinite-scroll');
+    };
+
+    const handleMouseLeave = () => {
+      setIsHovered(false);
+      setAnimationStyle('animate-infinite-scroll');
+    };
+
     const linksContainer = linksRef.current;
-    const linksUl = linksContainer.querySelector('ul');
-    const linksClone = linksUl.cloneNode(true);
-    linksClone.setAttribute('aria-hidden', 'true');
-    linksContainer.appendChild(linksClone);
+    linksContainer.addEventListener('mouseenter', handleMouseEnter);
+    linksContainer.addEventListener('mouseleave', handleMouseLeave);
+
+    return () => {
+      linksContainer.removeEventListener('mouseenter', handleMouseEnter);
+      linksContainer.removeEventListener('mouseleave', handleMouseLeave);
+    };
   }, []);
-
-  const handleMouseEnter = () => {
-    setIsHovered(true);
-  };
-
-  const handleMouseLeave = () => {
-    setIsHovered(false);
-  };
 
   return (
     <div className="w-full max-w-5xl mx-auto px-4 md:px-6 py-8 bg-gray-100">
-      <h2 className="text-3xl text-indigo-600 font-semibold tracking-wide uppercase text-center mt-4 mb-12">Links</h2>
+      <h2 className="lg:text-3xl text-2xl text-indigo-600 font-semibold text-center tracking-wide uppercase lg:mt-10 mb-6">Links</h2>
       <div className="text-center">
         <div
           ref={linksRef}
           className="w-full inline-flex flex-nowrap overflow-hidden [mask-image:_linear-gradient(to_right,transparent_0,_black_128px,_black_calc(100%-128px),transparent_100%)]"
         >
           <ul
-            className={`flex items-center justify-center md:justify-start [&_li]:mx-8 [&_img]:max-w-none ${
-              isHovered ? 'pause-infinite-scroll' : 'animate-infinite-scroll'
-            }`}
-            onMouseEnter={handleMouseEnter}
-            onMouseLeave={handleMouseLeave}
+            className={`flex items-center justify-start [&_li]:mx-8 [&_img]:max-w-none ${animationStyle}`}
           >
             {linksData.map((link, index) => (
               <li key={index} className="flex flex-col items-center">
-                <a href={link.url} target="_blank" rel="noopener noreferrer" className="flex flex-col items-center">
+                <a href={link.url} target="_blank" rel="noopener noreferrer" className="flex flex-col items-center text-[#3F72AF]">
                   <img src={link.imageUrl} alt={link.title} title={link.title} className="w-16 md:w-24" />
                   <div className="flex items-center mt-2">
-                    <span className="text-sm md:text-base font-semibold">{link.title}</span>
-                    <FontAwesomeIcon icon={faExternalLinkAlt} className="ml-1 text-gray-500" />
+                    <span className="text-sm md:text-base font-semibold text-[#3F72AF]">{link.title}</span>
+                    <FontAwesomeIcon icon={faExternalLinkAlt} className="ml-1 text-[#3F72AF]" />
                   </div>
                 </a>
               </li>
@@ -68,8 +70,8 @@ const Links = () => {
                 <a href={link.url} target="_blank" rel="noopener noreferrer" className="flex flex-col items-center">
                   <img src={link.imageUrl} alt={link.title} title={link.title} className="w-16 md:w-24" />
                   <div className="flex items-center mt-2">
-                    <span className="text-sm md:text-base font-semibold">{link.title}</span>
-                    <FontAwesomeIcon icon={faExternalLinkAlt} className="ml-1 text-gray-500" />
+                    <span className="text-sm md:text-base font-semibold text-[#3F72AF]">{link.title}</span>
+                    <FontAwesomeIcon icon={faExternalLinkAlt} className="ml-1 text-[#3F72AF]" />
                   </div>
                 </a>
               </li>

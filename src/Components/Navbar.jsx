@@ -65,11 +65,8 @@ const Navbar = ({ heroRef, aboutUsRef, updatesRef, documentsRef, linksRef }) => 
     </div>
     <div className="w-8 flex justify-end"> {/* Fixed width container */}
       <button onClick={toggleMenu} aria-label="Toggle Menu">
-        {isOpen ? (
-          <FontAwesomeIcon icon={faTimes} className="text-2xl mr-3" />
-        ) : (
-          <FontAwesomeIcon icon={faBars} className="text-2xl mr-2" />
-        )}
+          <FontAwesomeIcon icon={faBars} className="text-2xl mr-3" />
+       
       </button>
     </div>
   </div>
