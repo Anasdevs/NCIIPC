@@ -6,6 +6,7 @@ import AboutUs from './Components/AboutUs';
 import Documents from './Components/Documents'
 import Updates from './Components/Updates';
 import Links from './Components/Links';
+import Events from './Components/Events'
 
 function App() {
   const navRef = useRef(null)
@@ -14,6 +15,7 @@ function App() {
   const updatesRef = useRef(null);
   const documentsRef = useRef(null);
   const linksRef = useRef(null);
+  const eventsRef = useRef(null)
 
   return (
     <div className="App">
@@ -25,9 +27,9 @@ function App() {
         documentsRef={documentsRef}
         linksRef={linksRef}
       />
-      <div ref={heroRef}>
+      {/* <div ref={heroRef}>
         <Hero />
-      </div>
+      </div> */}
       <div ref={aboutUsRef}>
         <AboutUs />
       </div>
@@ -39,6 +41,9 @@ function App() {
       </div>
       <div ref={linksRef}>
         <Links />
+      </div>
+      <div ref={eventsRef}>
+        <Events />
       </div>
     </div>
   );
