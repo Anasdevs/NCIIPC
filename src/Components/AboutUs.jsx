@@ -1,42 +1,25 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef } from 'react';
 
 const AboutUs = () => {
   const [activeSection, setActiveSection] = useState('vision');
   const [showAllFunctions, setShowAllFunctions] = useState(false);
   const contentRef = useRef(null);
-  const navRef = useRef(null);
 
   const handleNavClick = (section, e) => {
     e.preventDefault();
     setActiveSection(section);
+    // contentRef.current.scrollIntoView({ behavior: 'smooth' });
   };
 
   const toggleShowAllFunctions = () => {
     setShowAllFunctions(!showAllFunctions);
   };
 
-  useEffect(() => {
-    const scrollToSection = () => {
-      if (contentRef.current && navRef.current) {
-        const sectionElement = document.getElementById(activeSection);
-        if (sectionElement) {
-          const navHeight = navRef.current.offsetHeight;
-          const sectionTop = sectionElement.offsetTop;
-          window.scrollTo({
-            top: sectionTop - navHeight - 20, // Extra 20px for some padding
-            behavior: 'smooth',
-          });
-        }
-      }
-    };
-    scrollToSection();
-  }, [activeSection]);
-
   return (
-    <div className="bg-gray-100 py-6">
+    <div className="bg-gray-100 py-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="lg:text-center">
-          <h2 className="lg:text-2xl text-xl text-indigo-600 font-semibold md:text-center text-left tracking-wide uppercase mt-4">About Us</h2>
+        <h2 className="lg:text-2xl text-xl text-indigo-600 font-semibold md:text-center text-left tracking-wide uppercase mt-4">About Us</h2>
           <p className="mt-4 text-2xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
             National Critical Information Infrastructure Protection Centre (NCIIPC)
           </p>
@@ -45,7 +28,7 @@ const AboutUs = () => {
           </p>
         </div>
 
-        <div className="mt-10 flex justify-center sticky top-0 bg-gray-100 py-2" ref={navRef}>
+        <div className="mt-10 flex justify-center">
           <nav className="flex space-x-4">
             <a
               href="#vision"

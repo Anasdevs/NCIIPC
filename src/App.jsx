@@ -8,6 +8,7 @@ import Updates from './Components/Updates';
 import Links from './Components/Links';
 
 function App() {
+  const navRef = useRef(null)
   const heroRef = useRef(null);
   const aboutUsRef = useRef(null);
   const updatesRef = useRef(null);
@@ -17,6 +18,7 @@ function App() {
   return (
     <div className="App">
       <Navbar
+        navRef={navRef}
         heroRef={heroRef}
         aboutUsRef={aboutUsRef}
         updatesRef={updatesRef}

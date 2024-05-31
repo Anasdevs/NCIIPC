@@ -1,9 +1,9 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
 import logoImg from './Images/logo.png';
 
-const Navbar = ({ heroRef, aboutUsRef, updatesRef, documentsRef, linksRef }) => {
+const Navbar = ({ navRef, aboutUsRef, updatesRef, documentsRef, linksRef, eventsRef }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [isLargeScreen, setIsLargeScreen] = useState(false);
 
@@ -29,18 +29,17 @@ const Navbar = ({ heroRef, aboutUsRef, updatesRef, documentsRef, linksRef }) => 
   };
 
   return (
-    <nav className="bg-[#3F72AF] text-white pb-4 relative">
+    <nav ref={navRef} className="bg-[#3F72AF] text-white pb-4 relative">
       {/* Heading and logo for large screens */}
       {isLargeScreen && (
         <div className="flex justify-between items-center mb-4 bg-[#112D4E] p-4">
           <div className="flex items-center">
-            {<img
+            <img
               src={logoImg}
               alt="Logo"
-              className="lg:h-[100px] lg:w-[100px] sm:h-[50px] sm:w-[50px] h-[30px] w-[30px] -mr4 ml-4"
-            /> }
-            
-
+              className="lg:h-[100px] lg:w-[100px] sm:h-[50px] sm:w-[50px] h-[30px] w-[30px] -mr4 ml-4 cursor-pointer"
+              onClick={() => scrollToSection(navRef)}
+            />
           </div>
           <div className="flex-grow text-center">
             <h1 className="text-2xl font-bold">
@@ -55,41 +54,41 @@ const Navbar = ({ heroRef, aboutUsRef, updatesRef, documentsRef, linksRef }) => 
 
       {/* Logo, short heading, and hamburger menu for small screens */}
       {!isLargeScreen && (
-  <div className="flex justify-between items-center p-2 bg-[#112D4E] relative">
-    <img src={logoImg} alt="Logo" className="h-[70px] w-[70px] sm:h-[70px] sm:w-[70px]" />
-    <div className="flex-grow text-center mr-4">
-      <h1 className="text-[14px] text-center font-bold">
-        National Critical Information Infrastructure Protection Centre
-      </h1>
-      <h2 className='text-center text-[15px]'>A unit of NTRO</h2>
-    </div>
-    <div className="w-8 flex justify-end"> {/* Fixed width container */}
-      <button onClick={toggleMenu} aria-label="Toggle Menu">
-          <FontAwesomeIcon icon={faBars} className="text-2xl mr-3" />
-       
-      </button>
-    </div>
-  </div>
-)}
+        <div className="flex justify-between items-center p-2 bg-[#112D4E] relative">
+          <img src={logoImg} alt="Logo" className="h-[70px] w-[70px] sm:h-[70px] sm:w-[70px] cursor-pointer" onClick={() => scrollToSection(navRef)} />
+          <div className="flex-grow text-center mr-4">
+            <h1 className="text-[14px] text-center font-bold">
+              National Critical Information Infrastructure Protection Centre
+            </h1>
+            <h2 className="text-center text-[15px]">A unit of NTRO</h2>
+          </div>
+          <div className="w-8 flex justify-end">
+            <button onClick={toggleMenu} aria-label="Toggle Menu">
+              <FontAwesomeIcon icon={faBars} className="text-2xl mr-3" />
+            </button>
+          </div>
+        </div>
+      )}
+
       {/* Navbar links for large screens */}
       {isLargeScreen && (
         <div className="sm:flex justify-center items-center bg-gray-900 sm:bg-transparent transition-all duration-300 ease-in-out z-10 sm:space-x-6">
-          <a href="#" className="py-2 sm:py-0 sm:mx-2 text-md">
+          <a onClick={() => scrollToSection(navRef)} className="py-2 sm:py-0 sm:mx-2 text-md cursor-pointer">
             HOME
           </a>
-          <a href="#" onClick={() => scrollToSection(aboutUsRef)} className="py-2 sm:py-0 sm:mx-2 text-md">
-          ABOUT US
-        </a>
-          <a href="#" onClick={() => scrollToSection(updatesRef)} className="py-2 sm:py-0 sm:mx-2 text-md">
+          <a onClick={() => scrollToSection(aboutUsRef)} className="py-2 sm:py-0 sm:mx-2 text-md cursor-pointer">
+            ABOUT US
+          </a>
+          <a onClick={() => scrollToSection(updatesRef)} className="py-2 sm:py-0 sm:mx-2 text-md cursor-pointer">
             UPDATES
           </a>
-          <a href="#" onClick={() => scrollToSection(documentsRef)} className="py-2 sm:py-0 sm:mx-2 text-md">
+          <a onClick={() => scrollToSection(documentsRef)} className="py-2 sm:py-0 sm:mx-2 text-md cursor-pointer">
             DOCUMENTS
           </a>
-          <a href="#" onClick={() => scrollToSection(linksRef)} className="py-2 sm:py-0 sm:mx-2 text-md">
+          <a onClick={() => scrollToSection(linksRef)} className="py-2 sm:py-0 sm:mx-2 text-md cursor-pointer">
             LINKS
           </a>
-          <a href="#" className="py-2 sm:py-0 sm:mx-2 text-md">
+          <a onClick={() => scrollToSection(eventsRef)} className="py-2 sm:py-0 sm:mx-2 text-md cursor-pointer">
             EVENTS
           </a>
           <a href="#" className="py-2 sm:py-0 sm:mx-2 text-md">
@@ -111,59 +110,57 @@ const Navbar = ({ heroRef, aboutUsRef, updatesRef, documentsRef, linksRef }) => 
           <FontAwesomeIcon icon={faTimes} className="text-2xl" />
         </button>
         <div className="flex flex-col items-start mt-8 space-y-2 ml-5">
-          <hr class="w-full h-[2px] bg-gray-200 border-0"/>
-
-          <a href="#" className="text-md" onClick={toggleMenu}>
+          <hr className="w-full h-[2px] bg-gray-200 border-0"/>
+          <a onClick={() => {
+            scrollToSection(navRef);
+            toggleMenu();
+          }} className="text-md cursor-pointer">
             HOME
           </a>
-          <hr class="w-full h-[2px] bg-gray-200 border-0"/>
-          <a href="#" onClick={() => {
-        scrollToSection(aboutUsRef);
-        toggleMenu();
-      }} className="text-md">
+          <hr className="w-full h-[2px] bg-gray-200 border-0"/>
+          <a onClick={() => {
+            scrollToSection(aboutUsRef);
+            toggleMenu();
+          }} className="text-md cursor-pointer">
             ABOUT US
           </a>
-          <hr class="w-full h-[2px] bg-gray-200 border-0"/>
-          <a href="#" onClick={() => {
-        scrollToSection(updatesRef);
-        toggleMenu();
-      }} className="text-md">
+          <hr className="w-full h-[2px] bg-gray-200 border-0"/>
+          <a onClick={() => {
+            scrollToSection(updatesRef);
+            toggleMenu();
+          }} className="text-md cursor-pointer">
             UPDATES
           </a>
-          <hr class="w-full h-[2px] bg-gray-200 border-0"/>
-
-          <a href="#" className="text-md" onClick={() => {
-        scrollToSection(documentsRef);
-        toggleMenu();
-      }}>
+          <hr className="w-full h-[2px] bg-gray-200 border-0"/>
+          <a onClick={() => {
+            scrollToSection(documentsRef);
+            toggleMenu();
+          }} className="text-md cursor-pointer">
             DOCUMENTS
           </a>
-        
-          <hr class="w-full h-[2px] bg-gray-200 border-0"/>
-
-          <a href="#" className="text-md" onClick={() => {
-        scrollToSection(linksRef);
-        toggleMenu();
-      }}>
+          <hr className="w-full h-[2px] bg-gray-200 border-0"/>
+          <a onClick={() => {
+            scrollToSection(linksRef);
+            toggleMenu();
+          }} className="text-md cursor-pointer">
             LINKS
           </a>
-          <hr class="w-full h-[2px] bg-gray-200 border-0"/>
-
-          <a href="#" className="text-md" onClick={toggleMenu}>
+          <hr className="w-full h-[2px] bg-gray-200 border-0"/>
+          <a onClick={() => {
+            scrollToSection(eventsRef);
+            toggleMenu();
+          }} className="text-md cursor-pointer">
             EVENTS
           </a>
-          <hr class="w-full h-[2px] bg-gray-200 border-0"/>
-
-          <a href="#" className="text-md" onClick={toggleMenu}>
+          <hr className="w-full h-[2px] bg-gray-200 border-0"/>
+          <a href="#" className="text-md cursor-pointer" onClick={toggleMenu}>
             CONTACT
           </a>
-          <hr class="w-full h-[2px] bg-gray-200 border-0"/>
-
-          <a href="#" className="text-md" onClick={toggleMenu}>
+          <hr className="w-full h-[2px] bg-gray-200 border-0"/>
+          <a href="#" className="text-md cursor-pointer" onClick={toggleMenu}>
             ENGAGE WITH NCIIPC
           </a>
-          <hr class="w-full h-[2px] bg-gray-200 border-0"/>
-
+          <hr className="w-full h-[2px] bg-gray-200 border-0"/>
         </div>
       </div>
     </nav>
