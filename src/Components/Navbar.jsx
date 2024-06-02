@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
 import logoImg from './Images/logo.png';
 
-const Navbar = () => {
+const Navbar = ({ heroRef, aboutUsRef, updatesRef, documentsRef, linksRef }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [isLargeScreen, setIsLargeScreen] = useState(false);
 
@@ -23,6 +23,10 @@ const Navbar = () => {
       window.removeEventListener('resize', updateScreenSize);
     };
   }, []);
+
+  const scrollToSection = (ref) => {
+    ref.current.scrollIntoView({ behavior: 'smooth' });
+  };
 
   return (
     <nav className="bg-[#3F72AF] text-white pb-4 relative">
@@ -51,41 +55,41 @@ const Navbar = () => {
 
       {/* Logo, short heading, and hamburger menu for small screens */}
       {!isLargeScreen && (
-        <div className="flex justify-between items-center p-2 bg-[#112D4E]">
-  <img src={logoImg} alt="Logo" className="h-[50px] w-[50px] sm:h-[70px] sm:w-[70px]" />
-  <div className="flex-grow text-center">
-    <h1 className="text-xl text-center font-bold">NCIIPC</h1>
-    <h2 className='text-center'>A unit of NTRO</h2>
+  <div className="flex justify-between items-center p-2 bg-[#112D4E] relative">
+    <img src={logoImg} alt="Logo" className="h-[70px] w-[70px] sm:h-[70px] sm:w-[70px]" />
+    <div className="flex-grow text-center mr-4">
+      <h1 className="text-[14px] text-center font-bold">
+        National Critical Information Infrastructure Protection Centre
+      </h1>
+      <h2 className='text-center text-[15px]'>A unit of NTRO</h2>
+    </div>
+    <div className="w-8 flex justify-end"> {/* Fixed width container */}
+      <button onClick={toggleMenu} aria-label="Toggle Menu">
+        {isOpen ? (
+          <FontAwesomeIcon icon={faTimes} className="text-2xl mr-3" />
+        ) : (
+          <FontAwesomeIcon icon={faBars} className="text-2xl mr-2" />
+        )}
+      </button>
+    </div>
   </div>
-  <button onClick={toggleMenu} aria-label="Toggle Menu">
-    {isOpen ? (
-      <FontAwesomeIcon icon={faTimes} className="text-2xl" />
-    ) : (
-      <FontAwesomeIcon icon={faBars} className="text-2xl" />
-    )}
-  </button>
-</div>
-      )}
-
+)}
       {/* Navbar links for large screens */}
       {isLargeScreen && (
         <div className="sm:flex justify-center items-center bg-gray-900 sm:bg-transparent transition-all duration-300 ease-in-out z-10 sm:space-x-6">
           <a href="#" className="py-2 sm:py-0 sm:mx-2 text-md">
             HOME
           </a>
-          <a href="#" className="py-2 sm:py-0 sm:mx-2 text-md">
-            ABOUT US
-          </a>
-          <a href="#" className="py-2 sm:py-0 sm:mx-2 text-md">
-            DOCUMENTS
-          </a>
-          <a href="#" className="py-2 sm:py-0 sm:mx-2 text-md">
+          <a href="#" onClick={() => scrollToSection(aboutUsRef)} className="py-2 sm:py-0 sm:mx-2 text-md">
+          ABOUT US
+        </a>
+          <a href="#" onClick={() => scrollToSection(updatesRef)} className="py-2 sm:py-0 sm:mx-2 text-md">
             UPDATES
           </a>
-          <a href="#" className="py-2 sm:py-0 sm:mx-2 text-md">
-            FORMS
+          <a href="#" onClick={() => scrollToSection(documentsRef)} className="py-2 sm:py-0 sm:mx-2 text-md">
+            DOCUMENTS
           </a>
-          <a href="#" className="py-2 sm:py-0 sm:mx-2 text-md">
+          <a href="#" onClick={() => scrollToSection(linksRef)} className="py-2 sm:py-0 sm:mx-2 text-md">
             LINKS
           </a>
           <a href="#" className="py-2 sm:py-0 sm:mx-2 text-md">
@@ -102,7 +106,7 @@ const Navbar = () => {
 
       {/* Mobile menu */}
       <div
-        className={`fixed top-0 left-0 w-2/3 h-full bg-gray-900 text-[#DBE2EF] z-20 transform ${
+        className={`fixed top-0 left-0 w-2/3 h-full z-999 bg-gray-900 text-[#DBE2EF] z-20 transform ${
           isOpen ? 'translate-x-0' : '-translate-x-full'
         } transition-transform duration-300 ease-in-out`}
       >
@@ -116,27 +120,34 @@ const Navbar = () => {
             HOME
           </a>
           <hr class="w-full h-[2px] bg-gray-200 border-0"/>
-          <a href="#" className="text-md" onClick={toggleMenu}>
+          <a href="#" onClick={() => {
+        scrollToSection(aboutUsRef);
+        toggleMenu();
+      }} className="text-md">
             ABOUT US
           </a>
           <hr class="w-full h-[2px] bg-gray-200 border-0"/>
-
-          <a href="#" className="text-md" onClick={toggleMenu}>
-            DOCUMENTS
-          </a>
-          <hr class="w-full h-[2px] bg-gray-200 border-0"/>
-
-          <a href="#" className="text-md" onClick={toggleMenu}>
+          <a href="#" onClick={() => {
+        scrollToSection(updatesRef);
+        toggleMenu();
+      }} className="text-md">
             UPDATES
           </a>
           <hr class="w-full h-[2px] bg-gray-200 border-0"/>
 
-          <a href="#" className="text-md" onClick={toggleMenu}>
-            FORMS
+          <a href="#" className="text-md" onClick={() => {
+        scrollToSection(documentsRef);
+        toggleMenu();
+      }}>
+            DOCUMENTS
           </a>
+        
           <hr class="w-full h-[2px] bg-gray-200 border-0"/>
 
-          <a href="#" className="text-md" onClick={toggleMenu}>
+          <a href="#" className="text-md" onClick={() => {
+        scrollToSection(linksRef);
+        toggleMenu();
+      }}>
             LINKS
           </a>
           <hr class="w-full h-[2px] bg-gray-200 border-0"/>
