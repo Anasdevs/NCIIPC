@@ -6,13 +6,9 @@ import img3 from './Images/heroImg3.png';
 import img4 from './Images/heroImg4.png';
 import Marquee from './Marquee';
 
-const Hero = ({updatesRef}) => {
+const Hero = () => {
 
-  const scrollToSection = (ref) => {
-    if (ref && ref.current) {
-      ref.current.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
+
 
   useEffect(() => {
     const nextDom = document.getElementById('next');
@@ -67,36 +63,6 @@ const Hero = ({updatesRef}) => {
 
   return (
     <div>
-<div className='marquee-container'>
-  <div className="marquee-content">
-    <span className="glow-label">New:</span>
-    <span className="marquee-text">
-      <a
-        className="text-md cursor-pointer"
-        onClick={(e) => {
-          e.preventDefault();
-          scrollToSection(updatesRef);
-        }}
-      >
-        Newsletter for April 2024 has been released.
-      </a>
-    </span>
-  </div>
-  <div className="marquee-content">
-    <span className="glow-label">New</span>
-    <span className="marquee-text">
-      <a
-        className="text-md cursor-pointer"
-        onClick={(e) => {
-          e.preventDefault();
-          scrollToSection(updatesRef);
-        }}
-      >
-        Cve Reports for May 2024 has been released.
-      </a>
-    </span>
-  </div>
-</div>
       <div className="carousel">
         <div className="list">
           <div className="item">

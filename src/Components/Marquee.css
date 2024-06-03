@@ -1,51 +1,109 @@
-.marquee-container {
+.marquee {
     width: 100%;
+    white-space: nowrap;
     overflow: hidden;
-    background: #f0f0f0;
-    padding: 10px 0;
-    box-sizing: border-box;
     position: relative;
-    cursor: pointer;
+}
+
+.marquee-container {
+    padding: 8px;
     display: flex;
-    justify-content: flex-start;
     align-items: center;
+}
+
+.marquee-content {
+    display: inline-block;
+    white-space: nowrap;
+    animation: marquee 20s linear infinite;
 }
 
 .marquee-container:hover .marquee-content {
     animation-play-state: paused;
 }
 
-.marquee-content {
+.marquee-text {
+    margin-right: 40px;
     display: inline-block;
-    align-items: center;
-    white-space: nowrap;
-    animation: marquee 10s linear infinite;
-    padding-right: 30px;
+    animation: color-change 6s linear infinite;
 }
 
-.marquee-content:last-child {
-    padding-right: 0; 
+@media (max-width: 768px) {
+    .marquee-content {
+        animation: marquee 10s linear infinite;
+    }
 }
 
 .glow-label {
     background: #ff0000;
     color: #fff;
-    padding: 5px 10px;
+    padding: 3px 5px;
     margin-right: 10px;
     border-radius: 5px;
     text-shadow: 0 0 10px rgba(255, 0, 0, 0.7), 0 0 20px rgba(255, 0, 0, 0.7), 0 0 30px rgba(255, 0, 0, 0.7);
-  }
-
-.marquee-text a {
-    text-decoration: none;
-    color: inherit;
 }
 
 @keyframes marquee {
     0% {
-        transform: translateX(100%);
+        transform: translateX(100vw);
     }
     100% {
         transform: translateX(-100%);
     }
 }
+
+
+@keyframes color-change {
+    0% {
+      
+      color: blue;
+    }
+    
+    10% {
+      
+      color: #8e44ad;
+    }
+    
+    20% {
+      
+      color: #0c5c4c;
+    }
+    
+    30% {
+      
+      color: #d35400;
+    }
+    
+    40% {
+      
+      color: blue;
+    }
+    
+    50% {
+      
+      color: #244464;
+    }
+    
+    60% {
+      
+      color: blue;
+    }
+    
+    70% {
+      
+      color: #2980b9;
+    }
+    80% {
+   
+      color: #5c4c0c;
+    }
+    
+    90% {
+   
+      color: #2980b9;
+    }
+    
+    100% {
+      
+      color: rgb(100, 41, 51);
+    }
+  }

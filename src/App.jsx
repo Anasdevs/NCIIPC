@@ -1,7 +1,8 @@
 import React, { useRef } from 'react';
 import './App.css';
-import Hero from './Components/Hero';
 import Navbar from './Components/Navbar';
+import Marquee from './Components/Marquee';
+import Hero from './Components/Hero';
 import AboutUs from './Components/AboutUs';
 import Documents from './Components/Documents'
 import Forms from './Components/Forms';
@@ -12,7 +13,8 @@ import Footer from './Components/Footer';
 
 
 function App() {
-  const navRef = useRef(null)
+  const navRef = useRef(null);
+  const marqueeRef = useRef(null);
   const heroRef = useRef(null);
   const aboutUsRef = useRef(null);
   const updatesRef = useRef(null);
@@ -34,9 +36,13 @@ function App() {
         linksRef={linksRef}
         eventsRef={eventsRef}
       />
+      <div ref={marqueeRef}>
+        <Marquee
+        updatesRef={updatesRef}
+        />
+      </div>
       <div ref={heroRef}>
         <Hero
-        updatesRef={updatesRef}
          />
       </div>
       <div ref={aboutUsRef}>
