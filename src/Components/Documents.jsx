@@ -32,30 +32,6 @@ const Documents = () => {
         { name: 'SOP : Audit of CII/Protected Systems', url: 'https://nciipc.gov.in/documents/01_15_May24_CVE.pdf' },
       ],
     },
-    {
-      id: 'B',
-      title: 'Incident Reporting Form',
-      imageUrl: guidelinesImg,
-      pdfs: [
-        { name: 'Incident Reporting Form 1', url: 'https://nciipc.vercel.app/pdfs/incidenceReportingForm.pdf'},
-      ],
-    },
-    {
-      id: 'C',
-      title: 'Vulnerability Disclosure Form',
-      imageUrl: guidelinesImg,
-      pdfs: [
-        { name: 'Vulnerability Disclosure Form', url: 'https://nciipc.vercel.app/pdfs/vulnDisclosureForm.pdf' },
-      ],
-    },
-    {
-      id: 'D',
-      title: 'Malware Reporting Form',
-      imageUrl: guidelinesImg,
-      pdfs: [
-        { name: 'Malware Reporting Form', url: 'https://nciipc.vercel.app/pdfs/malwareReport.pdf' },
-      ],
-    },
   ];
 
   const toggleAccordion = (id) => {

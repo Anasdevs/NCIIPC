@@ -1,0 +1,99 @@
+import React, { useState } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faFileDownload, faEye, faTimes } from '@fortawesome/free-solid-svg-icons';
+import incidentReportingImg from './Images/incidentReporting.jpg';
+import vulnDisclosureImg from './Images/vulnDisclosure.png';
+import malwareReporting from './Images/malwareReporting.jpg';
+
+const forms = [
+  {
+    title: 'Incident Reporting Form',
+    imageUrl: incidentReportingImg,
+    pdf: { name: 'Incident Reporting Form', url: 'https://nciipc.vercel.app/pdfs/incidenceReportingForm.pdf' },
+  },
+  {
+    title: 'Vulnerability Disclosure Form',
+    imageUrl: vulnDisclosureImg,
+    pdf: { name: 'Vulnerability Disclosure Form', url: 'https://nciipc.vercel.app/pdfs/vulnDisclosureForm.pdf' },
+  },
+  {
+    title: 'Malware Reporting Form',
+    imageUrl: malwareReporting,
+    pdf: { name: 'Malware Reporting Form', url: 'https://nciipc.vercel.app/pdfs/malwareReport.pdf' },
+  },
+];
+
+const Forms = () => {
+  const [selectedForm, setSelectedForm] = useState(null);
+
+  const handlePdfClick = (event, form) => {
+    event.preventDefault();
+    setSelectedForm(form);
+  };
+
+  const handleModalClose = () => {
+    setSelectedForm(null);
+  };
+
+  return (
+    <div className="bg-gray-100 py-4">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 className="lg:text-3xl text-xl text-indigo-600 font-semibold text-center tracking-wide uppercase mt-6 lg:mt-10 mb-4">Engage</h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {forms.map((form, index) => (
+            <div key={index} className="bg-white rounded-lg shadow-md overflow-hidden">
+              <img src={form.imageUrl} alt={form.title} className="h-24 w-full object-contain p-2" />
+              <div className="p-4">
+                <h3 className="text-lg font-semibold mb-2">{form.title}</h3>
+                <div className="flex justify-start items-center space-x-2">
+                  <button
+                    onClick={(event) => handlePdfClick(event, form)}
+                    className="px-2 py-1 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 text-sm sm:text-base"
+                  >
+                    <FontAwesomeIcon icon={faEye} className="mr-2" /> View
+                  </button>
+                  <a
+                    href={form.pdf.url}
+                    download
+                    className="px-2 py-1 bg-green-600 text-white rounded-md hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 text-sm sm:text-base"
+                  >
+                    <FontAwesomeIcon icon={faFileDownload} className="mr-2" /> Download
+                  </a>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+        {selectedForm && (
+          <div className="fixed inset-0 z-50 flex items-center justify-center bg-gray-900 bg-opacity-75">
+            <div className="bg-white rounded-lg shadow-md overflow-hidden max-h-screen w-11/12 md:w-2/3 lg:w-1/2">
+              <div className="p-4 flex justify-between items-center">
+                <h4 className="text-lg font-semibold">{selectedForm.pdf.name}</h4>
+                <div className="flex space-x-4">
+                  <a
+                    href={selectedForm.pdf.url}
+                    download
+                    className="px-3 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 text-sm sm:text-base"
+                  >
+                    <FontAwesomeIcon icon={faFileDownload} />
+                  </a>
+                  <button
+                    onClick={handleModalClose}
+                    className="text-gray-500 hover:text-gray-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 text-sm sm:text-base"
+                  >
+                    <FontAwesomeIcon icon={faTimes} className="text-2xl" />
+                  </button>
+                </div>
+              </div>
+              <div className="p-4">
+                <iframe src={selectedForm.pdf.url} title={selectedForm.pdf.name} className="w-full h-96"></iframe>
+              </div>
+            </div>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+};
+
+export default Forms;

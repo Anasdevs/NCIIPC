@@ -4,10 +4,12 @@ import Hero from './Components/Hero';
 import Navbar from './Components/Navbar';
 import AboutUs from './Components/AboutUs';
 import Documents from './Components/Documents'
+import Forms from './Components/Forms';
 import Updates from './Components/Updates';
 import Links from './Components/Links';
 import Events from './Components/Events'
 import Footer from './Components/Footer';
+
 
 function App() {
   const navRef = useRef(null)
@@ -15,6 +17,7 @@ function App() {
   const aboutUsRef = useRef(null);
   const updatesRef = useRef(null);
   const documentsRef = useRef(null);
+  const formsRef = useRef(null);
   const linksRef = useRef(null);
   const eventsRef = useRef(null);
   const footerRef = useRef(null);
@@ -27,11 +30,14 @@ function App() {
         aboutUsRef={aboutUsRef}
         updatesRef={updatesRef}
         documentsRef={documentsRef}
+        formsRef={formsRef}
         linksRef={linksRef}
         eventsRef={eventsRef}
       />
       <div ref={heroRef}>
-        <Hero />
+        <Hero
+        updatesRef={updatesRef}
+         />
       </div>
       <div ref={aboutUsRef}>
         <AboutUs />
@@ -41,6 +47,9 @@ function App() {
       </div>
       <div ref={documentsRef}>
         <Documents />
+      </div>
+      <div ref={formsRef}>
+        <Forms />
       </div>
       <div ref={linksRef}>
         <Links />
