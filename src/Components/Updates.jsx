@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye, faFileDownload, faTimes } from '@fortawesome/free-solid-svg-icons';
 import cveImg from './Images/cve.jpg';
 import newslettersImg from './Images/newsletters.png';
-import trendingImg from './Images/trending.png';
+
 
 const Updates = () => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -52,18 +52,8 @@ const Updates = () => {
         { name: 'April 2023', url: 'https://nciipc.gov.in/documents/NCIIPC_Newsletter_Apr23.pdf', date: '2023-04-30' },
         { name: 'January 2023', url: 'https://nciipc.gov.in/documents/NCIIPC_Newsletter_Jan23', date: '2023-01-31' },
 
-
-
       ],
-    },
-    {
-      id: 'C',
-      title: 'Trending',
-      imageUrl: trendingImg,
-      pdfs: [
-        { name: 'Vulnerability Disclosure Form', url: 'https://nciipc.gov.in/documents/Vulnerability_Disclosure_Form.pdf', date: '2024-06-02' },
-      ],
-    },
+    }
   ];
 
   const filteredCategories = categories.map(category => ({
@@ -155,7 +145,7 @@ const Updates = () => {
          
            
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-6">
             {filteredCategories.map(category => (
               <div key={category.id} className="bg-white rounded-lg shadow-md p-4">
                 <div className="flex items-center mb-4">

@@ -71,6 +71,7 @@ body{
 }
 /* thumbail */
 .thumbnail{
+    display: none;
     position: absolute;
     bottom: 10px;
     left: 65%;
@@ -80,10 +81,12 @@ body{
     gap: 20px;
 }
 .thumbnail .item{
+    display: none;
     flex-shrink: 0;
     position: relative;
 }
 .thumbnail .item img{
+    display: none;
     width: 100px;
     height: 100px;
     object-fit: cover;
@@ -104,6 +107,7 @@ body{
 }
 /* arrows */
 .arrows{
+    display: none;
     position: absolute;
     top: 80%;
     right: 52%;
@@ -115,6 +119,7 @@ body{
     align-items: center;
 }
 .arrows button{
+    display: none;
     width: 40px;
     height: 40px;
     border-radius: 50%;

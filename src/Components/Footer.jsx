@@ -37,6 +37,9 @@ const Footer = () => {
           <button onClick={() => toggleModal('Web Information Manager')} className="hover:text-white mx-2 my-1">
            Web Information Manager
           </button>
+          <button onClick={() => toggleModal('Contact')} className="hover:text-white mx-2 my-1">
+            Contact
+          </button>
           <button onClick={() => toggleModal('Feedback')} className="hover:text-white mx-2 my-1">
             Feedback
           </button>
@@ -69,7 +72,7 @@ const Footer = () => {
       {showModal && (
         <div className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex justify-center items-center overflow-hidden">
           <div className="bg-white p-8 rounded shadow-lg relative max-w-[90%] sm:max-w-[80%] md:max-w-[70%] lg:max-w-[50%] max-h-[90vh] overflow-y-auto">
-            <button onClick={() => toggleModal('')} className="absolute top-2 right-2 text-gray-600 hover:text-black">
+            <button onClick={() => toggleModal('')} className="absolute top-3 right-5 text-gray-600 hover:text-black">
               <FontAwesomeIcon icon={faTimes} className="text-2xl" />
             </button>
             <h2 className="text-gray-800 text-lg font-semibold mb-4 text-center">
@@ -140,6 +143,84 @@ const Footer = () => {
                   <h3 className="text-md mb-2">Toll Free: 1800-11-4430</h3>
                 </div>
               )}
+             {modalContent === 'Contact' && (
+  <div className="text-center">
+    <h3 className="text-md md:text:lg font-semibold mb-2">National Critical Information Infrastructure Protection Centre</h3>
+    <h3 className="text-sm md:text-md font-semibold mb-2">A unit of National Technical Research Organisation</h3>
+    <h3 className="text-sm md:text-md mb-4 text-gray-700 font-bold">Block III, Old JNU Campus New Delhi - 110 067</h3>
+    <h3 className="text-lg font-semibold mb-4">Toll Free: 1800-11-4430</h3>
+
+    <div className="flex justify-between mb-4 mt-4">
+      <div className="text-left">
+        <h4 className="text-md font-bold text-gray-800 mb-2">General Help:</h4>
+      </div>
+      <div className="text-right">
+        <p className="text-sm mb-2">
+          <a href="mailto:helpdesk1@nciipc.gov.in" className="text-blue-500 hover:text-blue-700">
+            helpdesk1@nciipc.gov.in
+          </a>
+        </p>
+        <p className="text-sm">
+          <a href="mailto:helpdesk2@nciipc.gov.in" className="text-blue-500 hover:text-blue-700">
+            helpdesk2@nciipc.gov.in
+          </a>
+        </p>
+      </div>
+    </div>
+
+    <div className="flex justify-between mb-4">
+      <div className="text-left">
+        <h4 className="text-md font-bold text-gray-800 mb-2">Site Administrator:</h4>
+      </div>
+      <div className="text-right">
+        <p className="text-sm">
+          <a href="mailto:web.admin@gov.in" className="text-blue-500 hover:text-blue-700">
+            web.admin@gov.in
+          </a>
+        </p>
+      </div>
+    </div>
+
+    <div className="flex justify-between mb-4">
+      <div className="text-left">
+        <h4 className="text-md font-bold text-gray-800 mb-2">Incident Reporting:</h4>
+      </div>
+      <div className="text-right">
+        <p className="text-sm">
+          <a href="mailto:ir@nciipc.gov.in" className="text-blue-500 hover:text-blue-700">
+            ir@nciipc.gov.in
+          </a>
+        </p>
+      </div>
+    </div>
+
+    <div className="flex justify-between mb-4">
+      <div className="text-left">
+        <h4 className="text-md font-bold text-gray-800 mb-2">Vulnerability Disclosure:</h4>
+      </div>
+      <div className="text-right">
+        <p className="text-sm">
+          <a href="mailto:rvdp@nciipc.gov.in" className="text-blue-500 hover:text-blue-700">
+            rvdp@nciipc.gov.in
+          </a>
+        </p>
+      </div>
+    </div>
+
+    <div className="flex justify-between">
+      <div className="text-left">
+        <h4 className="text-md font-bold text-gray-800 mb-2">Malware Report:</h4>
+      </div>
+      <div className="text-right">
+        <p className="text-sm">
+          <a href="mailto:mal.repository@nciipc.gov.in" className="text-blue-500 hover:text-blue-700">
+            mal.repository@nciipc.gov.in
+          </a>
+        </p>
+      </div>
+    </div>
+  </div>
+)}
               {modalContent === 'Feedback' && (
                 <div>
                   <h3 className="text-md mb-2">Any feedback related to content, design, service or technological issues w.r.t NCIIPC website maybe sent to:</h3>

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faFileDownload, faEye, faTimes } from '@fortawesome/free-solid-svg-icons';
+import { faFileDownload, faExternalLinkAlt, faEye, faTimes } from '@fortawesome/free-solid-svg-icons';
 import incidentReportingImg from './Images/incidentReporting.jpg';
 import vulnDisclosureImg from './Images/vulnDisclosure.png';
 import malwareReporting from './Images/malwareReporting.jpg';
@@ -37,15 +38,15 @@ const Forms = () => {
 
   return (
     <div className="bg-gray-100 py-4">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="lg:text-3xl text-xl text-indigo-600 font-semibold text-center tracking-wide uppercase mt-6 lg:mt-10 mb-4">Engage</h2>
+      <div className="max-w-7xl md:mx-auto px-4 sm:px-6 lg:px-8 bg-gray-200 p-4 mx-4 rounded-md">
+        <h2 className="lg:text-2xl text-xl text-indigo-800 font-semibold text-left tracking-wide uppercase lg:mt-2 mb-4">Engage with NCIIPC</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {forms.map((form, index) => (
-            <div key={index} className="bg-white rounded-lg shadow-md overflow-hidden">
+            <div key={index} className="bg-white rounded-lg shadow-md overflow-hidden text-center">
               <img src={form.imageUrl} alt={form.title} className="h-24 w-full object-contain p-2" />
               <div className="p-4">
                 <h3 className="text-lg font-semibold mb-2">{form.title}</h3>
-                <div className="flex justify-start items-center space-x-2">
+                <div className="flex justify-center items-center space-x-2">
                   <button
                     onClick={(event) => handlePdfClick(event, form)}
                     className="px-2 py-1 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 text-sm sm:text-base"
@@ -91,6 +92,14 @@ const Forms = () => {
             </div>
           </div>
         )}
+         <div className="flex justify-end mt-4">
+        <Link
+          to="/engage"
+          className="px-4 py-2 text-indigo-800 rounded-md shadow-md flex items-center"
+        >
+          Learn More <FontAwesomeIcon icon={faExternalLinkAlt} className="ml-2" />
+        </Link>
+      </div>
       </div>
     </div>
   );

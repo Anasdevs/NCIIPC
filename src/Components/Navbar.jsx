@@ -1,9 +1,10 @@
 import { useState, useEffect, useRef } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
-import logoImg from './Images/logo.png';
+// import logoImg from './Images/logo.png';
+import logoImg from './Images/logoSm.png'
 
-const Navbar = ({ navRef, aboutUsRef, updatesRef, documentsRef, linksRef, eventsRef }) => {
+const Navbar = ({ navRef, aboutUsRef, updatesRef, trendingRef, documentsRef, formsRef, linksRef, eventsRef }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [isLargeScreen, setIsLargeScreen] = useState(false);
 
@@ -82,6 +83,12 @@ const Navbar = ({ navRef, aboutUsRef, updatesRef, documentsRef, linksRef, events
           <a onClick={() => scrollToSection(updatesRef)} className="py-2 sm:py-0 sm:mx-2 text-md cursor-pointer">
             UPDATES
           </a>
+          <a onClick={() => scrollToSection(trendingRef)} className="py-2 sm:py-0 sm:mx-2 text-md cursor-pointer">
+            WHATS NEW
+          </a>
+          <a onClick={() => scrollToSection(formsRef)} className="py-2 sm:py-0 sm:mx-2 text-md cursor-pointer">
+            ENGAGE WITH NCIIPC
+          </a>
           <a onClick={() => scrollToSection(documentsRef)} className="py-2 sm:py-0 sm:mx-2 text-md cursor-pointer">
             DOCUMENTS
           </a>
@@ -94,9 +101,6 @@ const Navbar = ({ navRef, aboutUsRef, updatesRef, documentsRef, linksRef, events
           {/* <a href="#" className="py-2 sm:py-0 sm:mx-2 text-md">
             CONTACT
           </a> */}
-          <a href="#" className="py-2 sm:py-0 sm:mx-2 text-md">
-            ENGAGE WITH NCIIPC
-          </a>
         </div>
       )}
 
@@ -133,6 +137,20 @@ const Navbar = ({ navRef, aboutUsRef, updatesRef, documentsRef, linksRef, events
           </a>
           <hr className="w-full h-[2px] bg-gray-200 border-0"/>
           <a onClick={() => {
+            scrollToSection(trendingRef);
+            toggleMenu();
+          }} className="text-md cursor-pointer">
+            WHATS NEW
+          </a>
+          <hr className="w-full h-[2px] bg-gray-200 border-0"/>
+          <a onClick={() => {
+            scrollToSection(formsRef);
+            toggleMenu();
+          }} className="text-md cursor-pointer">
+            ENGAGE WITH NCIIPC
+          </a>
+          <hr className="w-full h-[2px] bg-gray-200 border-0"/>
+          <a onClick={() => {
             scrollToSection(documentsRef);
             toggleMenu();
           }} className="text-md cursor-pointer">
@@ -156,10 +174,7 @@ const Navbar = ({ navRef, aboutUsRef, updatesRef, documentsRef, linksRef, events
           <a href="#" className="text-md cursor-pointer" onClick={toggleMenu}>
             CONTACT
           </a> */}
-          <hr className="w-full h-[2px] bg-gray-200 border-0"/>
-          <a href="#" className="text-md cursor-pointer" onClick={toggleMenu}>
-            ENGAGE WITH NCIIPC
-          </a>
+      
           <hr className="w-full h-[2px] bg-gray-200 border-0"/>
         </div>
       </div>
