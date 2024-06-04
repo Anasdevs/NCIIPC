@@ -45,12 +45,12 @@ const Updates = () => {
       title: 'Newsletters',
       imageUrl: newslettersImg,
       pdfs: [
-        { name: 'April 2024', url: 'https://nciipc.gov.in/documents/NCIIPC_Newsletter_Apr24.pdf', date: '2024-04-30' },
-        { name: 'January 2024', url: 'https://nciipc.gov.in/documents/NCIIPC_Newsletter_Jan24.pdf', date: '2024-01-31' },
-        { name: 'October 2023', url: 'https://nciipc.gov.in/documents/NCIIPC_Newsletter_Oct23.pdf', date: '2023-10-31' },
-        { name: 'July 2023', url: 'https://nciipc.gov.in/documents/NCIIPC_Newsletter_Jul23', date: '2023-07-31' },
-        { name: 'April 2023', url: 'https://nciipc.gov.in/documents/NCIIPC_Newsletter_Apr23.pdf', date: '2023-04-30' },
-        { name: 'January 2023', url: 'https://nciipc.gov.in/documents/NCIIPC_Newsletter_Jan23', date: '2023-01-31' },
+        { name: 'April 2024', url: 'https://nciipc.vercel.app/pdfs/NCIIPC_Newsletter_Apr24.pdf', date: '2024-04-30' },
+        { name: 'January 2024', url: 'https://nciipc.vercel.app/pdfs/NCIIPC_Newsletter_Jan24.pdf', date: '2024-01-31' },
+        { name: 'October 2023', url: 'https://nciipc.vercel.app/pdfs/NCIIPC_Newsletter_Oct23.pdf', date: '2023-10-31' },
+        { name: 'July 2023', url: 'https://nciipc.vercel.app/pdfs/NCIIPC_Newsletter_Jul23', date: '2023-07-31' },
+        { name: 'April 2023', url: 'https://nciipc.vercel.app/pdfs/NCIIPC_Newsletter_Apr23.pdf', date: '2023-04-30' },
+        { name: 'January 2023', url: 'https://nciipc.vercel.app/pdfs/NCIIPC_Newsletter_Jan23', date: '2023-01-31' },
 
       ],
     }
