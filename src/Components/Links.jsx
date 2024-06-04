@@ -10,7 +10,7 @@ import { faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons';
 
 const linksData = [
   { title: 'Digital India', imageUrl: digitalIndiaImg, url: 'https://digitalindia.gov.in/' },
-  { title: 'NTRO', imageUrl: ntroImg, url: 'https://nciipc.gov.in/documents/01_15_May24_CVE.pdf' },
+  { title: 'NTRO', imageUrl: ntroImg, url: 'https://www.ntro.gov.in/' },
   { title: 'Dot', imageUrl: dotImg, url: 'https://www.dot.gov.in/' },
   { title: 'SEBI', imageUrl: sebiImg, url: 'https://www.sebi.gov.in/' },
   { title: 'Cert-In', imageUrl: certinImg, url: 'https://www.cert-in.org.in/' },
