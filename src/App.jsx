@@ -1,6 +1,7 @@
-import React, { useRef, useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { HashLink } from 'react-router-hash-link';
 import Navbar from './Components/Navbar';
 import Marquee from './Components/Marquee';
 import Hero from './Components/Hero';
@@ -12,122 +13,25 @@ import Trending from './Components/Trending';
 import Links from './Components/Links';
 import Events from './Components/Events';
 import Footer from './Components/Footer';
-import Error from './Components/Error.jsx';
-import Internship from './Components/InternalPages/Internship.jsx';
+import Error from './Components/Error';
+import Internship from './Components/InternalPages/Internship';
+import EngageWithUs from './Components/InternalPages/EngageWithUs';
+import Rvdp from './Components/InternalPages/Rvdp';
+import Pentathon from './Components/InternalPages/Pentathon';
+import Crowdsourcing from './Components/InternalPages/Crowdsourcing';
+import SIH from './Components/InternalPages/SIH';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleUp } from '@fortawesome/free-solid-svg-icons';
-import EngageWithUs from './Components/InternalPages/EngageWithUs.jsx';
-import Rvdp from './Components/InternalPages/Rvdp.jsx';
-import Pentathon from './Components/InternalPages/Pentathon.jsx';
-import Crowdsourcing from './Components/InternalPages/Crowdsourcing.jsx';
-import SIH from './Components/InternalPages/SIH.jsx';
+import useScrollToTop from './Components/useScrollToTop';
 
-
-const App = () => {
-  const heroRef = useRef(null);
-  const navRef = useRef(null);
-  const aboutUsRef = useRef(null);
-  const trendingRef = useRef(null);
-  const updatesRef = useRef(null);
-  const documentsRef = useRef(null);
-  const formsRef = useRef(null);
-  const linksRef = useRef(null);
-  const eventsRef = useRef(null);
-  const footerRef = useRef(null);
-  const marqueeRef = useState(null);
-
-  const router = createBrowserRouter([
-    {
-      path:"*",
-      element: <Error/>
-    },
-    {
-      path: "/",
-      element: (
-        <div>
-          <Navbar
-            navRef={navRef}
-            aboutUsRef={aboutUsRef}
-            updatesRef={updatesRef}
-            trendingRef={trendingRef}
-            documentsRef={documentsRef}
-            formsRef={formsRef}
-            linksRef={linksRef}
-            eventsRef={eventsRef}
-          />
-          <Marquee updatesRef={updatesRef} />
-          <div ref={marqueeRef}>
-            {/* Marquee content goes here */}
-          </div>
-          <div ref={heroRef}>
-            <Hero />
-          </div>
-          <div ref={aboutUsRef}>
-            <AboutUs />
-          </div>
-          <div ref={updatesRef}>
-            <Updates />
-          </div>
-          <div ref={trendingRef}>
-            <Trending />
-          </div>
-          <div ref={formsRef}>
-            <Forms />
-          </div>
-          <div ref={documentsRef}>
-            <Documents />
-          </div>
-          <div ref={linksRef}>
-            <Links />
-          </div>
-          <div ref={eventsRef}>
-            <Events />
-          </div>
-          <div ref={footerRef}>
-            <Footer />
-          </div>
-        </div>
-      )
-    },
-    {
-      path: "/nciipc-internship",
-      element: <Internship />
-    },
-    {
-      path:"/engage",
-      element: <EngageWithUs/>
-    },
-    {
-      path:"/rvdp",
-      element: <Rvdp/>
-    },
-    {
-      path:"/pentathon-2024",
-      element: <Pentathon/>
-    },
-    {
-      path:"/crowdsourcing",
-      element: <Crowdsourcing/>
-    },
-    {
-      path:"/sih",
-      element: <SIH/>
-    }
-  ]);
-
-  const scrollToSection = (ref) => {
-    if (ref && ref.current) {
-      ref.current.scrollIntoView({ behavior: 'smooth' });
-    } else {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-  };
-
+const Layout = ({ children }) => {
   const [showScroll, setShowScroll] = useState(false);
+  useScrollToTop();
 
   const checkScrollTop = () => {
     if (!showScroll && window.scrollY > 400) {
       setShowScroll(true);
+  
     } else if (showScroll && window.scrollY <= 400) {
       setShowScroll(false);
     }
@@ -141,15 +45,67 @@ const App = () => {
   }, []);
 
   return (
-    <div className="App">
-      <RouterProvider router={router} />
-      <div 
-        className="scroll-to-top" 
-        onClick={() => scrollToSection(navRef)}
-      >
-        <FontAwesomeIcon icon={faAngleUp} className="text-2xl" />
-      </div>
+    <div>
+      <Navbar/>
+      {children}
+      <Footer />
+      {showScroll && (
+        <div className="scroll-to-top" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+          <FontAwesomeIcon icon={faAngleUp} className="text-2xl" />
+        </div>
+      )}
     </div>
+  );
+};
+
+const Home = () => (
+  <div>
+    <div>
+      <Marquee/>
+    </div>
+    <div>
+      <Hero />
+    </div>
+    <div id="about-us">
+      <AboutUs />
+    </div>
+    <div id="updates">
+      <Updates />
+    </div>
+    <div id="trending">
+      <Trending />
+    </div>
+    <div id="forms">
+      <Forms />
+    </div>
+    <div id="documents">
+      <Documents />
+    </div>
+    <div id="links">
+      <Links />
+    </div>
+    <div id="events">
+      <Events />
+    </div>
+  </div>
+);
+
+const App = () => {
+  return (
+    <Router>
+      <Layout>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/nciipc-internship" element={<Internship />} />
+          <Route path="/engage" element={<EngageWithUs />} />
+          <Route path="/rvdp" element={<Rvdp />} />
+          <Route path="/pentathon-2024" element={<Pentathon />} />
+          <Route path="/crowdsourcing" element={<Crowdsourcing />} />
+          <Route path="/sih" element={<SIH />} />
+          <Route path="*" element={<Error />} />
+        </Routes>
+      </Layout>
+    </Router>
   );
 };
 

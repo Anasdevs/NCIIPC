@@ -1,13 +1,10 @@
 import React from 'react';
-// import Navbar from '../Navbar';
-import Footer from '../Footer';
 
 const Crowdsourcing = () => {
   return (
     <div>
-    {/* <Navbar/> */}
     <div className="container mx-auto px-8 py-12">
-      <h1 className="text-3xl font-bold mb-4">Crowdsourcing of Ethical Hackers</h1>
+      <h1 className="text-2xl md:text-3xl font-bold mb-6 text-center md:mt-8 mt-1">Crowdsourcing of Ethical Hackers</h1>
       <p className="mb-4">
         <span className="text-blue-600 font-semibold">NCIIPC</span> has conceived a unique initiative to enrol the best talent of the country in <span className="text-blue-600 font-semibold">vulnerability Assessment and Penetration Testing (VAPT)</span> to secure the CIIs of the country. The scheme envisages enrolling all talented VAPT professionals/Ethical Hackers/Pentesters who are willing to devote time for finding vulnerabilities in CIIs and earn rewards which they are asked during the course of enrolment.
       </p>
@@ -24,7 +21,6 @@ const Crowdsourcing = () => {
         This scheme was launched in Dec 2023 and after enrolment, in a first of its kind exercise in India, NCIIPC conducted a Controlled Pen Testing Exercise from in March 2024, in which security vetted talented ethical hackers/security researchers/VAPT professionals participated to find out the security loopholes in a controlled environment managed by NCIIPC. Reports on the Vulnerabilities discovered during the exercise are sent to the CISO as and when discovered to undertake immediate measures to address the same.
       </p>
     </div>
-    <Footer/>
     </div>
   );
 };

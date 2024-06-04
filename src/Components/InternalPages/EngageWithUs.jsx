@@ -1,13 +1,11 @@
 import React from 'react';
-// import Navbar from '../Navbar';
-import Footer from '../Footer';
+
 
 const EngageWithUs = () => {
   return (
     <div>
-    {/* <Navbar/> */}
     <div className="container mx-auto px-8 py-12">
-      <h2 className="text-2xl font-bold text-center mb-12">Engage With Us</h2>
+      <h2 className="text-2xl md:text-3xl font-bold mb-6 text-center md:mt-4 mt-1">Engage With Us</h2>
       
       <section className="mb-6">
         <h3 className="text-xl font-semibold mb-2">NCIIPC Scheme for Pen Testing of CIIs</h3>
@@ -65,7 +63,6 @@ const EngageWithUs = () => {
         </p>
       </section>
     </div>
-    <Footer/>
     </div>
   );
 }

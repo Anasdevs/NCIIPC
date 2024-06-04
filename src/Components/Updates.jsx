@@ -290,7 +290,7 @@ const Updates = () => {
                           {pdf.name}
                         </a>
                         {daysOld(pdf.date) <= 30 && (
-                          <span className="ml-2 px-2 py-1 bg-green-500 text-white text-xs rounded">New</span>
+                          <span className="ml-2 px-2 py-1 bg-[#ff0000] text-white text-xs rounded">New</span>
                         )}
                       </div>
                       <button

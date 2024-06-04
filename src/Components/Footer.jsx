@@ -13,7 +13,7 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-[#0f2033] text-white py-8 px-4">
+    <footer className="bg-[#0f2033] text-white py-8 px-4 mt-8">
       <div className="container mx-auto">
         {/* First row */}
         <div className="flex flex-col sm:flex-row justify-center items-center mb-1 lg:mb-4 text-sm md:text-lg text-[#8db6e9]">

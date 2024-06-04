@@ -1,13 +1,11 @@
 import React from 'react';
-// import Navbar from '../Navbar';
-import Footer from '../Footer';
+
 
 const SIH = () => {
   return (
     <div>
-    {/* <Navbar/> */}
     <div className="container mx-auto px-8 py-12">
-      <h1 className="text-3xl font-bold mb-4">Smart India Hackathon</h1>
+      <h1 className="text-2xl md:text-3xl font-bold mb-6 text-center md:mt-8 mt-1">Smart India Hackathon</h1>
       <p className="mb-4">
         The <span className="text-blue-600 font-semibold">Ministry of Education's Innovation Cell</span> conducts the annual Smart India Hackathon where it crowdsources the problems/challenges from different organisations and ministries in the form of hackathon challenges and opens it up for all the colleges and universities in the country.
       </p>
@@ -36,7 +34,6 @@ const SIH = () => {
         NTRO's unique problem statements, mentorship and internship opportunity has caught the attention and interest of many young students around the country promising to improve response to collaborate in future endeavors.
       </p>
     </div>
-    <Footer/>
     </div>
   );
 };

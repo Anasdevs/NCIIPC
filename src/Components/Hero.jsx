@@ -63,6 +63,7 @@ const Hero = () => {
 
   return (
     <div>
+      {/* <Navbar/> */}
       <div className="carousel">
         <div className="list">
           {/* <div className="item">

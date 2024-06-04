@@ -1,4 +1,4 @@
-@keyframes infinite-scroll {
+/* @keyframes infinite-scroll {
   0% {
     transform: translateX(0);
   }
@@ -13,4 +13,4 @@
 
 .pause-infinite-scroll {
   animation-play-state: paused;
-}
+} */
