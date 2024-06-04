@@ -45,7 +45,7 @@ const Links = () => {
 
   return (
     <div className="w-full max-w-5xl mx-auto px-4 md:px-6 py-8 bg-gray-100 mt-6">
-      <h2 className="lg:text-3xl text-2xl text-indigo-600 font-semibold text-center tracking-wide uppercase lg:mt-10 mb-6">Links</h2>
+      <h2 className="lg:text-3xl text-2xl text-titleColor font-bold text-center tracking-wide lg:mt-10 mb-6">Links</h2>
       <div className="text-center">
         <div
           ref={linksRef}

@@ -50,7 +50,7 @@ const Documents = () => {
   return (
     <div className="bg-gray-100 py-4">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="lg:text-3xl text-xl text-indigo-600 font-semibold text-center tracking-wide uppercase mt-6 lg:mt-10 mb-4">Documents</h2>
+        <h2 className="lg:text-3xl text-xl text-titleColor font-bold text-center tracking-wide mt-6 lg:mt-10 mb-4">Documents</h2>
         {documents.map((document) => (
           <div key={document.id} className="w-full bg-white rounded-lg shadow-md overflow-hidden mb-6">
             <div

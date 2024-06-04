@@ -39,7 +39,7 @@ const Forms = () => {
   return (
     <div className="bg-gray-100 py-4">
       <div className="max-w-7xl md:mx-auto px-4 sm:px-6 lg:px-8 bg-gray-200 p-4 mx-4 rounded-md">
-        <h2 className="lg:text-2xl text-xl text-indigo-800 font-semibold text-left tracking-wide uppercase lg:mt-2 mb-4">Engage with NCIIPC</h2>
+        <h2 className="lg:text-2xl text-xl text-titleColor font-bold text-left tracking-wide lg:mt-2 mb-4">Engage with NCIIPC</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {forms.map((form, index) => (
             <div key={index} className="bg-white rounded-lg shadow-md overflow-hidden text-center">

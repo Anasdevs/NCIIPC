@@ -6,8 +6,12 @@ module.exports = {
   ],
   theme: {
     extend: {
+      colors: {
+        titleColor: '#284c79',
+      },
       fontFamily: {
           inter: ['Inter', 'sans-serif'],
+          overpass: ['Overpass', 'sans-serif']
       },
       animation: {
           'infinite-scroll': 'infinite-scroll 25s linear infinite',

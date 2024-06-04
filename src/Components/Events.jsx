@@ -67,7 +67,7 @@ const Events = () => {
 
   return (
     <div className="events-container">
-      <h2 className="lg:text-3xl text-2xl text-indigo-600 font-semibold text-center tracking-wide uppercase mt-8 lg:mt-12 mb-4">
+      <h2 className="lg:text-3xl text-2xl text-titleColor font-bold text-center tracking-wide mt-8 lg:mt-12 mb-4">
       Events</h2>
       <div className="arrow-button left" onClick={handlePrevClick}>
         &lt;
