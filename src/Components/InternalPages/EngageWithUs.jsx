@@ -1,7 +1,11 @@
 import React from 'react';
+// import Navbar from '../Navbar';
+import Footer from '../Footer';
 
 const EngageWithUs = () => {
   return (
+    <div>
+    {/* <Navbar/> */}
     <div className="container mx-auto px-8 py-12">
       <h2 className="text-2xl font-bold text-center mb-12">Engage With Us</h2>
       
@@ -60,6 +64,8 @@ const EngageWithUs = () => {
           NCIIPC welcomes any suggestions/initiatives/proposals towards enhancing the cyber security posture of CII from Cyber Security Professionals, Think Tanks, and Regulators who may contact us through <a href="mailto:helpdesk2@nciipc.gov.in" className="text-blue-600">helpdesk2@nciipc.gov.in</a>.
         </p>
       </section>
+    </div>
+    <Footer/>
     </div>
   );
 }

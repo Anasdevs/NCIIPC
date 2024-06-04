@@ -65,10 +65,10 @@ const Hero = () => {
     <div>
       <div className="carousel">
         <div className="list">
-          <div className="item">
+          {/* <div className="item">
             <img src={img1} alt="Image 1" />
-            {/* Content for Image 1 */}
-          </div>
+          
+          </div> */}
           <div className="item">
             <img src={img2} alt="Image 2" />
             {/* Content for Image 2 */}

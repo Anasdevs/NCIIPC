@@ -46,7 +46,7 @@ const Footer = () => {
         </div>
         {/* Third row */}
         <div className="flex justify-center mb-4">
-          <p className="text-gray-200 text-sm md:text-lg text-center">Last updated on: 3 June 2024 | Hit Counter: 859700</p>
+          <p className="text-gray-200 text-sm md:text-lg text-center">Last updated on: 4 June 2024 | Hit Counter: 859700</p>
         </div>
         {/* Fourth row */}
         <div className="flex justify-center mb-4">

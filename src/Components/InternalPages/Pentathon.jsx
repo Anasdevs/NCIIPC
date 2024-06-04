@@ -1,10 +1,14 @@
 import React from 'react';
 import pentathonImg from '../Images/pentathonImg.jpg'
-
+// import Navbar from '../Navbar';
+import Footer from '../Footer';
 const Pentathon = () => {
   return (
-    <div className="container mx-auto px-8 py-12">
-      <h1 className="text-3xl font-bold mb-4">NCIIPC AICTE PENTATHON 2024</h1>
+    
+    <div>
+      {/* <Navbar/> */}
+      <div className='container mx-auto px-8 py-12'> 
+      <h1 className="text-3xl font-bold mb-6 text-center mt-8">NCIIPC AICTE PENTATHON 2024</h1>
       <img src={pentathonImg} className='w-full h-[60vh] mb-8' alt="" />
       <p className="mb-4">
         Envisioning the mainstreaming and democratizing of Vulnerability Assessment and Penetration Testing (VAPT) space in India, to realize the dream of the <span className="text-blue-600 font-semibold">Atmanirbhar Bharat</span> of the Hon'ble Prime Minister and bring in young talent on an annual basis- the <span className="text-blue-600 font-semibold">National Critical Information Infrastructure Centre (NCIIPC)</span> partnered with <span className="text-blue-600 font-semibold">All India Council of Technical Education (AICTE)</span> to conceptualize the <span className="text-blue-600 font-semibold">NCIIPC AICTE PENTATHON 2024 - India's first national level VAPT challenge for students</span>.
@@ -52,6 +56,8 @@ const Pentathon = () => {
       <p className="mb-4">
         Effective and continuous vulnerability assessment and penetration testing is a key intervention to ensure baseline cybersecurity especially in CII entities. Through the design of the Pentathon program we will now be able to democratically crowdsource VAPT talent from among the young students in the country. We are integrating this talent pipeline with our crowdsourcing of ethical-hackers scheme where we have already contacted CII entities willing to undertake VAPT on their systems. By allowing hands-on opportunity for the students to undertake actual VAPT, we are also preparing an Indian cyber-workforce for the future.
       </p>
+    </div>
+    <Footer/>
     </div>
   );
 };

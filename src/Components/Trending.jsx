@@ -28,7 +28,7 @@ const Trending = () => {
             </div>
             <Link
               to={link.link}
-              onClick={link.link === '/pentathon-2024' ? () => scrollToSection(null) : undefined}
+              onClick={link.link === '/pentathon-2024' || '/nciipc-internship' || '/rvdp' || '/crowdsourcing' || '/sih'  ? () => scrollToSection(null) : undefined}
               className="px-[10px] py-[5px] text-sm bg-[#112D4E] text-white rounded-md hover:bg-[#2b4a6e] transition-colors duration-300 min-w-[110px] text-center"
             >
               Know More <span><FontAwesomeIcon icon={faUpRightFromSquare} /></span>

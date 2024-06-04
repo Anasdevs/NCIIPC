@@ -23,8 +23,8 @@ const AboutUs = () => {
           <p className="mt-4 text-2xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
             National Critical Information Infrastructure Protection Centre (NCIIPC)
           </p>
-          <p className="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto">
-            A unit of NTRO, created under Sec 70A of the Information Technology Act, 2000 (amended 2008), based in New Delhi, India. It is designated as the National Nodal Agency in respect of Critical Information Infrastructure Protection.
+          <p className="mt-4 max-w-3xl text-xl text-gray-500 lg:mx-auto">
+          National Critical Information Infrastructure Protection Centre (NCIIPC), a unit of NTRO, is an organisation of the Government of India created under Sec 70A of the Information Technology Act, 2000 (amended 2008), through a gazette notification on 16th Jan 2014 based in New Delhi, India. It is designated as the National Nodal Agency in respect of Critical Information Infrastructure Protection.
           </p>
         </div>
 

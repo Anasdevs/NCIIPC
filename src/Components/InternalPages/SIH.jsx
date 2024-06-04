@@ -1,7 +1,11 @@
 import React from 'react';
+// import Navbar from '../Navbar';
+import Footer from '../Footer';
 
 const SIH = () => {
   return (
+    <div>
+    {/* <Navbar/> */}
     <div className="container mx-auto px-8 py-12">
       <h1 className="text-3xl font-bold mb-4">Smart India Hackathon</h1>
       <p className="mb-4">
@@ -31,6 +35,8 @@ const SIH = () => {
       <p className="mb-4">
         NTRO's unique problem statements, mentorship and internship opportunity has caught the attention and interest of many young students around the country promising to improve response to collaborate in future endeavors.
       </p>
+    </div>
+    <Footer/>
     </div>
   );
 };

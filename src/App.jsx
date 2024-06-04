@@ -12,6 +12,7 @@ import Trending from './Components/Trending';
 import Links from './Components/Links';
 import Events from './Components/Events';
 import Footer from './Components/Footer';
+import Error from './Components/Error.jsx';
 import Internship from './Components/InternalPages/Internship.jsx';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleUp } from '@fortawesome/free-solid-svg-icons';
@@ -20,6 +21,7 @@ import Rvdp from './Components/InternalPages/Rvdp.jsx';
 import Pentathon from './Components/InternalPages/Pentathon.jsx';
 import Crowdsourcing from './Components/InternalPages/Crowdsourcing.jsx';
 import SIH from './Components/InternalPages/SIH.jsx';
+
 
 const App = () => {
   const heroRef = useRef(null);
@@ -35,6 +37,10 @@ const App = () => {
   const marqueeRef = useState(null);
 
   const router = createBrowserRouter([
+    {
+      path:"*",
+      element: <Error/>
+    },
     {
       path: "/",
       element: (

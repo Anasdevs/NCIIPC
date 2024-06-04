@@ -1,7 +1,11 @@
 import React from 'react';
+// import Navbar from '../Navbar';
+import Footer from '../Footer';
 
 const Internship = () => {
   return (
+    <div>
+    {/* <Navbar/> */}
     <div className="container mx-auto px-8 py-12">
       <h1 className="text-3xl font-bold mb-8">NCIIPC SUMMER INTERNSHIP PROGRAM, 2023</h1>
 
@@ -44,8 +48,8 @@ const Internship = () => {
           <strong>Note:</strong> The internship opportunity does not bestow any claim to continuation or any right to future employment of any kind whatsoever. NCIIPC also reserves the right to terminate the internship at any point without citing the reason. It also reserves the right to reclaim the stipend given to the intern. No extension will be granted beyond 26 weeks.
         </p>
       </div>
-
-      {/* Continue adding sections for Eligibility, Working Hours, Locations, Stipend, Certificate, Non–Disclosure, Requirements, Email Address, Selection Criteria and Process, Deliverables, Final Deliverable Acceptance, and Intellectual Property */}
+    </div>
+    <Footer/>
     </div>
   );
 };

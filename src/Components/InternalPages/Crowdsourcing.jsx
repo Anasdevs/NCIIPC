@@ -1,7 +1,11 @@
 import React from 'react';
+// import Navbar from '../Navbar';
+import Footer from '../Footer';
 
 const Crowdsourcing = () => {
   return (
+    <div>
+    {/* <Navbar/> */}
     <div className="container mx-auto px-8 py-12">
       <h1 className="text-3xl font-bold mb-4">Crowdsourcing of Ethical Hackers</h1>
       <p className="mb-4">
@@ -19,6 +23,8 @@ const Crowdsourcing = () => {
       <p className="mb-4">
         This scheme was launched in Dec 2023 and after enrolment, in a first of its kind exercise in India, NCIIPC conducted a Controlled Pen Testing Exercise from in March 2024, in which security vetted talented ethical hackers/security researchers/VAPT professionals participated to find out the security loopholes in a controlled environment managed by NCIIPC. Reports on the Vulnerabilities discovered during the exercise are sent to the CISO as and when discovered to undertake immediate measures to address the same.
       </p>
+    </div>
+    <Footer/>
     </div>
   );
 };
