@@ -37,9 +37,7 @@ const Internship = () => {
           Internships will be granted based on a selection process and all information of results will be made available on our website (<a href="https://nciipc.gov.in/" className="text-blue-500">https://nciipc.gov.in/</a>).
         </p>
         <p className="mb-4">
-          Session I- May 15th 2023 - Dec 31th 2023 <br />
-          Application Cycle Open: May 03rd <br />
-          Application Cycle Closes: May 10th (Midnight IST)
+         There's no current internship openings at NCIIPC, please keep visiting this section for updates regarding internship.
         </p>
         <p className="mb-4">
           <strong>Note:</strong> The internship opportunity does not bestow any claim to continuation or any right to future employment of any kind whatsoever. NCIIPC also reserves the right to terminate the internship at any point without citing the reason. It also reserves the right to reclaim the stipend given to the intern. No extension will be granted beyond 26 weeks.
@@ -78,8 +76,8 @@ const Internship = () => {
         <div className="mb-8">
           <h2 className="text-xl font-semibold mb-4">Stipend (Program Enrolled or Completed):</h2>
           <ul className="list-disc list-inside mb-4 ml-4">
-            <li>Undergraduate: Rs. 15,000/month</li>
-            <li>Graduate: Rs. 20,000/month</li>
+            <li>Undergraduate: Rs. 30,000/month</li>
+            <li>Graduate: Rs. 40,000/month</li>
           </ul>
           <p className="mb-4">Note: The NCIIPC internship cannot be coterminous with any other employment/internships/fellowships etc.</p>
         </div>
@@ -117,7 +115,7 @@ const Internship = () => {
 
         <div className="mb-8">
           <h2 className="text-xl font-semibold mb-4">Email address:</h2>
-          <p><a href="mailto:helpdesk2@nciipc.gov.in" className='text-indigo-700'>helpdesk2@nciipc.gov.in</a> (With Email Subject line: NCIIPC Summer Internship Application 2023: &lt; Name &gt; - &lt; Discipline &gt; - &lt; Proposed Start - End Date &gt;)</p>
+          <p><a href="mailto:helpdesk2@nciipc.gov.in" className='text-indigo-700'>helpdesk2@nciipc.gov.in</a> (With Email Subject line: NCIIPC Summer Internship Application: &lt; Name &gt; - &lt; Discipline &gt; - &lt; Proposed Start - End Date &gt;)</p>
         </div>
 
         <div className="mb-8">

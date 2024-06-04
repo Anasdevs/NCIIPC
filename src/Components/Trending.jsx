@@ -9,7 +9,7 @@ const Trending = () => {
     { id: 2, title: 'MERIDIAN CONFERENCE 2024', link: 'https://meridian2024.gov.in/' },
     { id: 3, title: 'NCIIPC RVDP', link: '/rvdp' },
     { id: 4, title: 'NCIIPC-AICTE PENTATHON 2024', link: '/pentathon-2024'},
-    { id: 5, title: 'Crowdsourcing Of Ethical Hackers/ Pentesters/Security Researchers For Finding Vulnerabilities in CII', link: '/crowdsourcing'},
+    { id: 5, title: 'Crowdsourcing Of Ethical Hackers/ Pentesters', link: '/crowdsourcing'},
     { id: 6, title: 'Smart India Hackathon', link: '/sih'}
 
   ];
