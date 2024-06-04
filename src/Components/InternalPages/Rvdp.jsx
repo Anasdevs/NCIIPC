@@ -7,7 +7,7 @@ const Rvdp = () => {
     <div className="container mx-auto px-8 py-12">
       <h2 className="text-2xl md:text-3xl font-bold mb-6 text-center md:mt-8 mt-1">NCIIPC Responsible Vulnerability Disclosure Program (RVDP)</h2>
       <p className="text-gray-700 mb-4">
-        NCIIPC runs the Responsible Vulnerability Disclosure Program (RVDP) for reporting any Vulnerability in Critical Information Infrastructures that may cause unauthorized access, modification, use, disclosure, disruption, incapacitation or distraction of the same.
+        NCIIPC runs the <span className='font-bold'> Responsible Vulnerability Disclosure Program (RVDP) </span> for reporting any Vulnerability in Critical Information Infrastructures that may cause unauthorized access, modification, use, disclosure, disruption, incapacitation or distraction of the same.
       </p>
       <h3 className="text-xl font-bold mb-2">Who can report to RVDP?</h3>
       <p className="text-gray-700 mb-4">
@@ -15,7 +15,7 @@ const Rvdp = () => {
       </p>
       <h3 className="text-xl font-bold mb-2">How to Report:</h3>
       <p className="text-gray-700 mb-4">
-        NCIIPC hosts Vulnerability Disclosure Form at its website nciipc.gov.in. You may fill up the required fields in the Form and submit the same to: rvdp@nciipc.gov.in along with relevant documents, screenshots, urls etc.
+        NCIIPC hosts Vulnerability Disclosure Form at its website <a href="https://nciipc.gov.in" className='text-indigo-700'> nciipc.gov.in. </a> You may fill up the required fields in the Form and submit the same to <a href="mailto:helpdesk2@nciipc.gov.in" className='text-indigo-700'>rvdp@nciipc.gov.in</a>  along with relevant documents, screenshots, urls etc.
       </p>
       <h3 className="text-xl font-bold mb-2">Acknowledgment:</h3>
       <p className="text-gray-700 mb-4">

@@ -92,24 +92,24 @@ const AboutUs = () => {
                     <li>Issuing guidelines, advisories and vulnerability or audit notes etc. relating to protection of critical information infrastructure and practices, procedures, prevention and response in consultation with the stake holders, in close coordination with Indian Computer Emergency Response Team and other organisations working in the field or related fields.</li>
                     <li>Exchanging cyber incidents and other information relating to attacks and vulnerabilities with Indian Computer Emergency Response Team and other concerned organisations in the field.</li>
                     <li>In the event of any threat to critical information infrastructure the National Critical Information Infrastructure Protection Centre may call for information and give directions to the critical sectors or persons serving or having a critical impact on Critical Information Infrastructure.</li>
-                    <li>
+              
                       <button
                         onClick={toggleShowAllFunctions}
                         className="text-blue-500 hover:underline focus:outline-none"
                       >
                         Read Less
                       </button>
-                    </li>
+                 
                   </>
                 ) : (
-                  <li>
+                
                     <button
                       onClick={toggleShowAllFunctions}
                       className="text-blue-500 hover:underline focus:outline-none"
                     >
                       Read More
                     </button>
-                  </li>
+               
                 )}
               </ul>
             </div>

@@ -45,7 +45,7 @@ const EngageWithUs = () => {
       <section className="mb-6">
         <h3 className="text-xl font-semibold mb-2">Training in Niche Technologies</h3>
         <p className="mb-2">
-          NCIIPC solicits conduct of specialised training in niche technologies under Public Private Partnership. Please refer to <a href="#" className="text-blue-600">SOP on PPP</a>.
+          NCIIPC solicits conduct of specialised training in niche technologies under Public Private Partnership.
         </p>
       </section>
       
