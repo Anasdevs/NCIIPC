@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import { HashLink } from 'react-router-hash-link';
 import Navbar from './Components/Navbar';
 import Marquee from './Components/Marquee';
 import Hero from './Components/Hero';
@@ -102,6 +101,7 @@ const App = () => {
           <Route path="/pentathon-2024" element={<Pentathon />} />
           <Route path="/crowdsourcing" element={<Crowdsourcing />} />
           <Route path="/sih" element={<SIH />} />
+          <Route path="/forms" element={<Forms/>}/>
           <Route path="*" element={<Error />} />
         </Routes>
       </Layout>

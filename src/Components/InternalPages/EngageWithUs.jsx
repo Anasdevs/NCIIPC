@@ -10,28 +10,28 @@ const EngageWithUs = () => {
       <section className="mb-6">
         <h3 className="text-xl font-semibold mb-2">NCIIPC Scheme for Pen Testing of CIIs</h3>
         <p className="mb-2">
-          Pen Testers, Cyber Security Researchers and Ethical Hackers looking for challenging assignments and willing to contribute to national security may enroll for NCIIPC Scheme for Pen Testing of CIIs and win rewards up to Rs. 10 Lakhs. For details, visit <span className="text-blue-600">NCIIPC Scheme for Pen Testing</span>.
+          Pen Testers, Cyber Security Researchers and Ethical Hackers looking for challenging assignments and willing to contribute to national security may enroll for NCIIPC Scheme for Pen Testing of CIIs and win rewards up to Rs. 10 Lakhs.
         </p>
       </section>
       
       <section className="mb-6">
         <h3 className="text-xl font-semibold mb-2">Responsible Vulnerability Disclosure Program (RVDP)</h3>
         <p className="mb-2">
-          Share any newly discovered vulnerability related to Critical Information Infrastructure on <a href="mailto:rvdp@nciipc.gov.in" className="text-blue-600">rvdp@nciipc.gov.in</a>. For further details, please check <span className="text-blue-600">NCIIPC RVDP</span>.
+          Share any newly discovered vulnerability related to Critical Information Infrastructure on <a href="mailto:rvdp@nciipc.gov.in" className="text-blue-600">rvdp@nciipc.gov.in</a>. For further details, please check <a href='/rvdp' className="text-blue-600">NCIIPC RVDP</a>.
         </p>
       </section>
       
       <section className="mb-6">
         <h3 className="text-xl font-semibold mb-2">Malware Reporting</h3>
         <p className="mb-2">
-          Malwares may be reported in specified format through <span className="text-blue-600">NCIIPC Malware Report Form</span> or may be shared on <a href="mailto:mal.repository@nciipc.gov.in" className="text-blue-600">mal.repository@nciipc.gov.in</a>.
+          Malwares may be reported in specified format through <a href='/forms' className="text-blue-600">NCIIPC Malware Report Form</a> or may be shared on <a href="mailto:mal.repository@nciipc.gov.in" className="text-blue-600">mal.repository@nciipc.gov.in</a>.
         </p>
       </section>
       
       <section className="mb-6">
         <h3 className="text-xl font-semibold mb-2">Incident Reporting</h3>
         <p className="mb-2">
-          Any cyber security incident related to Critical Information Infrastructure needs to be reported on <a href="mailto:ir@nciipc.gov.in" className="text-blue-600">ir@nciipc.gov.in</a>. The format for the same can be found at <span className="text-blue-600">NCIIPC Incident Report Form</span>.
+          Any cyber security incident related to Critical Information Infrastructure needs to be reported on <a href="mailto:ir@nciipc.gov.in" className="text-blue-600">ir@nciipc.gov.in</a>. The format for the same can be found at <a href='/forms' className="text-blue-600">NCIIPC Incident Report Form</a>.
         </p>
       </section>
       

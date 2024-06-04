@@ -1,5 +1,4 @@
 import React from 'react';
-import pentathonImg from '../Images/pentathonImg.jpg'
 
 const Pentathon = () => {
   return (
@@ -7,17 +6,16 @@ const Pentathon = () => {
     <div>
       <div className='container mx-auto px-8 py-8 md:py-12'> 
       <h1 className="text-2xl md:text-3xl font-bold mb-6 text-center md:mt-8 mt-1">NCIIPC AICTE PENTATHON 2024</h1>
-      <img src={pentathonImg} className='md:w-full md:h-[60vh] mb-8 w-full h-40vh' alt="" />
       <p className="mb-4">
-        Envisioning the mainstreaming and democratizing of Vulnerability Assessment and Penetration Testing (VAPT) space in India, to realize the dream of the <span className="text-blue-600 font-semibold">Atmanirbhar Bharat</span> of the Hon'ble Prime Minister and bring in young talent on an annual basis- the <span className="text-blue-600 font-semibold">National Critical Information Infrastructure Centre (NCIIPC)</span> partnered with <span className="text-blue-600 font-semibold">All India Council of Technical Education (AICTE)</span> to conceptualize the <span className="text-blue-600 font-semibold">NCIIPC AICTE PENTATHON 2024 - India's first national level VAPT challenge for students</span>.
+        Envisioning the mainstreaming and democratizing of Vulnerability Assessment and Penetration Testing (VAPT) space in India, to realize the dream of the <span className="text-black-900 font-semibold">Atmanirbhar Bharat</span> of the Hon'ble Prime Minister and bring in young talent on an annual basis- the <span className="text-black-900 font-semibold">National Critical Information Infrastructure Centre (NCIIPC)</span> partnered with <span className="text-black-900 font-semibold">All India Council of Technical Education (AICTE)</span> to conceptualize the <span className="text-black-900 font-semibold">NCIIPC AICTE PENTATHON 2024 - India's first national level VAPT challenge for students</span>.
       </p>
 
       <p className="mb-4">
-        The objective of this challenge was to create a talented pool of <span className="text-blue-600 font-semibold">ethical hackers'/Pentesters</span> for finding vulnerabilities in the systems of critical information infrastructure. These ethical hackers would need to have the technical skills, be willing to learn the global best practices, undertake deep research and last of all be innovative with new ideas - it is with such a diverse and talented pool that such a program would succeed. Once vetted for credibility and skill, in coordination with CII management these ethical hackers would be given the opportunity to conduct VAPT exercises at CII entities.
+        The objective of this challenge was to create a talented pool of <span className="text-black-900 font-semibold">ethical hackers'/Pentesters</span> for finding vulnerabilities in the systems of critical information infrastructure. These ethical hackers would need to have the technical skills, be willing to learn the global best practices, undertake deep research and last of all be innovative with new ideas - it is with such a diverse and talented pool that such a program would succeed. Once vetted for credibility and skill, in coordination with CII management these ethical hackers would be given the opportunity to conduct VAPT exercises at CII entities.
       </p>
 
       <p className="mb-4">
-        <span className="text-blue-600 font-semibold">Pentathon 2024</span> opened up the opportunity for all technical colleges and universities in India to participate in a challenge specially designed to resemble and mimic VAPT at real world Critical Information Infrastructure (CII) entities.
+        <span className="text-black-900 font-semibold">Pentathon 2024</span> opened up the opportunity for all technical colleges and universities in India to participate in a challenge specially designed to resemble and mimic VAPT at real world Critical Information Infrastructure (CII) entities.
       </p>
 
       <p className="mb-4">
@@ -30,7 +28,7 @@ const Pentathon = () => {
 
       <h2 className="text-2xl font-bold mb-4">Background</h2>
       <p className="mb-4">
-        <span className="text-blue-600 font-semibold">Vulnerability Assessment and Penetration Testing (VAPT)</span> allows the tester to probe within the systems to understand the gaps that attackers could potentially exploit to breach the cybersecurity defence perimeter. Once found, solutions or patches can be developed to plug these vulnerabilities. VAPT is a highly sought after skill in the cybersecurity space, because it requires a combination of technical understanding, creativity and determination to persist.
+        <span className="text-black-900 font-semibold">Vulnerability Assessment and Penetration Testing (VAPT)</span> allows the tester to probe within the systems to understand the gaps that attackers could potentially exploit to breach the cybersecurity defence perimeter. Once found, solutions or patches can be developed to plug these vulnerabilities. VAPT is a highly sought after skill in the cybersecurity space, because it requires a combination of technical understanding, creativity and determination to persist.
       </p>
 
       <p className="mb-4">
