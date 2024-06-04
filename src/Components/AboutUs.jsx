@@ -20,10 +20,10 @@ const AboutUs = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="lg:text-center">
         <h2 className="lg:text-2xl text-xl text-indigo-600 font-semibold md:text-center text-left tracking-wide uppercase mt-4">About Us</h2>
-          <p className="mt-4 text-2xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+          <p className="mt-4 text-2xl  leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
             National Critical Information Infrastructure Protection Centre (NCIIPC)
           </p>
-          <p className="mt-4 max-w-3xl text-xl text-gray-500 lg:mx-auto">
+          <p className="mt-4 max-w-3xl text-lg md:text-xl text-gray-500 lg:mx-auto">
           National Critical Information Infrastructure Protection Centre (NCIIPC), a unit of NTRO, is an organisation of the Government of India created under Sec 70A of the Information Technology Act, 2000 (amended 2008), through a gazette notification on 16th Jan 2014 based in New Delhi, India. It is designated as the National Nodal Agency in respect of Critical Information Infrastructure Protection.
           </p>
         </div>
