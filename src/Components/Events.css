@@ -88,7 +88,6 @@
     border-radius: 50%;
     background-color: #ccc;
     margin: 0 5px;
-    cursor: pointer;
   }
   
   .progress-bar-item.active {

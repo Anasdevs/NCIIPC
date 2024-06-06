@@ -1,103 +1,70 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './Hero.css';
-import img1 from './Images/heroImgNew1.png';
-import img2 from './Images/heroImgNew2.png';
-import img3 from './Images/heroImgNew3.png';
-import img4 from './Images/heroImgNew4.png';
+
+// Import images
+import img1 from './Images/heroImg1.png';
+import img2 from './Images/heroImg2.png';
+import img3 from './Images/heroImg3.png';
+import img4 from './Images/heroImg4.png';
+import img5 from './Images/heroImg5.png';
+import img6 from './Images/heroImg6.png';
+import img7 from './Images/heroImg7.png';
+
 import imgSm1 from './Images/heroImgSm1.png';
 import imgSm2 from './Images/heroImgSm2.png';
 import imgSm3 from './Images/heroImgSm3.png';
 import imgSm4 from './Images/heroImgSm4.png';
+import imgSm5 from './Images/heroImgSm5.png';
+import imgSm6 from './Images/heroImgSm6.png';
+import imgSm7 from './Images/heroImgSm7.png';
+
 
 const Hero = () => {
-  const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth < 450);
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const slides = [
+    { img: img1, imgSm: imgSm1, heading: 'Slide 1', description: 'Description for slide 1' },
+    { img: img2, imgSm: imgSm2, heading: 'Slide 2', description: 'Description for slide 2' },
+    { img: img3, imgSm: imgSm3, heading: 'Slide 3', description: 'Description for slide 3' },
+    { img: img4, imgSm: imgSm4, heading: 'Slide 4', description: 'Description for slide 4' },
+    { img: img5, imgSm: imgSm5, heading: 'Slide 4', description: 'Description for slide 4' },
+    { img: img6, imgSm: imgSm6, heading: 'Slide 4', description: 'Description for slide 4' },
+    { img: img7, imgSm: imgSm7, heading: 'Slide 4', description: 'Description for slide 4' },
+
+  ];
 
   useEffect(() => {
-    const handleResize = () => {
-      setIsSmallScreen(window.innerWidth < 450);
-    };
+    const interval = setInterval(() => {
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % slides.length);
+    }, 2000);
 
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
+    return () => clearInterval(interval);
+  }, [slides.length]);
 
-  const images = isSmallScreen
-    ? [imgSm1, imgSm2, imgSm3, imgSm4]
-    : [img1, img2, img3, img4];
-
-  useEffect(() => {
-    const nextDom = document.getElementById('next');
-    const prevDom = document.getElementById('prev');
-    const carouselDom = document.querySelector('.carousel');
-    const SliderDom = carouselDom.querySelector('.carousel .list');
-    const thumbnailBorderDom = document.querySelector('.carousel .thumbnail');
-    const thumbnailItemsDom = thumbnailBorderDom.querySelectorAll('.item');
-
-    thumbnailBorderDom.appendChild(thumbnailItemsDom[0]);
-    let timeRunning = 3000;
-    let timeAutoNext = 2000;
-
-    nextDom.onclick = function() {
-      showSlider('next');    
-    };
-
-    prevDom.onclick = function() {
-      showSlider('prev');    
-    };
-
-    let runTimeOut;
-    let runNextAuto = setTimeout(() => {
-      nextDom.click();
-    }, timeAutoNext);
-
-    function showSlider(type) {
-      let SliderItemsDom = SliderDom.querySelectorAll('.carousel .list .item');
-      let thumbnailItemsDom = document.querySelectorAll('.carousel .thumbnail .item');
-
-      if (type === 'next') {
-        SliderDom.appendChild(SliderItemsDom[0]);
-        thumbnailBorderDom.appendChild(thumbnailItemsDom[0]);
-        carouselDom.classList.add('next');
-      } else {
-        SliderDom.prepend(SliderItemsDom[SliderItemsDom.length - 1]);
-        thumbnailBorderDom.prepend(thumbnailItemsDom[thumbnailItemsDom.length - 1]);
-        carouselDom.classList.add('prev');
-      }
-      clearTimeout(runTimeOut);
-      runTimeOut = setTimeout(() => {
-        carouselDom.classList.remove('next');
-        carouselDom.classList.remove('prev');
-      }, timeRunning);
-
-      clearTimeout(runNextAuto);
-      runNextAuto = setTimeout(() => {
-        nextDom.click();
-      }, timeAutoNext);
-    }
-  }, []);
+  const handleDashClick = (index) => {
+    setCurrentIndex(index);
+  };
 
   return (
-    <div>
-      <div className="carousel">
-        <div className="list">
-          {images.map((image, index) => (
-            <div className="item" key={index}>
-              <img src={image} alt={`Image ${index + 1}`} />
-            </div>
-          ))}
-        </div>
-        <div className="thumbnail">
-          {images.map((image, index) => (
-            <div className="item" key={index}>
-              <img src={image} alt={`Thumbnail ${index + 1}`} />
-            </div>
-          ))}
-        </div>
-        <div className="arrows">
-          <button id="prev">&lt;</button>
-          <button id="next">&gt;</button>
-        </div>
-        <div className="time"></div>
+    <div className="hero">
+      <div className="hero-image">
+        <img src={slides[currentIndex].img} alt={slides[currentIndex].heading} className="hero-img" />
+        <img src={slides[currentIndex].imgSm} alt={slides[currentIndex].heading} className="hero-img-sm" />
+        {/* <div className="hero-text">
+          <h2 className="hero-heading">{slides[currentIndex].heading}</h2>
+          <p className="hero-description">{slides[currentIndex].description}</p>
+        </div> */}
+      </div>
+      <div className={`hero-dashes ${window.innerWidth <= 768 ? 'center' : 'bottom-left'}`}>
+        {slides.map((_, index) => (
+          <span
+            key={index}
+            className={`hero-dash ${index === currentIndex ? 'active' : ''}`}
+            onClick={() => handleDashClick(index)}
+          >
+            &mdash;
+          </span>
+        ))}
       </div>
     </div>
   );

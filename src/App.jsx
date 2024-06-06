@@ -28,10 +28,10 @@ const Layout = ({ children }) => {
   useScrollToTop();
 
   const checkScrollTop = () => {
-    if (!showScroll && window.scrollY > 400) {
+    if (!showScroll && window.scrollY > 300) {
       setShowScroll(true);
   
-    } else if (showScroll && window.scrollY <= 400) {
+    } else if (showScroll && window.scrollY <= 300) {
       setShowScroll(false);
     }
   };
