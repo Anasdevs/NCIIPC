@@ -14,7 +14,7 @@ const Navbar = () => {
 
   useEffect(() => {
     const updateScreenSize = () => {
-      setIsLargeScreen(window.innerWidth >= 640);
+      setIsLargeScreen(window.innerWidth >= 840);
     };
 
     window.addEventListener('resize', updateScreenSize);
