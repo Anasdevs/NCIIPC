@@ -1,13 +1,53 @@
 import React from 'react';
+import internshipImg from '../Images/internshipImg.jpg'
 
 const Internship = () => {
   return (
     <div>
-    <div className="container mx-auto px-8 py-12">
-      <h1 className="text-2xl md:text-3xl font-bold mb-6 text-center md:mt-8 mt-4">NCIIPC SUMMER INTERNSHIP PROGRAM, 2023</h1>
+      <style>{`
+        .sticky-nav {
+          position: -webkit-sticky;
+          position: sticky;
+          top: 0;
+          background: #eef0f1f6;
+          padding: 1rem 0;
+          z-index: 10;
+        }
 
+        .section:before {
+          content: "";
+          display: block;
+          height: 4rem; 
+          margin-top: -4rem;
+          visibility: hidden;
+        }
+        @media (max-width: 768px) {
+          .sticky-nav {
+            padding: 2rem 0;
+          }
+
+          .section:before {
+            height: 7rem; 
+            margin-top: -7rem;
+          }
+        }
+      
+      `}</style>
+
+<div className="container mx-auto px-8 py-12">
+  <img src={internshipImg} className='h-[200px] w-full lg:h-[400px] lg:w-full' alt="" srcset="" />
+  <h1 className="text-2xl md:text-3xl font-bold mb-6 text-center md:mt-8 mt-4">NCIIPC SUMMER INTERNSHIP PROGRAM, 2023</h1>
+  
+  <div className="mb-4 text-center sticky top-0 py-4 bg-[#eef0f1f6] h-25 md:h-16 z-10">
+    <a href="#introduction" className="inline-block mr-4 text-blue-500">Introduction</a>
+    <a href="#vacancies" className="inline-block mr-4 text-blue-500">Vacancies</a>
+    <a href="#locations" className="inline-block mr-4 text-blue-500">Locations</a>
+    <a href="#stipend" className="inline-block mr-4 text-blue-500">Stipend</a>
+    <a href="#requirements" className="inline-block mr-4 text-blue-500">Requirements</a>
+    <a href="#selection-criteria" className="inline-block mr-4 text-blue-500">Selection Criteria</a>
+  </div>
       <div className="mb-8">
-        <h2 className="text-xl font-semibold mb-4">Introduction</h2>
+        <h2 className="text-xl font-semibold mb-4 section" id='introduction'>Introduction</h2>
         <p className="mb-4">
           National Critical Information Infrastructure Protection Centre (NCIIPC), a unit of National Technical Research Organisation (NTRO) is an organization designated as the national nodal agency for protection of Critical Information Infrastructure (CII). NCIIPC is mandated to undertake collaboration with Academic Institutions and encourage Research and Development.
         </p>
@@ -17,7 +57,7 @@ const Internship = () => {
       </div>
 
       <div className="mb-8">
-        <h2 className="text-xl font-semibold mb-4">Objective</h2>
+        <h2 className="text-xl font-semibold mb-4" id='objective'>Objective</h2>
         <ul className="list-disc list-inside mb-4 ml-4">
           <li>Provide opportunities to young, well-qualified students and pass outs to contribute in cutting-edge technological and interdisciplinary study, through hands-on projects on issues of CII Security.</li>
           <li>Creating an ecosystem of young cybersecurity professionals with exposure to realistic CII security challenges.</li>
@@ -27,12 +67,12 @@ const Internship = () => {
       </div>
 
       <div className="mb-8">
-        <h2 className="text-xl font-semibold mb-4">Duration</h2>
+        <h2 className="text-xl font-semibold mb-4" id='duration'>Duration</h2>
         <p className="mb-4">We are offering a 10-26 week long paid internship to students.</p>
       </div>
 
       <div className="mb-8">
-        <h2 className="text-xl font-semibold mb-4">Vacancies</h2>
+        <h2 className="text-xl font-semibold mb-4 section" id='vacancies'>Vacancies</h2>
         <p className="mb-4">
           Internships will be granted based on a selection process and all information of results will be made available on our website (<a href="https://nciipc.gov.in/" className="text-blue-500">https://nciipc.gov.in/</a>).
         </p>
@@ -45,12 +85,12 @@ const Internship = () => {
       </div>
 
       <div className="mb-8">
-        <h2 className="text-xl font-semibold mb-4">Eligibility:</h2>
+        <h2 className="text-xl font-semibold mb-4" id='eligibility'>Eligibility:</h2>
         <p className="mb-4">Indian citizen and currently enrolled/ graduated from Undergraduate/ Post Graduate programs in the following disciplines.</p>
       </div>
 
       <div className="mb-8">
-        <h2 className="text-xl font-semibold mb-4">Discipline:</h2>
+        <h2 className="text-xl font-semibold mb-4" id='discipline'>Discipline:</h2>
         <ul className=" list-decimal list-inside mb-4 ml-4">
           <li>Computer Science & Application</li>
           <li>Information Technology</li>
@@ -64,17 +104,17 @@ const Internship = () => {
       </div>
 
       <div className="mb-8">
-        <h2 className="text-xl font-semibold mb-4">Working hours:</h2>
+        <h2 className="text-xl font-semibold mb-4" id='working-hours'>Working hours:</h2>
         <p className="mb-4">Full time and in person. In exceptional cases- based on potential value add of the applicant or special extenuating circumstances, remote internships will be permitted.</p>
       </div>
 
       <div className="mb-8">
-          <h2 className="text-xl font-semibold mb-4">Locations:</h2>
+          <h2 className="text-xl font-semibold mb-4 section" id='locations'>Locations:</h2>
           <p className="mb-4">NCIIPC designated centers at Delhi- HQRS, and zonal offices at Mumbai, Bengaluru and Kolkata. It is noteworthy that some projects will only be available at the Delhi- HQRS.</p>
         </div>
 
         <div className="mb-8">
-          <h2 className="text-xl font-semibold mb-4">Stipend (Program Enrolled or Completed):</h2>
+          <h2 className="text-xl font-semibold mb-4 section" id='stipend'>Stipend (Program Enrolled or Completed):</h2>
           <ul className="list-disc list-inside mb-4 ml-4">
             <li>Undergraduate: Rs. 30,000/month</li>
             <li>Graduate: Rs. 40,000/month</li>
@@ -93,7 +133,7 @@ const Internship = () => {
         </div>
 
         <div className="mb-8">
-          <h2 className="text-xl font-semibold mb-4">Requirements (To be emailed):</h2>
+          <h2 className="text-xl font-semibold mb-4 section" id='requirements'>Requirements (To be emailed):</h2>
           <ul className="list-disc list-inside mb-4 ml-4">
             <li>Copy of Govt issued ID card</li>
             <li>NoC from College/ Institution (To be submitted on selection, prior to joining) (Click here for NOC Format)</li>
@@ -119,7 +159,7 @@ const Internship = () => {
         </div>
 
         <div className="mb-8">
-          <h2 className="text-xl font-semibold mb-4">Selection Criteria and Process:</h2>
+          <h2 className="text-xl font-semibold mb-4 section" id='selection-criteria'>Selection Criteria and Process:</h2>
           <p className="mb-4">Internship Screening Committee will screen candidates based on his/her Domain knowledge, Qualification/Scores in Exams, Synopsis, Resume, Certifications, Technical Achievements, Publications and Communication skills.</p>
           <ol className="list-decimal list-inside mb-4 ml-4">
             <li>2 stage assessment process.</li>

@@ -32,7 +32,7 @@ export default function Marquee() {
                 className="md:text-md text-sm cursor-pointer"
                 onClick={(e) => handleClick(e, 'updates')}
               >
-                CVE Reports for May 2024 have been released.
+                CVE Report for May 2024 has been released.
               </a>
             </span>
           </div>

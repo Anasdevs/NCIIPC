@@ -52,7 +52,19 @@ const Footer = () => {
         <div className="flex justify-center mb-4">
           <p className="text-gray-100 text-sm md:text-lg text-center">This Website is Designed, Developed and Maintained by NCIIPC (A unit of NTRO), Government of India</p>
         </div>
-        {/* Fifth row */}
+        {/* fifth row */}
+        <div className="flex justify-center mb-4">
+          <div className="text-center space-y-2 md:space-y-0 md:flex md:justify-center md:items-center md:space-x-4">
+  <p className="text-gray-100 text-sm md:text-lg">
+    Email: <a href="mailto:helpdesk1@nciipc.gov.in" className="text-blue-300">helpdesk1@nciipc.gov.in</a>
+  </p>
+  <p className="text-gray-100 text-sm md:text-lg">
+    Toll Free: <a href="tel:1800-11-4430" className="text-blue-300">1800-11-4430</a>
+  </p>
+</div>
+
+        </div>
+        {/* sixth row */}
         <div className="flex flex-col justify-center items-center">
           <p className="text-gray-100 text-sm md:text-lgtext-center">Copyright ©{new Date().getFullYear()} - NCIIPC | All Rights Reserved</p>
           <div className="flex space-x-4 mt-6">

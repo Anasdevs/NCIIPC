@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {faUpRightFromSquare} from '@fortawesome/free-solid-svg-icons';
+import { faUpRightFromSquare } from '@fortawesome/free-solid-svg-icons';
 
 const Trending = () => {
   const trendingLinks = [
@@ -11,8 +11,17 @@ const Trending = () => {
     { id: 4, title: 'NCIIPC-AICTE PENTATHON 2024', link: '/pentathon-2024'},
     { id: 5, title: 'Crowdsourcing Of Ethical Hackers/ Pentesters', link: '/crowdsourcing'},
     { id: 6, title: 'Smart India Hackathon', link: '/sih'}
-
   ];
+
+  const handleExternalLinkClick = (link) => {
+    if (link.id === 2) {
+      const isLeaving = window.confirm("You are now leaving an official website of the National Critical Information Infrastructure Protection Centre (NCIIPC). Links to non-NCIIPC sites are provided for the visitor's convenience and do not represent an endorsement by NCIIPC of any commercial or private issues, products, or services.");
+      if (!isLeaving) {
+        return;
+      }
+    }
+    window.open(link.link, '_blank');
+  };
 
   return (
     <div className="max-w-7xl md:mx-auto md-6 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-lg shadow-lg p-6 m-6 mt-[70px] relative">
@@ -26,12 +35,21 @@ const Trending = () => {
             <div className="flex items-center">
               <span className="text-gray-800 font-semibold items-start max-w-[150px] min-w-[100px] lg:max-w-[200px] lg:min-w-[100px] text-[12px] md:text-[15px]">{link.title}</span>
             </div>
-            <Link
-              to={link.link}
-              className="px-[10px] py-[5px] text-sm bg-[#112D4E] text-white rounded-md hover:bg-[#2b4a6e] transition-colors duration-300 min-w-[110px] text-center"
-            >
-              Know More <span><FontAwesomeIcon icon={faUpRightFromSquare} /></span>
-            </Link>
+            {link.id === 2 ? (
+              <button
+                onClick={() => handleExternalLinkClick(link)}
+                className="px-[10px] py-[5px] text-sm bg-[#112D4E] text-white rounded-md hover:bg-[#2b4a6e] transition-colors duration-300 min-w-[110px] text-center"
+              >
+                Know More <span><FontAwesomeIcon icon={faUpRightFromSquare} /></span>
+              </button>
+            ) : (
+              <Link
+                to={link.link}
+                className="px-[10px] py-[5px] text-sm bg-[#112D4E] text-white rounded-md hover:bg-[#2b4a6e] transition-colors duration-300 min-w-[110px] text-center"
+              >
+                Know More <span><FontAwesomeIcon icon={faUpRightFromSquare} /></span>
+              </Link>
+            )}
           </div>
         ))}
       </div>

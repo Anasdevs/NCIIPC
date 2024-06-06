@@ -28,8 +28,8 @@ const Events = () => {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentIndex((currentIndex + 1) % events.length);
-    }, 2000);
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % events.length);
+    }, 3000); // Set interval to 3000ms for smooth transition
 
     const handleResize = () => {
       setIsLargeScreen(window.innerWidth >= 1024);
@@ -41,14 +41,18 @@ const Events = () => {
       clearInterval(interval);
       window.removeEventListener('resize', handleResize);
     };
-  }, [currentIndex]);
+  }, []);
 
   const handlePrevClick = () => {
-    setCurrentIndex((currentIndex - 1 + events.length) % events.length);
+    setCurrentIndex((prevIndex) => (prevIndex - 1 + events.length) % events.length);
   };
 
   const handleNextClick = () => {
-    setCurrentIndex((currentIndex + 1) % events.length);
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % events.length);
+  };
+
+  const handleDotClick = (index) => {
+    setCurrentIndex(index);
   };
 
   const getVisibleEvents = () => {
@@ -68,16 +72,14 @@ const Events = () => {
   return (
     <div className="events-container">
       <h2 className="lg:text-3xl text-2xl text-titleColor font-bold text-center tracking-wide mt-8 lg:mt-12 mb-4">
-      Events</h2>
+        Events
+      </h2>
       <div className="arrow-button left" onClick={handlePrevClick}>
         &lt;
       </div>
       <div className="event-cards">
         {visibleEvents.map(({ image }, index) => (
-          <div
-            key={index}
-            className="event-card"
-          >
+          <div key={index} className="event-card">
             <div className="event-image-container">
               <img src={image} alt={`Event ${index}`} className="event-image" />
             </div>
@@ -92,6 +94,7 @@ const Events = () => {
           <div
             key={index}
             className={`progress-bar-item ${index === currentIndex ? 'active' : ''}`}
+            onClick={() => handleDotClick(index)}
           />
         ))}
       </div>

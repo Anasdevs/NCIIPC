@@ -17,39 +17,42 @@ const AboutUs = () => {
 
   return (
     <div className="bg-gray-100 py-12">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="lg:text-center">
-        <h2 className="lg:text-3xl text-xl text-titleColor font-bold md:text-center text-left mt-4">About Us</h2>
-          <p className="mt-4 text-2xl  leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="lg:text-center">
+        <h2 className="lg:text-4xl text-2xl text-titleColor font-bold md:text-left text-left mt-4 lg:mx-auto">
+          About Us
+        </h2>
+        <div className="lg:text-center md:text-left text-left">
+          <p className="mt-4 text-xl leading-8 font-extrabold text-left text-gray-900 lg:text-4xl">
             National Critical Information Infrastructure Protection Centre (NCIIPC)
           </p>
-          <p className="mt-4 max-w-3xl text-lg md:text-xl text-gray-500 lg:mx-auto">
-          National Critical Information Infrastructure Protection Centre (NCIIPC), a unit of NTRO, is an organisation of the Government of India created under Sec 70A of the Information Technology Act, 2000 (amended 2008), through a gazette notification on 16th Jan 2014 based in New Delhi, India. It is designated as the National Nodal Agency in respect of Critical Information Infrastructure Protection.
-          </p>
         </div>
-
+        <p className="mt-4  text-lg md:text-xl text-gray-500 lg:mx-auto">
+          National Critical Information Infrastructure Protection Centre (NCIIPC), a unit of NTRO, is an organisation of the Government of India created under Sec 70A of the Information Technology Act, 2000 (amended 2008), through a gazette notification on 16th Jan 2014 based in New Delhi, India. It is designated as the National Nodal Agency in respect of Critical Information Infrastructure Protection.
+        </p>
+      </div>
         <div className="mt-10 flex justify-center">
           <nav className="flex space-x-4">
             <a
               href="#vision"
               onClick={(e) => handleNavClick('vision', e)}
-              className={`${activeSection === 'vision' ? 'bg-gray-900 text-white' : 'text-gray-500 hover:bg-gray-700 hover:text-white'} px-3 py-2 rounded-md text-sm font-medium`}
+              className={`${activeSection === 'vision' ? 'bg-gray-900 text-white' : 'text-gray-500 hover:bg-gray-700 hover:text-white'} px-3 py-2 max-h-[45px] rounded-md text-md lg:text-lg font-medium`}
             >
               Vision
             </a>
             <a
               href="#mission"
               onClick={(e) => handleNavClick('mission', e)}
-              className={`${activeSection === 'mission' ? 'bg-gray-900 text-white' : 'text-gray-500 hover:bg-gray-700 hover:text-white'} px-3 py-2 rounded-md text-sm font-medium`}
+              className={`${activeSection === 'mission' ? 'bg-gray-900 text-white' : 'text-gray-500 hover:bg-gray-700 hover:text-white'} px-3 py-2 max-h-[45px] rounded-md text-md lg:text-lg font-medium`}
             >
               Mission
             </a>
             <a
               href="#functions"
               onClick={(e) => handleNavClick('functions', e)}
-              className={`${activeSection === 'functions' ? 'bg-gray-900 text-white' : 'text-gray-500 hover:bg-gray-700 hover:text-white'} px-3 py-2 rounded-md text-sm font-medium`}
+              className={`${activeSection === 'functions' ? 'bg-gray-900 text-white' : 'text-gray-500 hover:bg-gray-700 hover:text-white'} px-3 py-2 max-h-[65px] rounded-md text-md lg:text-lg font-medium`}
             >
-              Functions and Duties
+              Functions & Duties
             </a>
           </nav>
         </div>

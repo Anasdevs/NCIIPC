@@ -1,10 +1,12 @@
 import React from 'react';
-
+import rvdpImg from '../Images/rvdpImg.jpg'
 
 const Rvdp = () => {
   return (
     <div>
     <div className="container mx-auto px-8 py-12">
+  <img src={rvdpImg} className='h-[200px] w-full lg:h-[500px] lg:w-full' alt="" srcset="" />
+
       <h2 className="text-2xl md:text-3xl font-bold mb-6 text-center md:mt-8 mt-1">NCIIPC Responsible Vulnerability Disclosure Program (RVDP)</h2>
       <p className="text-gray-700 mb-4">
         NCIIPC runs the <span className='font-bold'> Responsible Vulnerability Disclosure Program (RVDP) </span> for reporting any Vulnerability in Critical Information Infrastructures that may cause unauthorized access, modification, use, disclosure, disruption, incapacitation or distraction of the same.

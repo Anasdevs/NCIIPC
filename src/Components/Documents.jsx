@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faChevronDown, faChevronUp, faFileDownload, faEye, faTimes } from '@fortawesome/free-solid-svg-icons';
+import { faChevronDown, faChevronUp, faFileDownload, faEye, faSearch, faTimes } from '@fortawesome/free-solid-svg-icons';
 import guidelinesImg from './Images/guidelines.png';
 
 const Documents = () => {
@@ -12,6 +12,7 @@ const Documents = () => {
   });
 
   const [selectedPdf, setSelectedPdf] = useState(null);
+  const [searchTerm, setSearchTerm] = useState('');
 
   const documents = [
     {
@@ -47,6 +48,12 @@ const Documents = () => {
     setSelectedPdf(null);
   };
 
+  const handleSearchChange = (event) => {
+    setSearchTerm(event.target.value);
+  };
+
+  const filteredPdfs = documents.flatMap(document => document.pdfs.filter(pdf => pdf.name.toLowerCase().includes(searchTerm.toLowerCase())));
+
   return (
     <div className="bg-gray-100 py-4">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -63,8 +70,19 @@ const Documents = () => {
             </div>
             {isAccordionOpen[document.id] && (
               <div className="p-6 bg-gray-50">
+                <div className="mb-2 lg:mb-0 text-center">
+                  <input
+                    type="text"
+                    placeholder="Search..."
+                    value={searchTerm}
+                    onChange={handleSearchChange}
+                    className="px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                    
+                  />
+                 
+                </div>
                 <ul className="max-h-96 overflow-y-auto">
-                  {document.pdfs.map((pdf, index) => (
+                  {filteredPdfs.map((pdf, index) => (
                     <li key={index} className="mb-2 flex justify-between items-center">
                       <a
                         href="#"
@@ -97,34 +115,35 @@ const Documents = () => {
         ))}
         {selectedPdf && (
           <div className="fixed inset-0 z-50 flex items-center justify-center bg-gray-900 bg-opacity-75">
-            <div className="bg-white rounded-lg shadow-md overflow-hidden max-h-screen w-11/12 md:w-2/3 lg:w-1/2">
-              <div className="p-4 flex justify-between items-center">
-                <h4 className="text-lg font-semibold">{selectedPdf.name}</h4>
-                <div className="flex space-x-4">
-                  <a
-                    href={selectedPdf.url}
-                    download
-                    className="px-3 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500"
-                  >
-                    <FontAwesomeIcon icon={faFileDownload} />
-                  </a>
-                  <button
-                    onClick={handleModalClose}
-                    className="text-gray-500 hover:text-gray-700 focus:outline-none focus:ring-2 focus:ring-indigo-500"
-                  >
-                    <FontAwesomeIcon icon={faTimes} className="text-2xl" />
-                  </button>
-                </div>
-              </div>
-              <div className="p-4">
-                <iframe src={selectedPdf.url} title={selectedPdf.name} className="w-full h-96"></iframe>
-              </div>
-            </div>
-          </div>
-        )}
-      </div>
-    </div>
-  );
+            <div className="bg-white rounded-lg shadow-md overflow-hidden max-h-screen w-11/12 md:w-2/3 lg
+/2">
+<div className="p-4 flex justify-between items-center">
+<h4 className="text-lg font-semibold">{selectedPdf.name}</h4>
+<div className="flex space-x-4">
+<a
+                 href={selectedPdf.url}
+                 download
+                 className="px-3 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+               >
+<FontAwesomeIcon icon={faFileDownload} />
+</a>
+<button
+                 onClick={handleModalClose}
+                 className="text-gray-500 hover:text-gray-700 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+               >
+<FontAwesomeIcon icon={faTimes} className="text-2xl" />
+</button>
+</div>
+</div>
+<div className="p-4">
+<iframe src={selectedPdf.url} title={selectedPdf.name} className="w-full h-96"></iframe>
+</div>
+</div>
+</div>
+)}
+</div>
+</div>
+);
 };
 
 export default Documents;
