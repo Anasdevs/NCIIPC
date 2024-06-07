@@ -63,7 +63,7 @@ const Footer = () => {
         <div className="flex justify-center mb-4">
           <div className="text-center space-y-2 md:space-y-0 md:flex md:justify-center md:items-center md:space-x-4">
             <p className="text-gray-100 text-sm md:text-lg">
-              Email: <a href="mailto:helpdesk1@nciipc.gov.in" className="text-blue-300">helpdesk1@nciipc.gov.in</a>
+              Email: <a href="mailto:helpdesk1@nciipc.gov.in" className="text-blue-300">helpdesk1[at]nciipc[dot]gov[dot]in</a>
             </p>
             <p className="text-gray-100 text-sm md:text-lg">
               Toll Free: <a href="tel:1800-11-4430" className="text-blue-300">1800-11-4430</a>
@@ -176,12 +176,12 @@ const Footer = () => {
                     <div className="text-right">
                       <p className="text-sm mb-2">
                         <a href="mailto:helpdesk1@nciipc.gov.in" className="text-blue-500 hover:text-blue-700">
-                          helpdesk1@nciipc.gov.in
+                          helpdesk1[at]nciipc[dot]gov[dot]in
                         </a>
                       </p>
                       <p className="text-sm">
                         <a href="mailto:helpdesk2@nciipc.gov.in" className="text-blue-500 hover:text-blue-700">
-                          helpdesk2@nciipc.gov.in
+                        helpdesk2[at]nciipc[dot]gov[dot]in
                         </a>
                       </p>
                     </div>
@@ -207,7 +207,7 @@ const Footer = () => {
                     <div className="text-right">
                       <p className="text-sm">
                         <a href="mailto:ir@nciipc.gov.in" className="text-blue-500 hover:text-blue-700">
-                          ir@nciipc.gov.in
+                          ir[at]nciipc[dot]gov[dot]in
                         </a>
                       </p>
                     </div>
@@ -220,7 +220,7 @@ const Footer = () => {
                     <div className="text-right">
                       <p className="text-sm">
                         <a href="mailto:rvdp@nciipc.gov.in" className="text-blue-500 hover:text-blue-700">
-                          rvdp@nciipc.gov.in
+                          rvdp[at]nciipc[dot]gov[dot]in
                         </a>
                       </p>
                     </div>
@@ -233,7 +233,7 @@ const Footer = () => {
                     <div className="text-right">
                       <p className="text-sm">
                         <a href="mailto:mal.repository@nciipc.gov.in" className="text-blue-500 hover:text-blue-700">
-                          mal.repository@nciipc.gov.in
+                          mal.repository[at]nciipc[dot]gov[dot]in
                         </a>
                       </p>
                     </div>

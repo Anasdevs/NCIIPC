@@ -155,7 +155,7 @@ const Internship = () => {
 
         <div className="mb-8">
           <h2 className="text-xl font-semibold mb-4">Email address:</h2>
-          <p><a href="mailto:helpdesk2@nciipc.gov.in" className='text-indigo-700'>helpdesk2@nciipc.gov.in</a> (With Email Subject line: NCIIPC Summer Internship Application: &lt; Name &gt; - &lt; Discipline &gt; - &lt; Proposed Start - End Date &gt;)</p>
+          <p><a href="mailto:helpdesk2@nciipc.gov.in" className='text-indigo-700'>helpdesk2[at]nciipc[dot]gov[dot]in</a> (With Email Subject line: NCIIPC Summer Internship Application: &lt; Name &gt; - &lt; Discipline &gt; - &lt; Proposed Start - End Date &gt;)</p>
         </div>
 
         <div className="mb-8">

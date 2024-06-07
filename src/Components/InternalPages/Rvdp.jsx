@@ -17,7 +17,7 @@ const Rvdp = () => {
       </p>
       <h3 className="text-xl font-bold mb-2">How to Report:</h3>
       <p className="text-gray-700 mb-4">
-        NCIIPC hosts Vulnerability Disclosure Form at its website <a href="https://nciipc.gov.in" className='text-indigo-700'> nciipc.gov.in. </a> You may fill up the required fields in the Form and submit the same to <a href="mailto:helpdesk2@nciipc.gov.in" className='text-indigo-700'>rvdp@nciipc.gov.in</a>  along with relevant documents, screenshots, urls etc.
+        NCIIPC hosts Vulnerability Disclosure Form at its website <a href="https://nciipc.gov.in" className='text-indigo-700'> nciipc.gov.in. </a> You may fill up the required fields in the Form and submit the same to <a href="mailto:helpdesk2@nciipc.gov.in" className='text-indigo-700'>rvdp[at]nciipc[dot]gov[dot]in</a>  along with relevant documents, screenshots, urls etc.
       </p>
       <h3 className="text-xl font-bold mb-2">Acknowledgment:</h3>
       <p className="text-gray-700 mb-4">
