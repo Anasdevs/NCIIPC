@@ -95,47 +95,46 @@ const Navbar = () => {
         </div>
       ) : (
         <div
-        className={`fixed top-0 left-0 w-2/3 h-full z-999 bg-gray-900 text-[#DBE2EF] z-20 transform ${
-          isOpen ? 'translate-x-0' : '-translate-x-full'
-        } transition-transform duration-300 ease-in-out`}
-      >
+          className={`fixed top-0 left-0 w-2/3 h-full z-999 bg-gray-900 text-[#DBE2EF] z-20 transform ${isOpen ? 'translate-x-0' : '-translate-x-full'
+            } transition-transform duration-300 ease-in-out`}
+        >
           <button onClick={toggleMenu} aria-label="Close Menu" className="p-4">
             <FontAwesomeIcon icon={faTimes} className="text-2xl" />
           </button>
           <div className="flex flex-col items-start mt-8 space-y-2 ml-5">
-          <hr className="w-full h-[2px] bg-gray-200 border-0"/>
+            <hr className="w-full h-[2px] bg-gray-200 border-0" />
             <Link smooth to="/" className="text-md cursor-pointer" onClick={toggleMenu}>
               HOME
             </Link>
-            <hr className="w-full h-[2px] bg-gray-200 border-0"/>
+            <hr className="w-full h-[2px] bg-gray-200 border-0" />
             <Link smooth to="/#about-us" className="text-md cursor-pointer" onClick={toggleMenu}>
               ABOUT US
             </Link>
-            <hr className="w-full h-[2px] bg-gray-200 border-0"/>
+            <hr className="w-full h-[2px] bg-gray-200 border-0" />
             <Link smooth to="/#updates" className="text-md cursor-pointer" onClick={toggleMenu}>
               UPDATES
             </Link>
-            <hr className="w-full h-[2px] bg-gray-200 border-0"/>
+            <hr className="w-full h-[2px] bg-gray-200 border-0" />
             <Link smooth to="/#trending" className="text-md cursor-pointer" onClick={toggleMenu}>
               WHAT'S NEW
             </Link>
-            <hr className="w-full h-[2px] bg-gray-200 border-0"/>
+            <hr className="w-full h-[2px] bg-gray-200 border-0" />
             <Link smooth to="/engage" className="text-md cursor-pointer" onClick={toggleMenu}>
               ENGAGE WITH NCIIPC
             </Link>
-            <hr className="w-full h-[2px] bg-gray-200 border-0"/>
+            <hr className="w-full h-[2px] bg-gray-200 border-0" />
             <Link smooth to="/#documents" className="text-md cursor-pointer" onClick={toggleMenu}>
               DOCUMENTS
             </Link>
-            <hr className="w-full h-[2px] bg-gray-200 border-0"/>
+            <hr className="w-full h-[2px] bg-gray-200 border-0" />
             <Link smooth to="/#links" className="text-md cursor-pointer" onClick={toggleMenu}>
               LINKS
             </Link>
-            <hr className="w-full h-[2px] bg-gray-200 border-0"/>
+            <hr className="w-full h-[2px] bg-gray-200 border-0" />
             <Link smooth to="/#events" className="text-md cursor-pointer" onClick={toggleMenu}>
               EVENTS
             </Link>
-            <hr className="w-full h-[2px] bg-gray-200 border-0"/>
+            <hr className="w-full h-[2px] bg-gray-200 border-0" />
           </div>
         </div>
       )}

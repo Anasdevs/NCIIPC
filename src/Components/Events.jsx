@@ -29,7 +29,7 @@ const Events = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % events.length);
-    }, 3000); // Set interval to 3000ms for smooth transition
+    }, 3000);
 
     const handleResize = () => {
       setIsLargeScreen(window.innerWidth >= 1024);

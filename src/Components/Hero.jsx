@@ -59,7 +59,7 @@ const Hero = () => {
         setCurrentIndex((prevIndex) => (prevIndex - 1 + slides.length) % slides.length);
       }
       setIsSliding(false);
-    }, 0); // Set isSliding to false after 500ms
+    }, 0);
   };
 
   return (

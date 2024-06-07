@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFileDownload, faExternalLinkAlt, faEye, faTimes } from '@fortawesome/free-solid-svg-icons';
@@ -26,10 +26,28 @@ const forms = [
 
 const Forms = () => {
   const [selectedForm, setSelectedForm] = useState(null);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    handleResize();
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
 
   const handlePdfClick = (event, form) => {
     event.preventDefault();
-    setSelectedForm(form);
+    if (isMobile) {
+      window.open(form.pdf.url, '_blank');
+    } else {
+      setSelectedForm(form);
+    }
   };
 
   const handleModalClose = () => {
@@ -87,19 +105,25 @@ const Forms = () => {
                 </div>
               </div>
               <div className="p-4">
-                <iframe src={selectedForm.pdf.url} title={selectedForm.pdf.name} className="w-full h-96"></iframe>
+                <div className="relative w-full pb-[56.25%]">
+                  <iframe
+                    src={selectedForm.pdf.url}
+                    title={selectedForm.pdf.name}
+                    className="absolute inset-0 w-full h-full"
+                  ></iframe>
+                </div>
               </div>
             </div>
           </div>
         )}
-         <div className="flex justify-end mt-4">
-        <Link
-          to="/engage"
-          className="px-4 py-2 text-indigo-800 rounded-md shadow-md flex items-center"
-        >
-          Learn More <FontAwesomeIcon icon={faExternalLinkAlt} className="ml-2" />
-        </Link>
-      </div>
+        <div className="flex justify-end mt-4">
+          <Link
+            to="/engage"
+            className="px-4 py-2 text-indigo-800 rounded-md shadow-md flex items-center"
+          >
+            Learn More <FontAwesomeIcon icon={faExternalLinkAlt} className="ml-2" />
+          </Link>
+        </div>
       </div>
     </div>
   );

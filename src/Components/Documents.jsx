@@ -77,9 +77,9 @@ const Documents = () => {
                     value={searchTerm}
                     onChange={handleSearchChange}
                     className="px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
-                    
+
                   />
-                 
+
                 </div>
                 <ul className="max-h-96 overflow-y-auto">
                   {filteredPdfs.map((pdf, index) => (
@@ -117,33 +117,33 @@ const Documents = () => {
           <div className="fixed inset-0 z-50 flex items-center justify-center bg-gray-900 bg-opacity-75">
             <div className="bg-white rounded-lg shadow-md overflow-hidden max-h-screen w-11/12 md:w-2/3 lg
 /2">
-<div className="p-4 flex justify-between items-center">
-<h4 className="text-lg font-semibold">{selectedPdf.name}</h4>
-<div className="flex space-x-4">
-<a
-                 href={selectedPdf.url}
-                 download
-                 className="px-3 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500"
-               >
-<FontAwesomeIcon icon={faFileDownload} />
-</a>
-<button
-                 onClick={handleModalClose}
-                 className="text-gray-500 hover:text-gray-700 focus:outline-none focus:ring-2 focus:ring-indigo-500"
-               >
-<FontAwesomeIcon icon={faTimes} className="text-2xl" />
-</button>
-</div>
-</div>
-<div className="p-4">
-<iframe src={selectedPdf.url} title={selectedPdf.name} className="w-full h-96"></iframe>
-</div>
-</div>
-</div>
-)}
-</div>
-</div>
-);
+              <div className="p-4 flex justify-between items-center">
+                <h4 className="text-lg font-semibold">{selectedPdf.name}</h4>
+                <div className="flex space-x-4">
+                  <a
+                    href={selectedPdf.url}
+                    download
+                    className="px-3 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                  >
+                    <FontAwesomeIcon icon={faFileDownload} />
+                  </a>
+                  <button
+                    onClick={handleModalClose}
+                    className="text-gray-500 hover:text-gray-700 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                  >
+                    <FontAwesomeIcon icon={faTimes} className="text-2xl" />
+                  </button>
+                </div>
+              </div>
+              <div className="p-4">
+                <iframe src={selectedPdf.url} title={selectedPdf.name} className="w-full h-96"></iframe>
+              </div>
+            </div>
+          </div>
+        )}
+      </div>
+    </div>
+  );
 };
 
 export default Documents;

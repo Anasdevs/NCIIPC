@@ -8,7 +8,6 @@ const AboutUs = () => {
   const handleNavClick = (section, e) => {
     e.preventDefault();
     setActiveSection(section);
-    // contentRef.current.scrollIntoView({ behavior: 'smooth' });
   };
 
   const toggleShowAllFunctions = () => {

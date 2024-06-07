@@ -12,12 +12,12 @@ const Footer = () => {
     setShowModal(!showModal);
   };
 
-const handleExternalLinkClick = (event) => {
-  const confirmationMessage = "You are now leaving an official website of the National Critical Information Infrastructure Protection Centre (NCIIPC). Links to non-NCIIPC sites are provided for the visitor's convenience and do not represent an endorsement by NCIIPC of any commercial or private issues, products, or services.";
-  if(!window.confirm(confirmationMessage)){
-    event.preventDefault();
+  const handleExternalLinkClick = (event) => {
+    const confirmationMessage = "You are now leaving an official website of the National Critical Information Infrastructure Protection Centre (NCIIPC). Links to non-NCIIPC sites are provided for the visitor's convenience and do not represent an endorsement by NCIIPC of any commercial or private issues, products, or services.";
+    if (!window.confirm(confirmationMessage)) {
+      event.preventDefault();
+    }
   }
-}
 
   return (
     <footer className="bg-[#0f2033] text-white py-8 px-4 mt-8">
@@ -39,10 +39,10 @@ const handleExternalLinkClick = (event) => {
             Privacy Policy
           </button>
           <button onClick={() => toggleModal('Terms & Conditions')} className="hover:text-white mx-2 my-1">
-           Terms & Conditions
+            Terms & Conditions
           </button>
           <button onClick={() => toggleModal('Web Information Manager')} className="hover:text-white mx-2 my-1">
-           Web Information Manager
+            Web Information Manager
           </button>
           <button onClick={() => toggleModal('Contact')} className="hover:text-white mx-2 my-1">
             Contact
@@ -62,13 +62,13 @@ const handleExternalLinkClick = (event) => {
         {/* fifth row */}
         <div className="flex justify-center mb-4">
           <div className="text-center space-y-2 md:space-y-0 md:flex md:justify-center md:items-center md:space-x-4">
-  <p className="text-gray-100 text-sm md:text-lg">
-    Email: <a href="mailto:helpdesk1@nciipc.gov.in" className="text-blue-300">helpdesk1@nciipc.gov.in</a>
-  </p>
-  <p className="text-gray-100 text-sm md:text-lg">
-    Toll Free: <a href="tel:1800-11-4430" className="text-blue-300">1800-11-4430</a>
-  </p>
-</div>
+            <p className="text-gray-100 text-sm md:text-lg">
+              Email: <a href="mailto:helpdesk1@nciipc.gov.in" className="text-blue-300">helpdesk1@nciipc.gov.in</a>
+            </p>
+            <p className="text-gray-100 text-sm md:text-lg">
+              Toll Free: <a href="tel:1800-11-4430" className="text-blue-300">1800-11-4430</a>
+            </p>
+          </div>
 
         </div>
         {/* sixth row */}
@@ -110,10 +110,10 @@ const handleExternalLinkClick = (event) => {
                   <p>At many places in this website, you shall find links to other websites/portals. These links have been placed for your convenience. NCIIPC is not responsible for the contents and reliability of the linked websites and does not necessarily endorse the views expressed in them. Mere presence of the link or its listing on this website should not be assumed as endorsement of any kind. NCIIPC can neither guarantee that these links will work all the time nor it has any control over availability of linked pages.</p>
                   <h3 className="text-md mb-2 mt-4 font-bold">Links to NCIIPC website by other websites</h3>
                   <p>NCIIPC does not object to linking directly to the information that is hosted on this website and no prior permission is required for the same. However, we would like you to inform us about any links provided to this website so that you can be informed of any changes or updates therein. Also, we do not permit our pages to be loaded into frames on your site. The pages belonging to this Portal must load into a newly opened browser tab/window of the User.
-</p>
+                  </p>
                 </div>
               )}
-             {modalContent === 'Privacy Policy' && (
+              {modalContent === 'Privacy Policy' && (
                 <div>
                   <p>Thanks for visiting website of NCIIPC, and reviewing our privacy policy. We collect no personal information, like names or addresses, when you visit our website. If you choose to provide that information to us, it is only used to fulfil your request for information. We do collect some technical information when you visit to make your visit seamless. The section below explains how we handle and collect technical information when you visit our website.</p>
                   <p className='mt-4 mb-4'>Information collected and stored automatically: When you browse, read pages, or download information on this website, we automatically gather and store certain technical information about your visit. This information never identifies who you are. The information we collect and store about your visit is listed below-</p>
@@ -162,84 +162,84 @@ const handleExternalLinkClick = (event) => {
                   <h3 className="text-md mb-2">Toll Free: 1800-11-4430</h3>
                 </div>
               )}
-             {modalContent === 'Contact' && (
-  <div className="text-center">
-    <h3 className="text-md md:text:lg font-semibold mb-2">National Critical Information Infrastructure Protection Centre</h3>
-    <h3 className="text-sm md:text-md font-semibold mb-2">A unit of National Technical Research Organisation</h3>
-    <h3 className="text-sm md:text-md mb-4 text-gray-700 font-bold">Block III, Old JNU Campus New Delhi - 110 067</h3>
-    <h3 className="text-lg font-semibold mb-4">Toll Free: 1800-11-4430</h3>
+              {modalContent === 'Contact' && (
+                <div className="text-center">
+                  <h3 className="text-md md:text:lg font-semibold mb-2">National Critical Information Infrastructure Protection Centre</h3>
+                  <h3 className="text-sm md:text-md font-semibold mb-2">A unit of National Technical Research Organisation</h3>
+                  <h3 className="text-sm md:text-md mb-4 text-gray-700 font-bold">Block III, Old JNU Campus New Delhi - 110 067</h3>
+                  <h3 className="text-lg font-semibold mb-4">Toll Free: 1800-11-4430</h3>
 
-    <div className="flex justify-between mb-4 mt-4">
-      <div className="text-left">
-        <h4 className="text-md font-bold text-gray-800 mb-2">General Help:</h4>
-      </div>
-      <div className="text-right">
-        <p className="text-sm mb-2">
-          <a href="mailto:helpdesk1@nciipc.gov.in" className="text-blue-500 hover:text-blue-700">
-            helpdesk1@nciipc.gov.in
-          </a>
-        </p>
-        <p className="text-sm">
-          <a href="mailto:helpdesk2@nciipc.gov.in" className="text-blue-500 hover:text-blue-700">
-            helpdesk2@nciipc.gov.in
-          </a>
-        </p>
-      </div>
-    </div>
+                  <div className="flex justify-between mb-4 mt-4">
+                    <div className="text-left">
+                      <h4 className="text-md font-bold text-gray-800 mb-2">General Help:</h4>
+                    </div>
+                    <div className="text-right">
+                      <p className="text-sm mb-2">
+                        <a href="mailto:helpdesk1@nciipc.gov.in" className="text-blue-500 hover:text-blue-700">
+                          helpdesk1@nciipc.gov.in
+                        </a>
+                      </p>
+                      <p className="text-sm">
+                        <a href="mailto:helpdesk2@nciipc.gov.in" className="text-blue-500 hover:text-blue-700">
+                          helpdesk2@nciipc.gov.in
+                        </a>
+                      </p>
+                    </div>
+                  </div>
 
-    <div className="flex justify-between mb-4">
-      <div className="text-left">
-        <h4 className="text-md font-bold text-gray-800 mb-2">Site Administrator:</h4>
-      </div>
-      <div className="text-right">
-        <p className="text-sm">
-          <a href="mailto:web.admin@gov.in" className="text-blue-500 hover:text-blue-700">
-            web.admin@gov.in
-          </a>
-        </p>
-      </div>
-    </div>
+                  <div className="flex justify-between mb-4">
+                    <div className="text-left">
+                      <h4 className="text-md font-bold text-gray-800 mb-2">Site Administrator:</h4>
+                    </div>
+                    <div className="text-right">
+                      <p className="text-sm">
+                        <a href="mailto:web.admin@gov.in" className="text-blue-500 hover:text-blue-700">
+                          web.admin@gov.in
+                        </a>
+                      </p>
+                    </div>
+                  </div>
 
-    <div className="flex justify-between mb-4">
-      <div className="text-left">
-        <h4 className="text-md font-bold text-gray-800 mb-2">Incident Reporting:</h4>
-      </div>
-      <div className="text-right">
-        <p className="text-sm">
-          <a href="mailto:ir@nciipc.gov.in" className="text-blue-500 hover:text-blue-700">
-            ir@nciipc.gov.in
-          </a>
-        </p>
-      </div>
-    </div>
+                  <div className="flex justify-between mb-4">
+                    <div className="text-left">
+                      <h4 className="text-md font-bold text-gray-800 mb-2">Incident Reporting:</h4>
+                    </div>
+                    <div className="text-right">
+                      <p className="text-sm">
+                        <a href="mailto:ir@nciipc.gov.in" className="text-blue-500 hover:text-blue-700">
+                          ir@nciipc.gov.in
+                        </a>
+                      </p>
+                    </div>
+                  </div>
 
-    <div className="flex justify-between mb-4">
-      <div className="text-left">
-        <h4 className="text-md font-bold text-gray-800 mb-2">Vulnerability Disclosure:</h4>
-      </div>
-      <div className="text-right">
-        <p className="text-sm">
-          <a href="mailto:rvdp@nciipc.gov.in" className="text-blue-500 hover:text-blue-700">
-            rvdp@nciipc.gov.in
-          </a>
-        </p>
-      </div>
-    </div>
+                  <div className="flex justify-between mb-4">
+                    <div className="text-left">
+                      <h4 className="text-md font-bold text-gray-800 mb-2">Vulnerability Disclosure:</h4>
+                    </div>
+                    <div className="text-right">
+                      <p className="text-sm">
+                        <a href="mailto:rvdp@nciipc.gov.in" className="text-blue-500 hover:text-blue-700">
+                          rvdp@nciipc.gov.in
+                        </a>
+                      </p>
+                    </div>
+                  </div>
 
-    <div className="flex justify-between">
-      <div className="text-left">
-        <h4 className="text-md font-bold text-gray-800 mb-2">Malware Report:</h4>
-      </div>
-      <div className="text-right">
-        <p className="text-sm">
-          <a href="mailto:mal.repository@nciipc.gov.in" className="text-blue-500 hover:text-blue-700">
-            mal.repository@nciipc.gov.in
-          </a>
-        </p>
-      </div>
-    </div>
-  </div>
-)}
+                  <div className="flex justify-between">
+                    <div className="text-left">
+                      <h4 className="text-md font-bold text-gray-800 mb-2">Malware Report:</h4>
+                    </div>
+                    <div className="text-right">
+                      <p className="text-sm">
+                        <a href="mailto:mal.repository@nciipc.gov.in" className="text-blue-500 hover:text-blue-700">
+                          mal.repository@nciipc.gov.in
+                        </a>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              )}
               {modalContent === 'Feedback' && (
                 <div>
                   <h3 className="text-md mb-2">Any feedback related to content, design, service or technological issues w.r.t NCIIPC website maybe sent to:</h3>
