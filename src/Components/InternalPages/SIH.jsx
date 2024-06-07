@@ -1,10 +1,14 @@
 import React from 'react';
+import sihImg from '../Images/sihImg.png'
+
 
 
 const SIH = () => {
   return (
     <div>
     <div className="container mx-auto px-8 py-12">
+  <img src={sihImg} className='h-[200px] w-full lg:h-[350px] lg:w-full' alt="" srcset="" />
+
       <h1 className="text-2xl md:text-3xl font-bold mb-6 text-center md:mt-8 mt-1">Smart India Hackathon</h1>
       <p className="mb-4">
         The <a href='https://mic.gov.in/' target='_blank' className="text-blue-600 font-semibold">Ministry of Education's Innovation Cell</a> conducts the annual Smart India Hackathon where it crowdsources the problems/challenges from different organisations and ministries in the form of hackathon challenges and opens it up for all the colleges and universities in the country.
