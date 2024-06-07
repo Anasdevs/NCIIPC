@@ -12,13 +12,20 @@ const Footer = () => {
     setShowModal(!showModal);
   };
 
+const handleExternalLinkClick = (event) => {
+  const confirmationMessage = "You are now leaving an official website of the National Critical Information Infrastructure Protection Centre (NCIIPC). Links to non-NCIIPC sites are provided for the visitor's convenience and do not represent an endorsement by NCIIPC of any commercial or private issues, products, or services.";
+  if(!window.confirm(confirmationMessage)){
+    event.preventDefault();
+  }
+}
+
   return (
     <footer className="bg-[#0f2033] text-white py-8 px-4 mt-8">
       <div className="container mx-auto">
         {/* First row */}
         <div className="flex flex-col sm:flex-row justify-center items-center mb-1 lg:mb-4 text-sm md:text-lg text-[#8db6e9]">
-          <a href="https://ntro.gov.in/ntroWeb/loadTendersHome.do" target='_blank' className="hover:text-white lg:my-2 my-1 sm:mr-4 ">Tenders</a>
-          <a href="https://ntro.gov.in/ntroWeb/loadRecruitmentsHome.do" target='_blank' className="hover:text-white lg:my-2 my-1 sm:mr-4 ">Recruitments</a>
+          <a href="https://ntro.gov.in/ntroWeb/loadTendersHome.do" target='_blank' className="hover:text-white lg:my-2 my-1 sm:mr-4 " onClick={handleExternalLinkClick}>Tenders</a>
+          <a href="https://ntro.gov.in/ntroWeb/loadRecruitmentsHome.do" target='_blank' className="hover:text-white lg:my-2 my-1 sm:mr-4 " onClick={handleExternalLinkClick}>Recruitments</a>
         </div>
         {/* Second row */}
         <div className="flex flex-wrap justify-center items-center text-sm md:text-lg mb-4 text-[#8db6e9]">
@@ -46,7 +53,7 @@ const Footer = () => {
         </div>
         {/* Third row */}
         <div className="flex justify-center mb-4">
-          <p className="text-gray-200 text-sm md:text-lg text-center">Last updated on: 4 June 2024</p>
+          <p className="text-gray-200 text-sm md:text-lg text-center">Last updated on: 7 June 2024</p>
         </div>
         {/* Fourth row */}
         <div className="flex justify-center mb-4">
