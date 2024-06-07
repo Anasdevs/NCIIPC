@@ -78,7 +78,7 @@ const Navbar = () => {
             UPDATES
           </Link>
           <Link smooth to="/#trending" className="py-2 sm:py-0 sm:mx-2 text-md cursor-pointer">
-            WHATS NEW
+            WHAT'S NEW
           </Link>
           <Link smooth to="/engage" className="py-2 sm:py-0 sm:mx-2 text-md cursor-pointer">
             ENGAGE WITH NCIIPC
@@ -117,7 +117,7 @@ const Navbar = () => {
             </Link>
             <hr className="w-full h-[2px] bg-gray-200 border-0"/>
             <Link smooth to="/#trending" className="text-md cursor-pointer" onClick={toggleMenu}>
-              WHATS NEW
+              WHAT'S NEW
             </Link>
             <hr className="w-full h-[2px] bg-gray-200 border-0"/>
             <Link smooth to="/engage" className="text-md cursor-pointer" onClick={toggleMenu}>

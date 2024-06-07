@@ -58,7 +58,7 @@ const Internship = () => {
 
       <div className="mb-8">
         <h2 className="text-xl font-semibold mb-4" id='objective'>Objective</h2>
-        <ul className="list-disc list-inside mb-4 ml-4">
+        <ul className="list-disc list-outside mb-4 ml-4">
           <li>Provide opportunities to young, well-qualified students and pass outs to contribute in cutting-edge technological and interdisciplinary study, through hands-on projects on issues of CII Security.</li>
           <li>Creating an ecosystem of young cybersecurity professionals with exposure to realistic CII security challenges.</li>
           <li>Encouraging innovation and fresh perspectives into solving cybersecurity’s complex and pressing challenges.</li>
@@ -91,7 +91,7 @@ const Internship = () => {
 
       <div className="mb-8">
         <h2 className="text-xl font-semibold mb-4" id='discipline'>Discipline:</h2>
-        <ul className=" list-decimal list-inside mb-4 ml-4">
+        <ul className=" list-decimal list-outside mb-4 ml-8">
           <li>Computer Science & Application</li>
           <li>Information Technology</li>
           <li>Data Science & AI/ML</li>
@@ -115,7 +115,7 @@ const Internship = () => {
 
         <div className="mb-8">
           <h2 className="text-xl font-semibold mb-4 section" id='stipend'>Stipend (Program Enrolled or Completed):</h2>
-          <ul className="list-disc list-inside mb-4 ml-4">
+          <ul className="list-disc list-outside mb-4 ml-4">
             <li>Undergraduate: Rs. 30,000/month</li>
             <li>Graduate: Rs. 40,000/month</li>
           </ul>
@@ -134,7 +134,7 @@ const Internship = () => {
 
         <div className="mb-8">
           <h2 className="text-xl font-semibold mb-4 section" id='requirements'>Requirements (To be emailed):</h2>
-          <ul className="list-disc list-inside mb-4 ml-4">
+          <ul className="list-disc list-outside mb-4 ml-4">
             <li>Copy of Govt issued ID card</li>
             <li>NoC from College/ Institution (To be submitted on selection, prior to joining) (Click here for NOC Format)</li>
             <li>02-page CV</li>
@@ -161,7 +161,7 @@ const Internship = () => {
         <div className="mb-8">
           <h2 className="text-xl font-semibold mb-4 section" id='selection-criteria'>Selection Criteria and Process:</h2>
           <p className="mb-4">Internship Screening Committee will screen candidates based on his/her Domain knowledge, Qualification/Scores in Exams, Synopsis, Resume, Certifications, Technical Achievements, Publications and Communication skills.</p>
-          <ol className="list-decimal list-inside mb-4 ml-4">
+          <ol className="list-decimal list-outside mb-4 ml-4">
             <li>2 stage assessment process.</li>
             <li>First, a shortlisting based on criteria specified above.</li>
             <li>An Interview list will be published on the website. (Date and Time will be intimated)</li>
@@ -173,7 +173,7 @@ const Internship = () => {
 
         <div className="mb-8">
           <h2 className="text-xl font-semibold mb-4">Deliverables:</h2>
-          <ul className="list-disc list-inside mb-4 ml-4">
+          <ul className="list-disc list-outside mb-4 ml-4">
             <li>Cyber security related Software Prototype/App/Database/Model developed during internship period with detailed documentation</li>
             <li>Field Visits/Ground findings based impact research with high quality original report</li>
             <li>Analysis Brief/Research Paper</li>

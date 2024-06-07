@@ -1,4 +1,6 @@
 import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons';
 
 
 const EngageWithUs = () => {
@@ -8,7 +10,7 @@ const EngageWithUs = () => {
       <h2 className="text-2xl md:text-3xl font-bold mb-6 text-center md:mt-4 mt-1">Engage With Us</h2>
       
       <section className="mb-6">
-        <h3 className="text-xl font-semibold mb-2">NCIIPC Scheme for Pen Testing of CIIs</h3>
+        <h3 className="text-xl font-semibold mb-2"> <a href="/pentesting-scheme-cii" className='text-blue-600'> NCIIPC Scheme for Pen Testing of CIIs  <FontAwesomeIcon icon={faExternalLinkAlt} className="ml-2" /> </a> </h3>
         <p className="mb-2">
           Pen Testers, Cyber Security Researchers and Ethical Hackers looking for challenging assignments and willing to contribute to national security may enroll for NCIIPC Scheme for Pen Testing of CIIs and win rewards up to Rs. 10 Lakhs.
         </p>

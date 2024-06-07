@@ -19,6 +19,7 @@ import Rvdp from './Components/InternalPages/Rvdp';
 import Pentathon from './Components/InternalPages/Pentathon';
 import Crowdsourcing from './Components/InternalPages/Crowdsourcing';
 import SIH from './Components/InternalPages/SIH';
+import PentestingScheme from './Components/InternalPages/PentestingScheme';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleUp } from '@fortawesome/free-solid-svg-icons';
 import useScrollToTop from './Components/useScrollToTop';
@@ -102,6 +103,7 @@ const App = () => {
           <Route path="/crowdsourcing" element={<Crowdsourcing />} />
           <Route path="/sih" element={<SIH />} />
           <Route path="/forms" element={<Forms/>}/>
+          <Route path="/pentesting-scheme-cii" element={<PentestingScheme/>}/>
           <Route path="*" element={<Error />} />
         </Routes>
       </Layout>
