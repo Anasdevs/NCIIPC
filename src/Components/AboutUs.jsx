@@ -19,11 +19,11 @@ const AboutUs = () => {
     <div className="bg-gray-100 py-12">
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div className="lg:text-center">
-        <h2 className="lg:text-4xl text-2xl text-titleColor font-bold md:text-left text-left mt-4 lg:mx-auto">
+        <h2 className="lg:text-4xl text-2xl text-titleColor font-bold md:text-center text-left mt-4 lg:mx-auto">
           About Us
         </h2>
         <div className="lg:text-center md:text-left text-left">
-          <p className="mt-4 text-xl leading-8 font-extrabold text-left text-gray-900 lg:text-4xl">
+          <p className="mt-4 text-xl leading-8 font-extrabold text-gray-900 lg:text-4xl">
             National Critical Information Infrastructure Protection Centre (NCIIPC)
           </p>
         </div>

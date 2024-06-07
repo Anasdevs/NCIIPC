@@ -1,5 +1,5 @@
 import React from 'react';
-import sihImg from '../Images/sihImg.png'
+import sihImg from '../Images/sihImg.jpg'
 
 
 
@@ -7,7 +7,7 @@ const SIH = () => {
   return (
     <div>
     <div className="container mx-auto px-8 py-12">
-  <img src={sihImg} className='h-[200px] w-full lg:h-[350px] lg:w-full' alt="" srcset="" />
+  <img src={sihImg} className='h-[200px] w-full lg:h-[400px] lg:w-full' alt="" srcset="" />
 
       <h1 className="text-2xl md:text-3xl font-bold mb-6 text-center md:mt-8 mt-1">Smart India Hackathon</h1>
       <p className="mb-4">

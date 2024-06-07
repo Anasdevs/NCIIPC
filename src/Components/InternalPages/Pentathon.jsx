@@ -1,10 +1,12 @@
 import React from 'react';
-
+import pentestingImg from '../Images/pentestingImg.png'
 const Pentathon = () => {
   return (
     
     <div>
       <div className='container mx-auto px-8 py-8 md:py-12'> 
+  <img src={pentestingImg} className='h-[200px] w-full lg:h-[400px] lg:w-full' alt="" srcset="" />
+
       <h1 className="text-2xl md:text-3xl font-bold mb-6 text-center md:mt-8 mt-1">NCIIPC AICTE PENTATHON 2024</h1>
       <p className="mb-4">
         Envisioning the mainstreaming and democratizing of Vulnerability Assessment and Penetration Testing (VAPT) space in India, to realize the dream of the <span className="text-black-900 font-semibold">Atmanirbhar Bharat</span> of the Hon'ble Prime Minister and bring in young talent on an annual basis- the <span className="text-black-900 font-semibold">National Critical Information Infrastructure Centre (NCIIPC)</span> partnered with <span className="text-black-900 font-semibold">All India Council of Technical Education (AICTE)</span> to conceptualize the <span className="text-black-900 font-semibold">NCIIPC AICTE PENTATHON 2024 - India's first national level VAPT challenge for students</span>.
