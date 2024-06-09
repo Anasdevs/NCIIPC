@@ -1,28 +1,28 @@
 import React, { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faChevronDown, faChevronUp, faFileDownload, faEye, faSearch, faTimes } from '@fortawesome/free-solid-svg-icons';
+import { faChevronDown, faChevronUp, faFileDownload, faEye, faTimes } from '@fortawesome/free-solid-svg-icons';
 import guidelinesImg from './Images/guidelines.png';
 
 const Documents = () => {
   const [isAccordionOpen, setIsAccordionOpen] = useState({
     guidelines: false,
-    incidentReporting: false,
-    vulnerabilityDisclosure: false,
-    malwareReporting: false,
   });
 
   const [selectedPdf, setSelectedPdf] = useState(null);
   const [searchTerm, setSearchTerm] = useState('');
-  const [isSmallScreen, setIsSmallScreen] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
     const handleResize = () => {
-      setIsSmallScreen(window.innerWidth <= 768);
+      setIsMobile(window.innerWidth < 768);
     };
 
-    handleResize(); 
+    handleResize();
     window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
   }, []);
 
   const documents = [
@@ -52,7 +52,7 @@ const Documents = () => {
 
   const handlePdfClick = (event, pdf) => {
     event.preventDefault();
-    if (isSmallScreen) {
+    if (isMobile) {
       window.open(pdf.url, '_blank');
     } else {
       setSelectedPdf(pdf);
@@ -111,7 +111,7 @@ const Documents = () => {
                         >
                           <FontAwesomeIcon icon={faEye} />
                         </button>
-                        {!isSmallScreen && (
+                        {!isMobile && (
                           <a
                             href={pdf.url}
                             download
@@ -130,7 +130,7 @@ const Documents = () => {
         ))}
         {selectedPdf && (
           <div className="fixed inset-0 z-50 flex items-center justify-center bg-gray-900 bg-opacity-75">
-            <div className="bg-white rounded-lg shadow-md overflow-hidden max-h-screen w-11/12 md:w-2/3 lg:w-2/3">
+            <div className="bg-white rounded-lg shadow-md overflow-hidden max-h-screen w-11/12 md:w-2/3 lg:w-1/2">
               <div className="p-4 flex justify-between items-center">
                 <h4 className="text-lg font-semibold">{selectedPdf.name}</h4>
                 <div className="flex space-x-4">
@@ -150,7 +150,13 @@ const Documents = () => {
                 </div>
               </div>
               <div className="p-4">
-                <iframe src={selectedPdf.url} title={selectedPdf.name} className="absolute inset-0 w-full h-full"></iframe>
+                <div className="relative w-full pb-[56.25%]">
+                  <iframe
+                    src={selectedPdf.url}
+                    title={selectedPdf.name}
+                    className="absolute inset-0 w-full h-full"
+                  ></iframe>
+                </div>
               </div>
             </div>
           </div>
