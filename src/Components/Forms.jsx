@@ -71,13 +71,15 @@ const Forms = () => {
                   >
                     <FontAwesomeIcon icon={faEye} className="mr-2" /> View
                   </button>
-                  <a
-                    href={form.pdf.url}
-                    download
-                    className="px-2 py-1 bg-green-600 text-white rounded-md hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 text-sm sm:text-base"
-                  >
-                    <FontAwesomeIcon icon={faFileDownload} className="mr-2" /> Download
-                  </a>
+                  {!isMobile && (
+                    <a
+                      href={form.pdf.url}
+                      download
+                      className="px-2 py-1 bg-green-600 text-white rounded-md hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 text-sm sm:text-base"
+                    >
+                      <FontAwesomeIcon icon={faFileDownload} className="mr-2" /> Download
+                    </a>
+                  )}
                 </div>
               </div>
             </div>
