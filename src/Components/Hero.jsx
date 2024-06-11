@@ -22,6 +22,7 @@ function Hero() {
   const slides = [img1, img2, img3, img4, img5, img6, img7];
   const slidesSm = [imgSm1, imgSm2, imgSm3, imgSm4, imgSm5, imgSm6, imgSm7];
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [imagesLoaded, setImagesLoaded] = useState(false);
 
   const prevSlide = () => {
     const isFirstSlide = currentIndex === 0;
@@ -39,13 +40,31 @@ function Hero() {
     setCurrentIndex(slideIndex);
   };
 
+  // Preload images
+  useEffect(() => {
+    const loadImages = async () => {
+      const promises = [...slides, ...slidesSm].map((src) => {
+        return new Promise((resolve) => {
+          const img = new Image();
+          img.src = src;
+          img.onload = resolve;
+        });
+      });
+      await Promise.all(promises);
+      setImagesLoaded(true);
+    };
+    loadImages();
+  }, []);
+
   // Auto changing timer for images after 2 seconds
   useEffect(() => {
-    const timer = setInterval(() => {
-      nextSlide();
-    }, 2000);
-    return () => clearInterval(timer);
-  }, [currentIndex]);
+    if (imagesLoaded) {
+      const timer = setInterval(() => {
+        nextSlide();
+      }, 2000);
+      return () => clearInterval(timer);
+    }
+  }, [currentIndex, imagesLoaded]);
 
   // Update displayed image based on screen width
   const currentSlide = window.innerWidth < 640 ? slidesSm[currentIndex] : slides[currentIndex];
@@ -64,39 +83,47 @@ function Hero() {
         }}
         className='w-full h-full bg-center bg-cover duration-500'
       >
-        {/* Dashes for large screens */}
-        <div className='hidden sm:flex absolute left-[100px] bottom-[70px]'>
-          {slides.map((_, index) => (
-            <div
-              key={index}
-              onClick={() => goToSlide(index)}
-              className={`w-6 h-1 rounded mx-1 cursor-pointer ${
-                currentIndex === index ? 'bg-white' : 'bg-gray-400'
-              }`}
-            />
-          ))}
-        </div>
-        {/* Dashes for small screens */}
-        <div className='sm:hidden flex justify-center absolute bottom-4 w-full'>
-          {slidesSm.map((_, index) => (
-            <div
-              key={index}
-              onClick={() => goToSlide(index)}
-              className={`w-6 h-1 mx-1 cursor-pointer ${
-                currentIndex === index ? 'bg-white' : 'bg-gray-300'
-              }`}
-            />
-          ))}
-        </div>
+        {imagesLoaded && (
+          <>
+            {/* Dashes for large screens */}
+            <div className='hidden sm:flex absolute left-[100px] bottom-[70px]'>
+              {slides.map((_, index) => (
+                <div
+                  key={index}
+                  onClick={() => goToSlide(index)}
+                  className={`w-6 h-1 rounded mx-1 cursor-pointer ${
+                    currentIndex === index ? 'bg-white' : 'bg-gray-400'
+                  }`}
+                />
+              ))}
+            </div>
+            {/* Dashes for small screens */}
+            <div className='sm:hidden flex justify-center absolute bottom-4 w-full'>
+              {slidesSm.map((_, index) => (
+                <div
+                  key={index}
+                  onClick={() => goToSlide(index)}
+                  className={`w-6 h-1 mx-1 cursor-pointer ${
+                    currentIndex === index ? 'bg-white' : 'bg-gray-300'
+                  }`}
+                />
+              ))}
+            </div>
+          </>
+        )}
       </div>
       {/* Left Arrow */}
-      <div className='hidden group-hover:block absolute top-[50%] -translate-x-0 translate-y-[-50%] left-2 text-2xl p-2 bg-[#00000080] text-white cursor-pointer transition duration-500'>
-        <FontAwesomeIcon icon={faChevronLeft} onClick={prevSlide} size='lg' />
-      </div>
+      {imagesLoaded && (
+        <div className='hidden group-hover:block absolute top-[50%] -translate-x-0 translate-y-[-50%] left-2 text-2xl p-2 bg-[#00000080] text-white cursor-pointer transition duration-500'>
+          <FontAwesomeIcon icon={faChevronLeft} onClick={prevSlide} size='lg' />
+        </div>
+      )}
       {/* Right Arrow */}
-      <div className='hidden group-hover:block absolute top-[50%] -translate-x-0 translate-y-[-50%] right-2 text-2xl p-2 bg-[#00000080] text-white cursor-pointer transition duration-500'>
-        <FontAwesomeIcon icon={faChevronRight} onClick={nextSlide} size='lg' />
-      </div>
+      {imagesLoaded && (
+        <div className='hidden group-hover:block absolute top-[50%] -translate-x-0 translate-y-[-50%] right-2 text-2xl p-2 bg-[#00000080] text-white cursor-pointer transition duration-500'>
+          <FontAwesomeIcon icon={faChevronRight} onClick={nextSlide} size='lg' />
+        </div>
+      )}
     </div>
   );
 }
