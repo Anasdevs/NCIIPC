@@ -62,9 +62,11 @@ const Documents = () => {
   const handleModalClose = () => {
     setSelectedPdf(null);
   };
-
+  
   const handleSearchChange = (event) => {
-    setSearchTerm(event.target.value);
+    // Sanitize input by removing any HTML tags
+    const sanitizedInput = event.target.value.replace(/<\/?[^>]+(>|$)/g, '');
+    setSearchTerm(sanitizedInput);
   };
 
   const filteredPdfs = documents.flatMap(document => document.pdfs.filter(pdf => pdf.name.toLowerCase().includes(searchTerm.toLowerCase())));
