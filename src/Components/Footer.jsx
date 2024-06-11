@@ -158,7 +158,7 @@ const Footer = () => {
                   <h3 className="text-md mb-2">Director A&A</h3>
                   <h3 className="text-md mb-2">Block III, Old JNU Campus</h3>
                   <h3 className="text-md mb-2">New Delhi - 110 067</h3>
-                  <h3 className="text-md mb-2">Email: web.admin@gov.in</h3>
+                  <h3 className="text-md mb-2">Email: web[dot]admin[at]gov[dot]in</h3>
                   <h3 className="text-md mb-2">Toll Free: 1800-11-4430</h3>
                 </div>
               )}
@@ -194,7 +194,7 @@ const Footer = () => {
                     <div className="text-right">
                       <p className="text-sm">
                         <a href="mailto:web.admin@gov.in" className="text-blue-500 hover:text-blue-700">
-                          web.admin@gov.in
+                          web[dot]admin[at]gov[dot]in
                         </a>
                       </p>
                     </div>
@@ -233,7 +233,7 @@ const Footer = () => {
                     <div className="text-right">
                       <p className="text-sm">
                         <a href="mailto:mal.repository@nciipc.gov.in" className="text-blue-500 hover:text-blue-700">
-                          mal.repository[at]nciipc[dot]gov[dot]in
+                          mal[dot]repository[at]nciipc[dot]gov[dot]in
                         </a>
                       </p>
                     </div>
@@ -247,7 +247,7 @@ const Footer = () => {
                     <h3 className="text-md mb-2">Director A&A</h3>
                     <h3 className="text-md mb-2">Block III, Old JNU Campus</h3>
                     <h3 className="text-md mb-2">New Delhi - 110 067</h3>
-                    <h3 className="text-md mb-2">Email: web.admin@gov.in</h3>
+                    <h3 className="text-md mb-2">Email: web[dot]admin[at]gov[dot]in</h3>
                     <h3 className="text-md mb-2">Toll Free: 1800-11-4430</h3>
                   </div>
                 </div>
