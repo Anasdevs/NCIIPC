@@ -19,7 +19,7 @@
     object-src 'none';
     manifest-src 'self';
     media-src 'self';
-    frame-src 'self' https://nciipc.vercel.app;
+    frame-src 'self';
     frame-ancestors 'none';
     base-uri 'self';
     " />
@@ -27,6 +27,8 @@
     <meta http-equiv="X-XSS-Protection" content="1; mode=block">
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
     <meta http-equiv="Referrer-Policy" content="no-referrer">
+    <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
+    <meta http-equiv="Permissions-Policy" content="geolocation=()">
   
     <title>National Critical Information Infrastructure Protection Centre (NCIIPC)</title>
   </head>
