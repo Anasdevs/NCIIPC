@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import './Events.css';
-import eventImg1 from './Images/events/eventImg1.png';
-import eventImg2 from './Images/events/eventImg2.png';
-import eventImg3 from './Images/events/eventImg3.png';
-import eventImg4 from './Images/events/eventImg4.png';
-import eventImg5 from './Images/events/eventImg5.png';
-import eventImg6 from './Images/events/eventImg6.jpg';
-import eventImg7 from './Images/events/eventImg7.jpg';
-import eventImg8 from './Images/events/eventImg8.jpg';
-import eventImg9 from './Images/events/eventImg9.png';
+import eventImg1 from './Images/events/eventImg1.webp';
+import eventImg2 from './Images/events/eventImg2.webp';
+import eventImg3 from './Images/events/eventImg3.webp';
+import eventImg4 from './Images/events/eventImg4.webp';
+import eventImg5 from './Images/events/eventImg5.webp';
+import eventImg6 from './Images/events/eventImg6.webp';
+import eventImg7 from './Images/events/eventImg7.webp';
+import eventImg8 from './Images/events/eventImg8.webp';
+import eventImg9 from './Images/events/eventImg9.webp';
 
 const events = [
   { image: eventImg1 },

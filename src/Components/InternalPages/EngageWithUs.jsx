@@ -19,21 +19,21 @@ const EngageWithUs = () => {
       <section className="mb-6">
         <h3 className="text-xl font-semibold mb-2">Responsible Vulnerability Disclosure Program (RVDP)</h3>
         <p className="mb-2">
-          Share any newly discovered vulnerability related to Critical Information Infrastructure on <a href="mailto:rvdp@nciipc.gov.in" className="text-blue-600">rvdp[at]nciipc[dot]gov[dot]in</a>. For further details, please check <a href='/rvdp' className="text-blue-600">NCIIPC RVDP</a>.
+          Share any newly discovered vulnerability related to Critical Information Infrastructure on <a href="mailto:rvdp@nciipc.gov.in" className="text-blue-600">rvdp[at]nciipc[dot]gov[dot]in</a>. For further details, please check <a href='/rvdp-nciipc' className="text-blue-600">NCIIPC RVDP</a>.
         </p>
       </section>
       
       <section className="mb-6">
         <h3 className="text-xl font-semibold mb-2">Malware Reporting</h3>
         <p className="mb-2">
-          Malwares may be reported in specified format through <a href='/forms' className="text-blue-600">NCIIPC Malware Report Form</a> or may be shared on <a href="mailto:mal.repository@nciipc.gov.in" className="text-blue-600">mal[dot]repository[at]nciipc[dot]gov[dot]in</a>.
+          Malwares may be reported in specified format through <a href='/forms-nciipc' className="text-blue-600">NCIIPC Malware Report Form</a> or may be shared on <a href="mailto:mal.repository@nciipc.gov.in" className="text-blue-600">mal[dot]repository[at]nciipc[dot]gov[dot]in</a>.
         </p>
       </section>
       
       <section className="mb-6">
         <h3 className="text-xl font-semibold mb-2">Incident Reporting</h3>
         <p className="mb-2">
-          Any cyber security incident related to Critical Information Infrastructure needs to be reported on <a href="mailto:ir@nciipc.gov.in" className="text-blue-600">ir[at]nciipc[dot]gov[dot]in</a>. The format for the same can be found at <a href='/forms' className="text-blue-600">NCIIPC Incident Report Form</a>.
+          Any cyber security incident related to Critical Information Infrastructure needs to be reported on <a href="mailto:ir@nciipc.gov.in" className="text-blue-600">ir[at]nciipc[dot]gov[dot]in</a>. The format for the same can be found at <a href='/forms-nciipc' className="text-blue-600">NCIIPC Incident Report Form</a>.
         </p>
       </section>
       

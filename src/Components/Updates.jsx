@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye, faFileDownload, faTimes } from '@fortawesome/free-solid-svg-icons';
-import cveImg from './Images/cve.jpg';
-import newslettersImg from './Images/newsletters.png';
+import cveImg from './Images/cve.webp';
+import newslettersImg from './Images/newsletters.webp';
 
 const Updates = () => {
   const [searchTerm, setSearchTerm] = useState('');

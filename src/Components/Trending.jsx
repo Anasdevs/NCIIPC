@@ -7,10 +7,10 @@ const Trending = () => {
   const trendingLinks = [
     { id: 1, title: 'NCIIPC Internship', link: '/nciipc-internship' },
     { id: 2, title: 'MERIDIAN CONFERENCE 2024', link: 'https://meridian2024.gov.in/' },
-    { id: 3, title: 'NCIIPC RVDP', link: '/rvdp' },
+    { id: 3, title: 'NCIIPC RVDP', link: '/rvdp-nciipc' },
     { id: 4, title: 'NCIIPC-AICTE PENTATHON 2024', link: '/pentathon-2024'},
     { id: 5, title: 'Crowdsourcing Of Ethical Hackers/ Pentesters', link: '/crowdsourcing'},
-    { id: 6, title: 'Smart India Hackathon', link: '/sih'}
+    { id: 6, title: 'Smart India Hackathon', link: '/sih-2023'}
   ];
 
   const handleExternalLinkClick = (link) => {

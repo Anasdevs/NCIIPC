@@ -97,12 +97,12 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/nciipc-internship" element={<Internship />} />
-          <Route path="/engage" element={<EngageWithUs />} />
-          <Route path="/rvdp" element={<Rvdp />} />
+          <Route path="/engage-with-nciipc" element={<EngageWithUs />} />
+          <Route path="/rvdp-nciipc" element={<Rvdp />} />
           <Route path="/pentathon-2024" element={<Pentathon />} />
           <Route path="/crowdsourcing" element={<Crowdsourcing />} />
-          <Route path="/sih" element={<SIH />} />
-          <Route path="/forms" element={<Forms/>}/>
+          <Route path="/sih-2023" element={<SIH />} />
+          <Route path="/forms-nciipc" element={<Forms/>}/>
           <Route path="/pentesting-scheme-cii" element={<PentestingScheme/>}/>
           <Route path="*" element={<Error />} />
         </Routes>

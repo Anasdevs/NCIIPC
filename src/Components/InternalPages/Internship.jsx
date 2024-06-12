@@ -1,5 +1,5 @@
 import React from 'react';
-import internshipImg from '../Images/internshipImg.jpg'
+import internshipImg from '../Images/internshipImg.webp'
 
 const Internship = () => {
   return (

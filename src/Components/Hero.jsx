@@ -2,21 +2,21 @@ import React, { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 
-import img1 from './Images/heroImg1.png';
-import img2 from './Images/heroImg2.png';
-import img3 from './Images/heroImg3.png';
-import img4 from './Images/heroImg4.png';
-import img5 from './Images/heroImg5.png';
-import img6 from './Images/heroImg6.png';
-import img7 from './Images/heroImg7.png';
+import img1 from './Images/heroImg1.webp';
+import img2 from './Images/heroImg2.webp';
+import img3 from './Images/heroImg3.webp';
+import img4 from './Images/heroImg4.webp';
+import img5 from './Images/heroImg5.webp';
+import img6 from './Images/heroImg6.webp';
+import img7 from './Images/heroImg7.webp';
 
-import imgSm1 from './Images/heroImgSm1.png';
-import imgSm2 from './Images/heroImgSm2.png';
-import imgSm3 from './Images/heroImgSm3.png';
-import imgSm4 from './Images/heroImgSm4.png';
-import imgSm5 from './Images/heroImgSm5.png';
-import imgSm6 from './Images/heroImgSm6.png';
-import imgSm7 from './Images/heroImgSm7.png';
+import imgSm1 from './Images/heroImgSm1.webp';
+import imgSm2 from './Images/heroImgSm2.webp';
+import imgSm3 from './Images/heroImgSm3.webp';
+import imgSm4 from './Images/heroImgSm4.webp';
+import imgSm5 from './Images/heroImgSm5.webp';
+import imgSm6 from './Images/heroImgSm6.webp';
+import imgSm7 from './Images/heroImgSm7.webp';
 
 function Hero() {
   const slides = [img1, img2, img3, img4, img5, img6, img7];

@@ -1,5 +1,5 @@
 import React from 'react';
-import rvdpImg from '../Images/rvdpImg.jpg'
+import rvdpImg from '../Images/rvdpImg.webp'
 
 const Rvdp = () => {
   return (

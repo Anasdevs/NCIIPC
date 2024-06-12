@@ -1,5 +1,5 @@
 import React from 'react';
-import crowdsourcingImg from '../Images/crowdsourcingImg.png'
+import crowdsourcingImg from '../Images/crowdsourcingImg.webp'
 
 const Crowdsourcing = () => {
   return (

@@ -1,10 +1,10 @@
 import React, { useEffect, useRef, useState } from 'react';
-import ntroImg from './Images/ntroLogo.png';
-import digitalIndiaImg from './Images/digitalIndiaImg.png';
-import dotImg from './Images/dotImg.png';
-import sebiImg from './Images/sebiImg.png';
-import certinImg from './Images/certinImg.png';
-import aadharImg from './Images/aadharImg.png';
+import ntroImg from './Images/ntroLogo.webp';
+import digitalIndiaImg from './Images/digitalIndiaImg.webp';
+import dotImg from './Images/dotImg.webp';
+import sebiImg from './Images/sebiImg.webp';
+import certinImg from './Images/certinImg.webp';
+import aadharImg from './Images/aadharImg.webp';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons';
 

@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
 import { HashLink as Link } from 'react-router-hash-link';
-import logoImg from './Images/logoSm.png';
+import logoImg from './Images/logoSm.webp';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -80,7 +80,7 @@ const Navbar = () => {
           <Link smooth to="/#trending" className="py-2 sm:py-0 sm:mx-2 text-md cursor-pointer">
             WHAT'S NEW
           </Link>
-          <Link smooth to="/engage" className="py-2 sm:py-0 sm:mx-2 text-md cursor-pointer">
+          <Link smooth to="/engage-with-nciipc" className="py-2 sm:py-0 sm:mx-2 text-md cursor-pointer">
             ENGAGE WITH NCIIPC
           </Link>
           <Link smooth to="/#documents" className="py-2 sm:py-0 sm:mx-2 text-md cursor-pointer">
@@ -119,7 +119,7 @@ const Navbar = () => {
               WHAT'S NEW
             </Link>
             <hr className="w-full h-[2px] bg-gray-200 border-0" />
-            <Link smooth to="/engage" className="text-md cursor-pointer" onClick={toggleMenu}>
+            <Link smooth to="/engage-with-nciipc" className="text-md cursor-pointer" onClick={toggleMenu}>
               ENGAGE WITH NCIIPC
             </Link>
             <hr className="w-full h-[2px] bg-gray-200 border-0" />

@@ -1,5 +1,5 @@
 import React from 'react';
-import pentestingImg from '../Images/pentestingImg.png'
+import pentestingImg from '../Images/pentestingImg.webp'
 const Pentathon = () => {
   return (
     

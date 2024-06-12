@@ -6,11 +6,11 @@ const useScrollToTop = () => {
 
   const targetPaths = [
     '/nciipc-internship',
-    '/engage',
-    '/rvdp',
+    '/engage-with-nciipc',
+    '/rvdp-nciipc',
     '/pentathon-2024',
     '/crowdsourcing',
-    '/sih',
+    '/sih-2023',
   ];
 
   useEffect(() => {

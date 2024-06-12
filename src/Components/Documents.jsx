@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronDown, faChevronUp, faFileDownload, faEye, faTimes } from '@fortawesome/free-solid-svg-icons';
-import guidelinesImg from './Images/guidelines.png';
+import guidelinesImg from './Images/guidelines.webp';
 
 const Documents = () => {
   const [isAccordionOpen, setIsAccordionOpen] = useState({

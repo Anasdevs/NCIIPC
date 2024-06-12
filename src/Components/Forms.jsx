@@ -2,9 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFileDownload, faExternalLinkAlt, faEye, faTimes } from '@fortawesome/free-solid-svg-icons';
-import incidentReportingImg from './Images/incidentReporting.jpg';
-import vulnDisclosureImg from './Images/vulnDisclosure.png';
-import malwareReporting from './Images/malwareReporting.jpg';
+import incidentReportingImg from './Images/incidentReporting.webp';
+import vulnDisclosureImg from './Images/vulnDisclosure.webp';
+import malwareReporting from './Images/malwareReporting.webp';
 
 const forms = [
   {
@@ -120,10 +120,10 @@ const Forms = () => {
         )}
         <div className="flex justify-end mt-4">
           <Link
-            to="/engage"
+            to="/engage-with-nciipc"
             className="px-4 py-2 text-indigo-800 rounded-md shadow-md flex items-center"
           >
-            Learn More <FontAwesomeIcon icon={faExternalLinkAlt} className="ml-2" />
+            Engage with nciipc <FontAwesomeIcon icon={faExternalLinkAlt} className="ml-2" />
           </Link>
         </div>
       </div>

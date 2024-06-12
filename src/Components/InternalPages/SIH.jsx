@@ -1,5 +1,5 @@
 import React from 'react';
-import sihImg from '../Images/sihImg.jpg'
+import sihImg from '../Images/sihImg.webp'
 
 
 
