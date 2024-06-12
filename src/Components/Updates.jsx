@@ -30,6 +30,7 @@ const Updates = () => {
       title: 'CVE Reports',
       imageUrl: cveImg,
       pdfs: [
+        { name: '16-31 May 2024', url: 'https://nciipc.vercel.app/pdfs/16_31_May24_CVE.pdf', date: '2024-05-31' },
         { name: '01-15 May 2024', url: 'https://nciipc.vercel.app/pdfs/01_15_May24_CVE.pdf', date: '2024-05-15' },
         { name: '16-30 April 2024', url: 'https://nciipc.vercel.app/pdfs/16_30_Apr24_CVE.pdf', date: '2024-04-30' },
         { name: '01-15 April 2024', url: 'https://nciipc.vercel.app/pdfs/01_15_Apr24_CVE.pdf', date: '2024-04-15' },
@@ -180,7 +181,7 @@ const Updates = () => {
                       >
                         {pdf.name}
                       </a>
-                      {daysOld(pdf.date) <= 30 && (
+                      {daysOld(pdf.date) <= 20 && (
                         <span className="ml-2 px-2 py-1 bg-[#ff0000] text-white text-xs rounded">New</span>
                       )}
                     </div>
@@ -305,7 +306,7 @@ const Updates = () => {
                         >
                           {pdf.name}
                         </a>
-                        {daysOld(pdf.date) <= 30 && (
+                        {daysOld(pdf.date) <= 20 && (
                           <span className="ml-2 px-2 py-1 bg-[#ff0000] text-white text-xs rounded">New</span>
                         )}
                       </div>
