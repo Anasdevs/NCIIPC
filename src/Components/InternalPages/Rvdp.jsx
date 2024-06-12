@@ -5,7 +5,7 @@ const Rvdp = () => {
   return (
     <div>
     <div className="container mx-auto px-8 py-12">
-  <img src={rvdpImg} className='h-[200px] w-full lg:h-[400px] lg:w-full' alt="" srcset="" />
+  <img src={rvdpImg} className='h-[200px] w-full lg:h-[400px] lg:w-full' alt="RVDP" srcSet="" />
 
       <h2 className="text-2xl md:text-3xl font-bold mb-6 text-center md:mt-8 mt-1">NCIIPC Responsible Vulnerability Disclosure Program (RVDP)</h2>
       <p className="text-gray-700 mb-4">

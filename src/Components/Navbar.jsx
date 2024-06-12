@@ -33,7 +33,7 @@ const Navbar = () => {
             <Link to="/">
               <img
                 src={logoImg}
-                alt="Logo"
+                alt="Nciipc Logo"
                 className="lg:h-[100px] lg:w-[100px] sm:h-[50px] sm:w-[50px] h-[30px] w-[30px] ml-4 cursor-pointer"
               />
             </Link>
@@ -50,7 +50,7 @@ const Navbar = () => {
       ) : (
         <div className="flex justify-between items-center p-2 bg-[#112D4E] relative">
           <Link to="/">
-            <img src={logoImg} alt="Logo" className="h-[60px] w-[100px] sm:h-[70px] sm:w-[70px] cursor-pointer" />
+            <img src={logoImg} alt="Nciipc Logo" className="h-[60px] w-[100px] sm:h-[70px] sm:w-[70px] cursor-pointer" />
           </Link>
           <div className="flex-grow text-center mr-4">
             <h1 className="text-[14px] text-center font-bold">

@@ -35,7 +35,7 @@ const Internship = () => {
       `}</style>
 
 <div className="container mx-auto px-8 py-12">
-  <img src={internshipImg} className='h-[200px] w-full lg:h-[400px] lg:w-full' alt="" srcset="" />
+  <img src={internshipImg} className='h-[200px] w-full lg:h-[400px] lg:w-full' alt="Internship" srcSet="" />
   <h1 className="text-2xl md:text-3xl font-bold mb-6 text-center md:mt-8 mt-4">NCIIPC SUMMER INTERNSHIP PROGRAM, 2023</h1>
   
   <div className="mb-4 text-center sticky top-0 py-4 bg-[#eef0f1f6] h-25 md:h-16 z-10">

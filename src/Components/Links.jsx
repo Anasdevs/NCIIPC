@@ -68,7 +68,7 @@ const Links = () => {
             {linksData.map((link, index) => (
               <li key={`clone-${index}`} className="flex flex-col items-center">
                 <a href={link.url} target="_blank" rel="noopener noreferrer" className="flex flex-col items-center">
-                  <img src={link.imageUrl} alt={link.title} title={link.title} className="w-16 md:w-24" />
+                  <img src={link.imageUrl} alt={`${link.title} Image`} title={link.title} className="w-16 md:w-24" />
                   <div className="flex items-center mt-2">
                     <span className="text-sm md:text-base font-semibold text-[#3F72AF]">{link.title}</span>
                     <FontAwesomeIcon icon={faExternalLinkAlt} className="ml-1 text-[#3F72AF]" />

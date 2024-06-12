@@ -81,7 +81,7 @@ const Events = () => {
         {visibleEvents.map(({ image }, index) => (
           <div key={index} className="event-card">
             <div className="event-image-container">
-              <img src={image} alt={`Event ${index}`} className="event-image" />
+              <img src={image} alt="Event Image" className="event-image" />
             </div>
           </div>
         ))}

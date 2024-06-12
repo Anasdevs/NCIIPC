@@ -5,7 +5,7 @@ const Pentathon = () => {
     
     <div>
       <div className='container mx-auto px-8 py-8 md:py-12'> 
-  <img src={pentestingImg} className='h-[200px] w-full lg:h-[400px] lg:w-full' alt="" srcset="" />
+  <img src={pentestingImg} className='h-[200px] w-full lg:h-[400px] lg:w-full' alt="Pentesting" srcSet="" />
 
       <h1 className="text-2xl md:text-3xl font-bold mb-6 text-center md:mt-8 mt-1">NCIIPC AICTE PENTATHON 2024</h1>
       <p className="mb-4">

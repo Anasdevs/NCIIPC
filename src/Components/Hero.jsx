@@ -22,55 +22,48 @@ function Hero() {
   const slides = [img1, img2, img3, img4, img5, img6, img7];
   const slidesSm = [imgSm1, imgSm2, imgSm3, imgSm4, imgSm5, imgSm6, imgSm7];
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [imagesLoaded, setImagesLoaded] = useState(false);
+  const [loadedImages, setLoadedImages] = useState([]);
+
+  useEffect(() => {
+    const loadImages = async () => {
+      const imagePromises = [...slides, ...slidesSm].map(src => {
+        return new Promise((resolve, reject) => {
+          const img = new Image();
+          img.src = src;
+          img.onload = () => resolve(src);
+          img.onerror = reject;
+        });
+      });
+      const loaded = await Promise.all(imagePromises);
+      setLoadedImages(loaded);
+    };
+
+    loadImages();
+  }, [slides, slidesSm]);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex(prevIndex => (prevIndex + 1) % slides.length);
+    }, 2000);
+    return () => clearInterval(interval);
+  }, [slides.length]);
 
   const prevSlide = () => {
-    const isFirstSlide = currentIndex === 0;
-    const newIndex = isFirstSlide ? slides.length - 1 : currentIndex - 1;
-    setCurrentIndex(newIndex);
+    setCurrentIndex(prevIndex => (prevIndex === 0 ? slides.length - 1 : prevIndex - 1));
   };
 
   const nextSlide = () => {
-    const isLastSlide = currentIndex === slides.length - 1;
-    const newIndex = isLastSlide ? 0 : currentIndex + 1;
-    setCurrentIndex(newIndex);
+    setCurrentIndex(prevIndex => (prevIndex + 1) % slides.length);
   };
 
-  const goToSlide = (slideIndex) => {
-    setCurrentIndex(slideIndex);
+  const goToSlide = (index) => {
+    setCurrentIndex(index);
   };
 
-  // Preload images
-  useEffect(() => {
-    const loadImages = async () => {
-      const promises = [...slides, ...slidesSm].map((src) => {
-        return new Promise((resolve) => {
-          const img = new Image();
-          img.src = src;
-          img.onload = resolve;
-        });
-      });
-      await Promise.all(promises);
-      setImagesLoaded(true);
-    };
-    loadImages();
-  }, []);
-
-  // Auto changing timer for images after 2 seconds
-  useEffect(() => {
-    if (imagesLoaded) {
-      const timer = setInterval(() => {
-        nextSlide();
-      }, 2000);
-      return () => clearInterval(timer);
-    }
-  }, [currentIndex, imagesLoaded]);
-
-  // Update displayed image based on screen width
   const currentSlide = window.innerWidth < 640 ? slidesSm[currentIndex] : slides[currentIndex];
 
   return (
-    <div className='h-[60vh] w-full m-auto relative group'>
+    <div className="h-[60vh] w-full m-auto relative group">
       <div
         style={{
           backgroundImage: `url(${currentSlide})`,
@@ -79,50 +72,42 @@ function Hero() {
           backgroundSize: 'cover',
           backgroundRepeat: 'no-repeat',
           backgroundPosition: 'center',
-          transition: 'background-image 0.5s ease-in',
+          transition: 'background-image 0.5s ease-in-out',
         }}
-        className='w-full h-full bg-center bg-cover duration-500'
+        className="w-full h-full bg-center bg-cover duration-500"
       >
-        {imagesLoaded && (
+        {loadedImages.length === slides.length + slidesSm.length && (
           <>
-            {/* Dashes for large screens */}
-            <div className='hidden sm:flex absolute left-[100px] bottom-[70px]'>
+            <div className="hidden sm:flex absolute left-[100px] bottom-[70px]">
               {slides.map((_, index) => (
                 <div
                   key={index}
                   onClick={() => goToSlide(index)}
-                  className={`w-6 h-1 rounded mx-1 cursor-pointer ${
-                    currentIndex === index ? 'bg-white' : 'bg-gray-400'
-                  }`}
+                  className={`w-6 h-1 rounded mx-1 cursor-pointer ${currentIndex === index ? 'bg-white' : 'bg-gray-400'}`}
                 />
               ))}
             </div>
-            {/* Dashes for small screens */}
-            <div className='sm:hidden flex justify-center absolute bottom-4 w-full'>
+            <div className="sm:hidden flex justify-center absolute bottom-4 w-full">
               {slidesSm.map((_, index) => (
                 <div
                   key={index}
                   onClick={() => goToSlide(index)}
-                  className={`w-6 h-1 mx-1 cursor-pointer ${
-                    currentIndex === index ? 'bg-white' : 'bg-gray-300'
-                  }`}
+                  className={`w-6 h-1 mx-1 cursor-pointer ${currentIndex === index ? 'bg-white' : 'bg-gray-300'}`}
                 />
               ))}
             </div>
           </>
         )}
       </div>
-      {/* Left Arrow */}
-      {imagesLoaded && (
-        <div className='hidden group-hover:block absolute top-[50%] -translate-x-0 translate-y-[-50%] left-2 text-2xl p-2 bg-[#00000080] text-white cursor-pointer transition duration-500'>
-          <FontAwesomeIcon icon={faChevronLeft} onClick={prevSlide} size='lg' />
-        </div>
-      )}
-      {/* Right Arrow */}
-      {imagesLoaded && (
-        <div className='hidden group-hover:block absolute top-[50%] -translate-x-0 translate-y-[-50%] right-2 text-2xl p-2 bg-[#00000080] text-white cursor-pointer transition duration-500'>
-          <FontAwesomeIcon icon={faChevronRight} onClick={nextSlide} size='lg' />
-        </div>
+      {loadedImages.length === slides.length + slidesSm.length && (
+        <>
+          <div className="hidden group-hover:block absolute top-[50%] -translate-x-0 translate-y-[-50%] left-2 text-2xl p-2 bg-[#00000080] text-white cursor-pointer transition duration-500">
+            <FontAwesomeIcon icon={faChevronLeft} onClick={prevSlide} size="lg" />
+          </div>
+          <div className="hidden group-hover:block absolute top-[50%] -translate-x-0 translate-y-[-50%] right-2 text-2xl p-2 bg-[#00000080] text-white cursor-pointer transition duration-500">
+            <FontAwesomeIcon icon={faChevronRight} onClick={nextSlide} size="lg" />
+          </div>
+        </>
       )}
     </div>
   );
