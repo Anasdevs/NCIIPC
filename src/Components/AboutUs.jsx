@@ -36,6 +36,7 @@ const AboutUs = () => {
               href="#vision"
               onClick={(e) => handleNavClick('vision', e)}
               className={`${activeSection === 'vision' ? 'bg-gray-900 text-white' : 'text-gray-500 hover:bg-gray-700 hover:text-white'} px-3 py-2 max-h-[45px] rounded-md text-md lg:text-lg font-medium`}
+              aria-label="Vision"
             >
               Vision
             </a>
@@ -43,6 +44,7 @@ const AboutUs = () => {
               href="#mission"
               onClick={(e) => handleNavClick('mission', e)}
               className={`${activeSection === 'mission' ? 'bg-gray-900 text-white' : 'text-gray-500 hover:bg-gray-700 hover:text-white'} px-3 py-2 max-h-[45px] rounded-md text-md lg:text-lg font-medium`}
+              aria-label="Mission"
             >
               Mission
             </a>
@@ -50,6 +52,7 @@ const AboutUs = () => {
               href="#functions"
               onClick={(e) => handleNavClick('functions', e)}
               className={`${activeSection === 'functions' ? 'bg-gray-900 text-white' : 'text-gray-500 hover:bg-gray-700 hover:text-white'} px-3 py-2 max-h-[65px] rounded-md text-md lg:text-lg font-medium`}
+              aria-label="Functions and Duties"
             >
               Functions & Duties
             </a>

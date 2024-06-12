@@ -103,6 +103,7 @@ const Documents = () => {
                         href="#"
                         onClick={(event) => handlePdfClick(event, pdf)}
                         className="text-blue-500 md:text-md text-sm hover:text-blue-700"
+                     
                       >
                         {pdf.name}
                       </a>
@@ -110,6 +111,7 @@ const Documents = () => {
                         <button
                           onClick={(event) => handlePdfClick(event, pdf)}
                           className="px-3 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                          aria-label="Preview PDF"
                         >
                           <FontAwesomeIcon icon={faEye} />
                         </button>
@@ -118,6 +120,7 @@ const Documents = () => {
                             href={pdf.url}
                             download
                             className="px-3 py-2 bg-green-600 text-white rounded-md hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500"
+                            
                           >
                             <FontAwesomeIcon icon={faFileDownload} />
                           </a>
@@ -140,6 +143,7 @@ const Documents = () => {
                     href={selectedPdf.url}
                     download
                     className="px-3 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                
                   >
                     <FontAwesomeIcon icon={faFileDownload} />
                   </a>

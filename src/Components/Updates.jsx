@@ -187,6 +187,7 @@ const Updates = () => {
                     <button
                       onClick={(event) => handlePdfClick(event, pdf)}
                       className="px-2 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                      aria-label="Preview PDF"
                     >
                       <FontAwesomeIcon icon={faEye} />
                     </button>
@@ -311,6 +312,7 @@ const Updates = () => {
                       <button
                         onClick={(event) => handlePdfClick(event, pdf)}
                         className="px-2 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                        aria-label="Preview PDF"
                       >
                         <FontAwesomeIcon icon={faEye} />
                       </button>

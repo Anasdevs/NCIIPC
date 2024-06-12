@@ -21,6 +21,7 @@ export default function Marquee() {
                 href="#updates"
                 className="md:text-md text-sm cursor-pointer"
                 onClick={(e) => handleClick(e, 'updates')}
+                aria-label="Newsletter Update"
               >
                 Newsletter for April 2024 has been released.
               </a>
@@ -31,6 +32,7 @@ export default function Marquee() {
                 href="#updates"
                 className="md:text-md text-sm cursor-pointer"
                 onClick={(e) => handleClick(e, 'updates')}
+                aria-label="CVE Update"
               >
                 CVE Report for May 2024 has been released.
               </a>

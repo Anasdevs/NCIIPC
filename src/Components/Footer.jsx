@@ -24,8 +24,8 @@ const Footer = () => {
       <div className="container mx-auto">
         {/* First row */}
         <div className="flex flex-col sm:flex-row justify-center items-center mb-1 lg:mb-4 text-sm md:text-lg text-[#8db6e9]">
-          <a href="https://ntro.gov.in/ntroWeb/loadTendersHome.do" target='_blank' className="hover:text-white lg:my-2 my-1 sm:mr-4 " onClick={handleExternalLinkClick}>Tenders</a>
-          <a href="https://ntro.gov.in/ntroWeb/loadRecruitmentsHome.do" target='_blank' className="hover:text-white lg:my-2 my-1 sm:mr-4 " onClick={handleExternalLinkClick}>Recruitments</a>
+          <a href="https://ntro.gov.in/ntroWeb/loadTendersHome.do" target='_blank' aria-label="NTRO Tenders" className="hover:text-white lg:my-2 my-1 sm:mr-4 " onClick={handleExternalLinkClick}>Tenders</a>
+          <a href="https://ntro.gov.in/ntroWeb/loadRecruitmentsHome.do" target='_blank' aria-label="NTRO Recruitments" className="hover:text-white lg:my-2 my-1 sm:mr-4 " onClick={handleExternalLinkClick}>Recruitments</a>
         </div>
         {/* Second row */}
         <div className="flex flex-wrap justify-center items-center text-sm md:text-lg mb-4 text-[#8db6e9]">
@@ -75,13 +75,13 @@ const Footer = () => {
         <div className="flex flex-col justify-center items-center">
           <p className="text-gray-100 text-sm md:text-lgtext-center">Copyright ©{new Date().getFullYear()} - NCIIPC | All Rights Reserved</p>
           <div className="flex space-x-4 mt-6">
-            <a href="https://twitter.com/NCIIPC" target='_blank' className="text-gray-400 hover:text-white">
+            <a href="https://twitter.com/NCIIPC" target='_blank' aria-label="X" className="text-gray-400 hover:text-white">
               <FontAwesomeIcon icon={faXTwitter} size="lg" />
             </a>
-            <a href="https://www.youtube.com/channel/UCQjCevn5Nyx63MPajgZyd0A" target='_blank' className="text-gray-400 hover:text-white">
+            <a href="https://www.youtube.com/channel/UCQjCevn5Nyx63MPajgZyd0A" target='_blank' aria-label="Youtube" className="text-gray-400 hover:text-white">
               <FontAwesomeIcon icon={faYoutube} size="lg" />
             </a>
-            <a href="https://www.linkedin.com/company/nciipc-india" target='_blank' className="text-gray-400 hover:text-white">
+            <a href="https://www.linkedin.com/company/nciipc-india" target='_blank' aria-label="LinkedIn" className="text-gray-400 hover:text-white">
               <FontAwesomeIcon icon={faLinkedin} size="lg" />
             </a>
           </div>

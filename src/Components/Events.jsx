@@ -81,11 +81,12 @@ const Events = () => {
         {visibleEvents.map(({ image }, index) => (
           <div key={index} className="event-card">
             <div className="event-image-container">
-              <img src={image} alt="Event Image" className="event-image" />
+              <img src={image} alt={`Event ${index + 1}`} className="event-image" />
             </div>
           </div>
         ))}
       </div>
+
       <div className="arrow-button right" onClick={handleNextClick}>
         &gt;
       </div>

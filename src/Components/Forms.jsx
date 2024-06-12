@@ -68,6 +68,7 @@ const Forms = () => {
                   <button
                     onClick={(event) => handlePdfClick(event, form)}
                     className="px-2 py-1 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 text-sm sm:text-base"
+                    aria-label="Preview PDF"
                   >
                     <FontAwesomeIcon icon={faEye} className="mr-2" /> View
                   </button>
@@ -76,6 +77,7 @@ const Forms = () => {
                       href={form.pdf.url}
                       download
                       className="px-2 py-1 bg-green-600 text-white rounded-md hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 text-sm sm:text-base"
+                     
                     >
                       <FontAwesomeIcon icon={faFileDownload} className="mr-2" /> Download
                     </a>
@@ -95,6 +97,7 @@ const Forms = () => {
                     href={selectedForm.pdf.url}
                     download
                     className="px-3 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 text-sm sm:text-base"
+                   
                   >
                     <FontAwesomeIcon icon={faFileDownload} />
                   </a>
