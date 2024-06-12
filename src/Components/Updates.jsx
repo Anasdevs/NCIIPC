@@ -14,7 +14,7 @@ const Updates = () => {
   const [sortByDate, setSortByDate] = useState('');
   const [isMobile, setIsMobile] = useState(false);
 
-  const ITEMS_PER_PAGE = 8;
+  const ITEMS_PER_PAGE = 7;
   const [currentPage, setCurrentPage] = useState(1);
 
   const currentDate = new Date();
