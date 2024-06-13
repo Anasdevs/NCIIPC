@@ -22,6 +22,13 @@ const Links = () => {
   const [isHovered, setIsHovered] = useState(false);
   const [animationStyle, setAnimationStyle] = useState('animate-infinite-scroll');
 
+  const handleExternalLinkClick = (event) => {
+    const confirmationMessage = "You are now leaving an official website of the National Critical Information Infrastructure Protection Centre (NCIIPC). Links to non-NCIIPC sites are provided for the visitor's convenience and do not represent an endorsement by NCIIPC of any commercial or private issues, products, or services.";
+    if (!window.confirm(confirmationMessage)) {
+      event.preventDefault();
+    }
+  };
+
   useEffect(() => {
     const handleMouseEnter = () => {
       setIsHovered(true);
@@ -56,7 +63,13 @@ const Links = () => {
           >
             {linksData.map((link, index) => (
               <li key={index} className="flex flex-col items-center">
-                <a href={link.url} target="_blank" rel="noopener noreferrer" className="flex flex-col items-center text-[#3F72AF]">
+                <a
+                  href={link.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={handleExternalLinkClick}
+                  className="flex flex-col items-center text-[#3F72AF]"
+                >
                   <img src={link.imageUrl} alt={`${link.title} - ${index + 1}`} title={link.title} className="w-16 md:w-24" />
                   <div className="flex items-center mt-2">
                     <span className="text-sm md:text-base font-semibold text-[#3F72AF]">{link.title}</span>
@@ -67,7 +80,13 @@ const Links = () => {
             ))}
             {linksData.map((link, index) => (
               <li key={`clone-${index}`} className="flex flex-col items-center">
-                <a href={link.url} target="_blank" rel="noopener noreferrer" className="flex flex-col items-center">
+                <a
+                  href={link.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={handleExternalLinkClick}
+                  className="flex flex-col items-center"
+                >
                   <img src={link.imageUrl} alt={`${link.title} Image`} title={link.title} className="w-16 md:w-24" />
                   <div className="flex items-center mt-2">
                     <span className="text-sm md:text-base font-semibold text-[#3F72AF]">{link.title}</span>
