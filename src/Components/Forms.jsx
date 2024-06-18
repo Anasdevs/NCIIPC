@@ -2,11 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFileDownload, faExternalLinkAlt, faEye, faTimes } from '@fortawesome/free-solid-svg-icons';
+import { useInView } from 'react-intersection-observer';
+import { motion, useAnimationControls } from 'framer-motion';
 import incidentReportingImg from './Images/incidentReporting.webp';
 import vulnDisclosureImg from './Images/vulnDisclosure.webp';
 import malwareReporting from './Images/malwareReporting.webp';
-import { motion, useAnimationControls } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
 
 const forms = [
   {
@@ -30,7 +30,6 @@ const Forms = () => {
   const [selectedForm, setSelectedForm] = useState(null);
   const [isMobile, setIsMobile] = useState(false);
   const controls = useAnimationControls();
-  const buttonControls = useAnimationControls();
   const [ref, inView] = useInView({ triggerOnce: true });
 
   useEffect(() => {
@@ -49,9 +48,8 @@ const Forms = () => {
   useEffect(() => {
     if (inView) {
       controls.start('visible');
-      buttonControls.start('visible');
     }
-  }, [controls, buttonControls, inView]);
+  }, [controls, inView]);
 
   const handlePdfClick = (event, form) => {
     event.preventDefault();
@@ -78,7 +76,7 @@ const Forms = () => {
             visible: { opacity: 1, scale: 1 }, 
             hidden: { opacity: 0, scale: 0.8 },
           }}
-          transition={{ duration: 0.3, ease: 'circOut' }}
+          transition={{ duration: 0.2, ease: 'circOut' }}
         >
           Engage with NCIIPC
         </motion.h2>
@@ -89,92 +87,98 @@ const Forms = () => {
               className="bg-white rounded-lg shadow-md overflow-hidden text-center"
               initial={{ opacity: 0, scale: 0.8 }} 
               animate={controls}
-          variants={{
-            visible: { opacity: 1, scale: 1 }, 
-            hidden: { opacity: 0, scale: 0.8 },
-          }}
-          transition={{ duration: 0.3, ease: 'circOut' }} 
-        >
-              <img src={form.imageUrl} alt={form.title} className="h-24
-              w-full object-contain p-2" />
+              variants={{
+                visible: { opacity: 1, scale: 1 }, 
+                hidden: { opacity: 0, scale: 0.8 },
+              }}
+              transition={{ duration: 0.4, ease: 'circOut' }} 
+            >
+              <img 
+                src={form.imageUrl} 
+                alt={form.title} 
+                className="h-24 w-full object-contain p-2" 
+                loading="lazy" // Lazy load images
+              />
               <div className="p-4">
                 <h3 className="text-lg font-semibold mb-2">{form.title}</h3>
                 <div className="flex justify-center items-center space-x-2">
                   <button
-                    onClick={(event) => handlePdfClick(event, form)}
-                    className="px-2 py-1 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 text-sm sm:text-base"
-                    aria-label="Preview PDF"
-                  >
-                    <FontAwesomeIcon icon={faEye} className="mr-2" /> View
-                  </button>
-                  {!isMobile && (
-                    <button
-                      href={form.pdf.url}
-                      download
-                      className="px-2 py-1 bg-green-600 text-white rounded-md hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 text-sm sm:text-base"
+                    onClick={(event) => handlePdfClick
+                      (event, form)}
+                      className="px-2 py-1 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 text-sm sm:text-base"
+                      aria-label="Preview PDF"
                     >
-                      <FontAwesomeIcon icon={faFileDownload} className="mr-2" /> Download
+                      <FontAwesomeIcon icon={faEye} className="mr-2" /> View
                     </button>
-                  )}
+                    {!isMobile && (
+                      <button
+                        href={form.pdf.url}
+                        download
+                        className="px-2 py-1 bg-green-600 text-white rounded-md hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 text-sm sm:text-base"
+                      >
+                        <FontAwesomeIcon icon={faFileDownload} className="mr-2" /> Download
+                      </button>
+                    )}
+                  </div>
                 </div>
-              </div>
-            </motion.div>
-          ))}
-        </div>
-        {selectedForm && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center bg-gray-900 bg-opacity-75">
-            <div className="bg-white rounded-lg shadow-md overflow-hidden max-h-screen w-11/12 md:w-2/3 lg:w-1/2">
-              <div className="p-4 flex justify-between items-center">
-                <h4 className="text-lg font-semibold">{selectedForm.pdf.name}</h4>
-                <div className="flex space-x-4">
-                  <button
-                    href={selectedForm.pdf.url}
-                    download
-                    className="px-3 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 text-sm sm:text-base"
-                  >
-                    <FontAwesomeIcon icon={faFileDownload} />
-                  </button>
-                  <button
-                    onClick={handleModalClose}
-                    className="text-gray-500 hover:text-gray-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 text-sm sm:text-base"
-                  >
-                    <FontAwesomeIcon icon={faTimes} className="text-2xl" />
-                  </button>
+              </motion.div>
+            ))}
+          </div>
+          {selectedForm && (
+            <div className="fixed inset-0 z-50 flex items-center justify-center bg-gray-900 bg-opacity-75">
+              <div className="bg-white rounded-lg shadow-md overflow-hidden max-h-screen w-11/12 md:w-2/3 lg:w-1/2">
+                <div className="p-4 flex justify-between items-center">
+                  <h4 className="text-lg font-semibold">{selectedForm.pdf.name}</h4>
+                  <div className="flex space-x-4">
+                    <button
+                      href={selectedForm.pdf.url}
+                      download
+                      className="px-3 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 text-sm sm:text-base"
+                    >
+                      <FontAwesomeIcon icon={faFileDownload} />
+                    </button>
+                    <button
+                      onClick={handleModalClose}
+                      className="text-gray-500 hover:text-gray-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 text-sm sm:text-base"
+                    >
+                      <FontAwesomeIcon icon={faTimes} className="text-2xl" />
+                    </button>
+                  </div>
                 </div>
-              </div>
-              <div className="p-4">
-                <div className="relative w-full pb-[56.25%]"> 
-                  <iframe
-                    src={selectedForm.pdf.url}
-                    title={selectedForm.pdf.name}
-                    className="absolute inset-0 w-full h-full"
-                  ></iframe>
+                <div className="p-4">
+                  <div className="relative w-full pb-[56.25%]"> 
+                    <iframe
+                      src={selectedForm.pdf.url}
+                      title={selectedForm.pdf.name}
+                      className="absolute inset-0 w-full h-full"
+                    ></iframe>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-        )}
-        <div className="flex justify-end mt-4">
-          <motion.div
-            initial="hidden"
-            animate={controls}
-          variants={{
-            visible: { opacity: 1, scale: 1 }, 
-            hidden: { opacity: 0, scale: 0.8 },
-          }}
-          transition={{ duration: 0.3, ease: 'circOut' }} 
-        >
-            <Link
-              to="/engage-with-nciipc"
-              className="px-4 py-2 text-indigo-800 rounded-md shadow-md flex items-center"
+          )}
+          <div className="flex justify-end mt-4">
+            <motion.div
+              initial="hidden"
+              animate={controls}
+              variants={{
+                visible: { opacity: 1, scale: 1 }, 
+                hidden: { opacity: 0, scale: 0.8 },
+              }}
+              transition={{ duration: 0.3, ease: 'circOut' }} 
             >
-              Engage with nciipc <FontAwesomeIcon icon={faExternalLinkAlt} className="ml-2" />
-            </Link>
-          </motion.div>
+              <Link
+                to="/engage-with-nciipc"
+                className="px-4 py-2 text-indigo-800 rounded-md shadow-md flex items-center"
+              >
+                Engage with nciipc <FontAwesomeIcon icon={faExternalLinkAlt} className="ml-2" />
+              </Link>
+            </motion.div>
+          </div>
         </div>
       </div>
-    </div>
-  );
-};
-
-export default Forms;
+    );
+  };
+  
+  export default Forms;
+  
