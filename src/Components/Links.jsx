@@ -1,12 +1,13 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowLeft, faArrowRight, faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons';
 import ntroImg from './Images/ntroLogo.webp';
 import digitalIndiaImg from './Images/digitalIndiaImg.webp';
 import dotImg from './Images/dotImg.webp';
 import sebiImg from './Images/sebiImg.webp';
 import certinImg from './Images/certinImg.webp';
 import aadharImg from './Images/aadharImg.webp';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons';
+import './Links.css';
 
 const linksData = [
   { title: 'Digital India', imageUrl: digitalIndiaImg, url: 'https://digitalindia.gov.in/' },
@@ -18,86 +19,81 @@ const linksData = [
 ];
 
 const Links = () => {
-  const linksRef = useRef(null);
-  const [isHovered, setIsHovered] = useState(false);
-  const [animationStyle, setAnimationStyle] = useState('animate-infinite-scroll');
-
-  const handleExternalLinkClick = (event) => {
-    const confirmationMessage = "You are now leaving an official website of the National Critical Information Infrastructure Protection Centre (NCIIPC). Links to non-NCIIPC sites are provided for the visitor's convenience and do not represent an endorsement by NCIIPC of any commercial or private issues, products, or services.";
-    if (!window.confirm(confirmationMessage)) {
-      event.preventDefault();
-    }
-  };
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
+  const [isSmallScreen, setIsSmallScreen] = useState(false);
 
   useEffect(() => {
-    const handleMouseEnter = () => {
-      setIsHovered(true);
-      setAnimationStyle('pause-infinite-scroll');
+    const handleResize = () => {
+      setIsSmallScreen(window.innerWidth < 768);
     };
 
-    const handleMouseLeave = () => {
-      setIsHovered(false);
-      setAnimationStyle('animate-infinite-scroll');
-    };
+    handleResize();
 
-    const linksContainer = linksRef.current;
-    linksContainer.addEventListener('mouseenter', handleMouseEnter);
-    linksContainer.addEventListener('mouseleave', handleMouseLeave);
+    window.addEventListener('resize', handleResize);
 
     return () => {
-      linksContainer.removeEventListener('mouseenter', handleMouseEnter);
-      linksContainer.removeEventListener('mouseleave', handleMouseLeave);
+      window.removeEventListener('resize', handleResize);
     };
   }, []);
 
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if (!isPaused) handleNext();
+    }, 2000);
+    return () => clearInterval(interval);
+  }, [currentIndex, isPaused]);
+
+  const handleNext = () => {
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % linksData.length);
+  };
+
+  const handlePrev = () => {
+    setCurrentIndex((prevIndex) => (prevIndex - 1 + linksData.length) % linksData.length);
+  };
+
+  const visibleItems = isSmallScreen ? linksData : linksData.concat(linksData);
+
   return (
-    <div className="w-full max-w-5xl mx-auto px-4 md:px-6 py-8 bg-gray-100 mt-6">
+    <div
+      className="relative w-full max-w-6xl mx-auto mt-8 px-4"
+      onMouseEnter={() => setIsPaused(true)}
+      onMouseLeave={() => setIsPaused(false)}
+    >
       <h2 className="lg:text-3xl text-2xl text-titleColor font-bold text-center tracking-wide lg:mt-10 mb-6">Links</h2>
-      <div className="text-center">
+      <div className="overflow-hidden">
         <div
-          ref={linksRef}
-          className="w-full inline-flex flex-nowrap overflow-hidden [mask-image:_linear-gradient(to_right,transparent_0,_black_128px,_black_calc(100%-128px),transparent_100%)]"
+          className="flex transition-transform duration-500 ease-in-out"
+          style={{ transform: `translateX(-${(currentIndex + 1) * (isSmallScreen ? 100 : 25)}%)` }}
         >
-          <ul
-            className={`flex items-center justify-start [&_li]:mx-8 [&_img]:max-w-none ${animationStyle}`}
-          >
-            {linksData.map((link, index) => (
-              <li key={index} className="flex flex-col items-center">
-                <a
-                  href={link.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={handleExternalLinkClick}
-                  className="flex flex-col items-center text-[#3F72AF]"
-                >
-                  <img src={link.imageUrl} alt={`${link.title} - ${index + 1}`} title={link.title} className="w-16 md:w-24" />
-                  <div className="flex items-center mt-2">
-                    <span className="text-sm md:text-base font-semibold text-[#3F72AF]">{link.title}</span>
-                    <FontAwesomeIcon icon={faExternalLinkAlt} className="ml-1 text-[#3F72AF]" />
-                  </div>
+          {visibleItems.map((link, index) => (
+            <div key={index} className={`w-${isSmallScreen ? 'full' : '1/4'} flex-shrink-0 px-2`}>
+              <a href={link.url} target="_blank" rel="noopener noreferrer">
+                <img src={link.imageUrl} alt={link.title} className="w-full h-20 object-contain mx-auto" />
+              </a>
+              <div className="text-center mt-2">
+                <a href={link.url} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">
+                  {link.title} <FontAwesomeIcon icon={faExternalLinkAlt} />
                 </a>
-              </li>
-            ))}
-            {linksData.map((link, index) => (
-              <li key={`clone-${index}`} className="flex flex-col items-center">
-                <a
-                  href={link.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={handleExternalLinkClick}
-                  className="flex flex-col items-center"
-                >
-                  <img src={link.imageUrl} alt={`${link.title} Image`} title={link.title} className="w-16 md:w-24" />
-                  <div className="flex items-center mt-2">
-                    <span className="text-sm md:text-base font-semibold text-[#3F72AF]">{link.title}</span>
-                    <FontAwesomeIcon icon={faExternalLinkAlt} className="ml-1 text-[#3F72AF]" />
-                  </div>
-                </a>
-              </li>
-            ))}
-          </ul>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
+      {isSmallScreen && (
+        <>
+          <div className="absolute top-1/2 left-0 transform -translate-y-1/2 bg-white bg-opacity-50 hover:bg-opacity-100 p-2 rounded-full">
+            <button onClick={handlePrev}>
+              <FontAwesomeIcon icon={faArrowLeft} />
+            </button>
+          </div>
+          <div className="absolute top-1/2 right-0 transform -translate-y-1/2 bg-white bg-opacity-50 hover:bg-opacity-100 p-2 rounded-full">
+            <button onClick={handleNext}>
+              <FontAwesomeIcon icon={faArrowRight} />
+            </button>
+          </div>
+        </>
+      )}
     </div>
   );
 };

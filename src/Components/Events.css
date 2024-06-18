@@ -1,121 +1,68 @@
 .events-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    width: 100%;
-    height: 500px;
-    overflow: hidden;
-    margin-bottom: 20px;
-  }
-  
-  .event-cards {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    height: 80%;
-    transition: transform 0.5s ease-in-out;
-  }
-  
-  .event-card {
-    flex: 0 0 0 10%;
-    max-width: 400px;
-    height: 80%;
-    margin: 0 5px;
-    transition: transform 0.5s ease-in-out;
-  }
-  
-  .event-image-container {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-  }
-  
-  .event-image {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    border-radius: 10px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
-    transition: transform 0.5s ease-in-out;
-  }
-  
-  .event-image-container:hover .event-image {
-    transform: scale(1.1);
-  }
-  
-  .event-details {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    background-color: rgba(255, 255, 255, 0.8);
-    padding: 10px;
-    box-sizing: border-box;
-  }
-  
-  .arrow-button {
-    position: absolute;
-    top: 50%;
-    /* transform: translateY(-50%); */
-    font-size: 24px;
-    padding: 10px;
-    border: none;
-    background-color: rgba(0, 0, 0, 0.5);
-    color: white;
-    cursor: pointer;
-  }
-  
-  .left {
-    left: 10px;
-  }
-  
-  .right {
-    right: 10px;
-  }
-  
-  .progress-bar {
-    display: flex;
-    justify-content: center;
-    margin-top: 10px;
-  }
-  
-  .progress-bar-item {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    background-color: #ccc;
-    margin: 0 5px;
-    cursor: pointer;
-  }
-  
-  .progress-bar-item.active {
-    background-color: #333;
-  }
-  
-  @media (max-width: 1023px) {
-    
+  overflow-x: hidden;
+  display: flex;
+  justify-content: center;
+}
 
-    .event-image{
-        padding: 20px;
-        border-radius: 30px;
-    }
-  
-    .event-cards {
-      height: 60%;
-    }
-  
-    .event-card {
-      flex: 0 0 100%;
-      max-width: 100%;
-      height: auto;
-      margin: 0;
-    }
-  
-    .event-image-container {
-      height: 300px;
-      padding: 10px;
-    }
+.carousel {
+  display: flex;
+  justify-content: center; 
+  align-items: center;
+}
+
+.item {
+  min-height: 15rem;
+  min-width: 25rem;
+  padding: 1rem;
+  box-sizing: border-box;
+  cursor: pointer; 
+}
+
+.item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; 
+}
+
+.inner-carousel {
+  display: flex;
+}
+
+@media (max-width: 768px) {
+  .events-container {
+    margin: 0 1rem; 
+    padding: 0; 
   }
+
+  .item {
+    min-height: 15rem;
+    min-width: 20rem;
+    padding: 1rem;
+    box-sizing: border-box;
+    cursor: pointer;
+  }
+
+}
+
+
+
+.scroll-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  z-index: 10;
+  font-size: 1.5rem;
+}
+
+.scroll-button.left {
+  left: 0.5rem;
+}
+
+.scroll-button.right {
+  right: 0.5rem;
+}

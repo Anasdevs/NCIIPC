@@ -5,6 +5,8 @@ import { faFileDownload, faExternalLinkAlt, faEye, faTimes } from '@fortawesome/
 import incidentReportingImg from './Images/incidentReporting.webp';
 import vulnDisclosureImg from './Images/vulnDisclosure.webp';
 import malwareReporting from './Images/malwareReporting.webp';
+import { motion, useAnimationControls } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
 
 const forms = [
   {
@@ -27,6 +29,9 @@ const forms = [
 const Forms = () => {
   const [selectedForm, setSelectedForm] = useState(null);
   const [isMobile, setIsMobile] = useState(false);
+  const controls = useAnimationControls();
+  const buttonControls = useAnimationControls();
+  const [ref, inView] = useInView({ triggerOnce: true });
 
   useEffect(() => {
     const handleResize = () => {
@@ -40,6 +45,13 @@ const Forms = () => {
       window.removeEventListener('resize', handleResize);
     };
   }, []);
+
+  useEffect(() => {
+    if (inView) {
+      controls.start('visible');
+      buttonControls.start('visible');
+    }
+  }, [controls, buttonControls, inView]);
 
   const handlePdfClick = (event, form) => {
     event.preventDefault();
@@ -57,11 +69,34 @@ const Forms = () => {
   return (
     <div className="bg-gray-100 py-4">
       <div className="max-w-7xl md:mx-auto px-4 sm:px-6 lg:px-8 bg-gray-200 p-4 mx-4 rounded-md">
-        <h2 className="lg:text-2xl text-xl text-titleColor font-bold text-left tracking-wide lg:mt-2 mb-4">Engage with NCIIPC</h2>
+        <motion.h2
+          className="lg:text-2xl text-xl text-titleColor font-bold text-left tracking-wide lg:mt-2 mb-4"
+          ref={ref}
+          initial="hidden"
+          animate={controls}
+          variants={{
+            visible: { opacity: 1, scale: 1 }, 
+            hidden: { opacity: 0, scale: 0.8 },
+          }}
+          transition={{ duration: 0.3, ease: 'circOut' }}
+        >
+          Engage with NCIIPC
+        </motion.h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {forms.map((form, index) => (
-            <div key={index} className="bg-white rounded-lg shadow-md overflow-hidden text-center">
-              <img src={form.imageUrl} alt={form.title} className="h-24 w-full object-contain p-2" />
+            <motion.div
+              key={index}
+              className="bg-white rounded-lg shadow-md overflow-hidden text-center"
+              initial={{ opacity: 0, scale: 0.8 }} 
+              animate={controls}
+          variants={{
+            visible: { opacity: 1, scale: 1 }, 
+            hidden: { opacity: 0, scale: 0.8 },
+          }}
+          transition={{ duration: 0.3, ease: 'circOut' }} 
+        >
+              <img src={form.imageUrl} alt={form.title} className="h-24
+              w-full object-contain p-2" />
               <div className="p-4">
                 <h3 className="text-lg font-semibold mb-2">{form.title}</h3>
                 <div className="flex justify-center items-center space-x-2">
@@ -73,18 +108,17 @@ const Forms = () => {
                     <FontAwesomeIcon icon={faEye} className="mr-2" /> View
                   </button>
                   {!isMobile && (
-                    <a
+                    <button
                       href={form.pdf.url}
                       download
                       className="px-2 py-1 bg-green-600 text-white rounded-md hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 text-sm sm:text-base"
-                     
                     >
                       <FontAwesomeIcon icon={faFileDownload} className="mr-2" /> Download
-                    </a>
+                    </button>
                   )}
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
         {selectedForm && (
@@ -93,14 +127,13 @@ const Forms = () => {
               <div className="p-4 flex justify-between items-center">
                 <h4 className="text-lg font-semibold">{selectedForm.pdf.name}</h4>
                 <div className="flex space-x-4">
-                  <a
+                  <button
                     href={selectedForm.pdf.url}
                     download
                     className="px-3 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 text-sm sm:text-base"
-                   
                   >
                     <FontAwesomeIcon icon={faFileDownload} />
-                  </a>
+                  </button>
                   <button
                     onClick={handleModalClose}
                     className="text-gray-500 hover:text-gray-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 text-sm sm:text-base"
@@ -110,7 +143,7 @@ const Forms = () => {
                 </div>
               </div>
               <div className="p-4">
-                <div className="relative w-full pb-[56.25%]">
+                <div className="relative w-full pb-[56.25%]"> 
                   <iframe
                     src={selectedForm.pdf.url}
                     title={selectedForm.pdf.name}
@@ -122,12 +155,22 @@ const Forms = () => {
           </div>
         )}
         <div className="flex justify-end mt-4">
-          <Link
-            to="/engage-with-nciipc"
-            className="px-4 py-2 text-indigo-800 rounded-md shadow-md flex items-center"
-          >
-            Engage with nciipc <FontAwesomeIcon icon={faExternalLinkAlt} className="ml-2" />
-          </Link>
+          <motion.div
+            initial="hidden"
+            animate={controls}
+          variants={{
+            visible: { opacity: 1, scale: 1 }, 
+            hidden: { opacity: 0, scale: 0.8 },
+          }}
+          transition={{ duration: 0.3, ease: 'circOut' }} 
+        >
+            <Link
+              to="/engage-with-nciipc"
+              className="px-4 py-2 text-indigo-800 rounded-md shadow-md flex items-center"
+            >
+              Engage with nciipc <FontAwesomeIcon icon={faExternalLinkAlt} className="ml-2" />
+            </Link>
+          </motion.div>
         </div>
       </div>
     </div>

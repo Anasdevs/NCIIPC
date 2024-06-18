@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faChevronDown, faChevronUp, faFileDownload, faEye, faTimes } from '@fortawesome/free-solid-svg-icons';
+import { faChevronDown, faChevronUp, faFileDownload, faEye } from '@fortawesome/free-solid-svg-icons';
 import guidelinesImg from './Images/guidelines.webp';
+import { motion, useAnimation } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
 
 const Documents = () => {
   const [isAccordionOpen, setIsAccordionOpen] = useState({
@@ -11,6 +13,12 @@ const Documents = () => {
   const [selectedPdf, setSelectedPdf] = useState(null);
   const [searchTerm, setSearchTerm] = useState('');
   const [isMobile, setIsMobile] = useState(false);
+
+  const controls = useAnimation();
+  const { ref, inView } = useInView({
+    threshold: 0.3,
+    triggerOnce: true
+  });
 
   useEffect(() => {
     const handleResize = () => {
@@ -25,9 +33,16 @@ const Documents = () => {
     };
   }, []);
 
+  useEffect(() => {
+    if (inView) {
+      controls.start({ height: 'auto' });
+      setIsAccordionOpen({ guidelines: true });
+    }
+  }, [controls, inView]);
+
   const documents = [
     {
-      id: 'A',
+      id: 'guidelines',
       title: 'Guidelines',
       imageUrl: guidelinesImg,
       pdfs: [
@@ -47,7 +62,7 @@ const Documents = () => {
   ];
 
   const toggleAccordion = (id) => {
-    setIsAccordionOpen(prevState => ({ ...prevState, [id]: !prevState[id] }));
+    setIsAccordionOpen((prevState) => ({ ...prevState, [id]: !prevState[id] }));
   };
 
   const handlePdfClick = (event, pdf) => {
@@ -62,31 +77,45 @@ const Documents = () => {
   const handleModalClose = () => {
     setSelectedPdf(null);
   };
-  
+
   const handleSearchChange = (event) => {
-    // Sanitize input by removing any HTML tags
     const sanitizedInput = event.target.value.replace(/<\/?[^>]+(>|$)/g, '');
     setSearchTerm(sanitizedInput);
   };
 
-  const filteredPdfs = documents.flatMap(document => document.pdfs.filter(pdf => pdf.name.toLowerCase().includes(searchTerm.toLowerCase())));
+  const filteredPdfs = documents.flatMap((document) =>
+    document.pdfs.filter((pdf) => pdf.name.toLowerCase().includes(searchTerm.toLowerCase()))
+  );
 
   return (
     <div className="bg-gray-100 py-4">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 className="lg:text-3xl text-xl text-titleColor font-bold text-center tracking-wide mt-6 lg:mt-10 mb-4">Documents</h2>
         {documents.map((document) => (
-          <div key={document.id} className="w-full bg-white rounded-lg shadow-md overflow-hidden mb-6">
+          <motion.div
+            key={document.id}
+            className="w-full bg-white rounded-lg shadow-md overflow-hidden mb-6"
+            ref={ref}
+            initial={{ height: 0 }}
+            animate={controls}
+            transition={{ duration: 0.6 , ease: "easeInOut"}}
+          >
             <div
               className="flex items-center p-[5px] md:p-4 bg-[#3F72AF] text-white cursor-pointer"
               onClick={() => toggleAccordion(document.id)}
             >
               <img src={document.imageUrl} alt={document.title} className="h-16 w-16 object-contain mr-4" />
               <h3 className="md:text-lg sm:text-md font-semibold flex-grow">{document.title}</h3>
-              <FontAwesomeIcon className='mr-4' icon={isAccordionOpen[document.id] ? faChevronUp : faChevronDown} />
+              <FontAwesomeIcon className="mr-4" icon={isAccordionOpen[document.id] ? faChevronUp : faChevronDown} />
             </div>
             {isAccordionOpen[document.id] && (
-              <div className="p-6 bg-gray-50">
+           <motion.div
+           className="p-6 bg-gray-50"
+           initial={{ opacity: 0, height: 0 }}
+           animate={{ opacity: 1, height: 'auto' }}
+           exit={{ opacity: 0, height: 0 }}
+           transition={{ type: "spring", stiffness: 100, damping: 20, duration: 0.9, ease: "easeInOut" }}
+         >
                 <div className="mb-2 lg:mb-0 text-center">
                   <input
                     type="text"
@@ -103,7 +132,6 @@ const Documents = () => {
                         href="#"
                         onClick={(event) => handlePdfClick(event, pdf)}
                         className="text-blue-500 md:text-md text-sm hover:text-blue-700"
-                     
                       >
                         {pdf.name}
                       </a>
@@ -120,7 +148,6 @@ const Documents = () => {
                             href={pdf.url}
                             download
                             className="px-3 py-2 bg-green-600 text-white rounded-md hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500"
-                            
                           >
                             <FontAwesomeIcon icon={faFileDownload} />
                           </a>
@@ -129,9 +156,9 @@ const Documents = () => {
                     </li>
                   ))}
                 </ul>
-              </div>
+              </motion.div>
             )}
-          </div>
+          </motion.div>
         ))}
         {selectedPdf && (
           <div className="fixed inset-0 z-50 flex items-center justify-center bg-gray-900 bg-opacity-75">
@@ -143,7 +170,6 @@ const Documents = () => {
                     href={selectedPdf.url}
                     download
                     className="px-3 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500"
-                
                   >
                     <FontAwesomeIcon icon={faFileDownload} />
                   </a>
