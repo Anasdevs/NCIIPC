@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faChevronDown, faChevronUp, faFileDownload, faEye } from '@fortawesome/free-solid-svg-icons';
+import { faChevronDown, faChevronUp, faFileDownload, faEye, faTimes } from '@fortawesome/free-solid-svg-icons';
 import guidelinesImg from './Images/guidelines.webp';
 import { motion, useAnimation } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
