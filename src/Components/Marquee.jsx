@@ -1,4 +1,5 @@
 import React from 'react';
+import marqueeGif from './Images/marqueeImg.gif';
 import './Marquee.css';
 
 export default function Marquee() {
@@ -13,10 +14,10 @@ export default function Marquee() {
   return (
     <div>
       <div className="marquee">
-        <div className='marquee-container'>
+        <div className="marquee-container">
           <div className="marquee-content">
             <span className="marquee-text">
-              <span className="glow-label">New</span>
+              <img src={marqueeGif} alt="New" className="marquee-gif" />
               <a
                 href="#updates"
                 className="md:text-md text-sm cursor-pointer"
@@ -27,7 +28,7 @@ export default function Marquee() {
               </a>
             </span>
             <span className="marquee-text">
-              <span className="glow-label">New</span>
+              <img src={marqueeGif} alt="New" className="marquee-gif" />
               <a
                 href="#updates"
                 className="md:text-md text-sm cursor-pointer"

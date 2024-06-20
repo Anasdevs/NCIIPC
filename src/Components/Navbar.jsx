@@ -1,15 +1,27 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
+import { faBars, faTimes, faChevronDown } from '@fortawesome/free-solid-svg-icons';
 import { HashLink as Link } from 'react-router-hash-link';
 import logoImg from './Images/logoSm.webp';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isLargeScreen, setIsLargeScreen] = useState(false);
+  const [isSubmenuOpen, setIsSubmenuOpen] = useState(false);
+  const submenuRef = useRef(null);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
+  };
+
+  const toggleSubmenu = () => {
+    setIsSubmenuOpen(!isSubmenuOpen);
+  };
+
+  const closeSubmenu = (e) => {
+    if (submenuRef.current && !submenuRef.current.contains(e.target)) {
+      setIsSubmenuOpen(false);
+    }
   };
 
   useEffect(() => {
@@ -20,8 +32,11 @@ const Navbar = () => {
     window.addEventListener('resize', updateScreenSize);
     updateScreenSize();
 
+    document.addEventListener('click', closeSubmenu);
+
     return () => {
       window.removeEventListener('resize', updateScreenSize);
+      document.removeEventListener('click', closeSubmenu);
     };
   }, []);
 
@@ -67,13 +82,28 @@ const Navbar = () => {
       )}
 
       {isLargeScreen ? (
-        <div className="sm:flex justify-center items-center bg-gray-900 sm:bg-transparent sm:space-x-6">
+        <div className="sm:flex justify-center items-center bg-gray-900 sm:bg-transparent sm:space-x-6 relative">
           <Link to="/" className="py-2 sm:py-0 sm:mx-2 text-md cursor-pointer">
             HOME
           </Link>
-          <Link smooth to="/#about-us" className="py-2 sm:py-0 sm:mx-2 text-md cursor-pointer">
-            ABOUT US
-          </Link>
+          <div className="relative" ref={submenuRef}>
+            <button
+              onClick={toggleSubmenu}
+              className="py-2 sm:py-0 sm:mx-2 text-md cursor-pointer flex items-center"
+            >
+              ABOUT US <FontAwesomeIcon icon={faChevronDown} className="ml-2 mb-1 h-[15px]" />
+            </button>
+            {isSubmenuOpen && (
+              <div className="absolute left-0 mt-4 w-48 bg-[#ffffff] text-[#3F72AF] border z-50 ">
+                <Link smooth to="/#about-us" className="block py-2 px-4 text-md cursor-pointer hover:bg-[#3F72AF] hover:text-[#ffffff] ">
+                  ABOUT US
+                </Link>
+                <Link to="/nciipc-offices" className="block py-2 px-4 text-md cursor-pointer hover:bg-[#3F72AF] hover:text-[#ffffff]">
+                  OUR OFFICES
+                </Link>
+              </div>
+            )}
+          </div>
           <Link smooth to="/#updates" className="py-2 sm:py-0 sm:mx-2 text-md cursor-pointer">
             UPDATES
           </Link>
@@ -106,10 +136,23 @@ const Navbar = () => {
             <Link smooth to="/" className="text-md cursor-pointer" onClick={toggleMenu}>
               HOME
             </Link>
-            <hr className="w-full h-[2px] bg-gray-200 border-0" />
-            <Link smooth to="/#about-us" className="text-md cursor-pointer" onClick={toggleMenu}>
-              ABOUT US
-            </Link>
+            <hr className="w-full h-[2px] bg-gray-200" />
+            <div className="relative w-full" ref={submenuRef}>
+              <button onClick={toggleSubmenu} className="text-md cursor-pointer w-full text-left py-1 flex items-center">
+                ABOUT US <FontAwesomeIcon icon={faChevronDown} className="ml-1" />
+              </button>
+              {isSubmenuOpen && (
+                <div className="pl-4 mt-1">
+                  <Link smooth to="/#about-us" className="block py-1 text-md cursor-pointer" onClick={toggleMenu}>
+                    ABOUT US
+                  </Link>
+            <hr className="w-full h-[1px] bg-gray-200 border-0" />
+                  <Link to="/nciipc-offices" className="block py-1 text-md cursor-pointer" onClick={toggleMenu}>
+                    OUR OFFICES
+                  </Link>
+                </div>
+              )}
+            </div>
             <hr className="w-full h-[2px] bg-gray-200 border-0" />
             <Link smooth to="/#updates" className="text-md cursor-pointer" onClick={toggleMenu}>
               UPDATES

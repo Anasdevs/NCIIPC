@@ -1,109 +1,94 @@
 .marquee {
-    width: 100%;
-    white-space: nowrap;
-    overflow: hidden;
-    position: relative;
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  position: relative;
 }
 
 .marquee-container {
-    padding: 8px;
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .marquee-content {
-    display: inline-block;
-    white-space: nowrap;
-    animation: marquee 20s linear infinite;
+    display: inline-flex;
+  white-space: nowrap;
+  animation: marquee 20s linear infinite;
 }
 
 .marquee-container:hover .marquee-content {
-    animation-play-state: paused;
+  animation-play-state: paused;
 }
 
 .marquee-text {
-    margin-right: 40px;
-    display: inline-block;
-    animation: color-change 6s linear infinite;
+  margin-right: 50px;
+  animation: color-change 12s linear infinite;
+  display: flex;
+  align-items: center;
 }
+
 
 @media (max-width: 768px) {
-    .marquee-content {
-        animation: marquee 10s linear infinite;
+  .marquee-content {
+      animation: marquee 12s linear infinite;
+  }
+
+  .marquee-text{
+  margin-right: 70px;
+  }
+
+  .marquee-gif {
+    margin-right: 7px;
+    width: 50px;
     }
 }
 
-.glow-label {
-    background: #ff0000;
-    color: #fff;
-    padding: 3px 5px;
-    margin-right: 10px;
-    border-radius: 5px;
-    text-shadow: 0 0 10px rgba(255, 0, 0, 0.7), 0 0 20px rgba(255, 0, 0, 0.7), 0 0 30px rgba(255, 0, 0, 0.7);
-}
+.marquee-gif {
+  margin-right: 10px;
+  width: 50px;
+  }
 
 @keyframes marquee {
-    0% {
-        transform: translateX(100vw);
-    }
-    100% {
-        transform: translateX(-100%);
-    }
+  0% {
+      transform: translateX(100vw);
+  }
+  100% {
+      transform: translateX(-100%);
+  }
 }
 
-
 @keyframes color-change {
-    0% {
-      
+  0% {
       color: blue;
-    }
-    
-    10% {
-      
-      color: #8e44ad;
-    }
-    
-    20% {
-      
-      color: #0c5c4c;
-    }
-    
-    30% {
-      
-      color: #d35400;
-    }
-    
-    40% {
-      
-      color: blue;
-    }
-    
-    50% {
-      
-      color: #244464;
-    }
-    
-    60% {
-      
-      color: blue;
-    }
-    
-    70% {
-      
-      color: #2980b9;
-    }
-    80% {
-   
-      color: #5c4c0c;
-    }
-    
-    90% {
-   
-      color: #2980b9;
-    }
-    
-    100% {
-      
-      color: rgb(100, 41, 51);
-    }
   }
+  10% {
+      color: #8e44ad;
+  }
+  20% {
+      color: #0c5c4c;
+  }
+  30% {
+      color: #d35400;
+  }
+  40% {
+      color: blue;
+  }
+  50% {
+      color: #244464;
+  }
+  60% {
+      color: blue;
+  }
+  70% {
+      color: #2980b9;
+  }
+  80% {
+      color: #5c4c0c;
+  }
+  90% {
+      color: #2980b9;
+  }
+  100% {
+      color: rgb(100, 41, 51);
+  }
+}

@@ -131,6 +131,8 @@ const Updates = () => {
   const indexOfLastItem = currentPage * ITEMS_PER_PAGE;
   const indexOfFirstItem = indexOfLastItem - ITEMS_PER_PAGE;
   const currentItems = visiblePdfs.slice(indexOfFirstItem, indexOfLastItem);
+  
+  const isNextButtonDisabled = currentPage >= Math.ceil(visiblePdfs.length / ITEMS_PER_PAGE);
 
   useEffect(() => {
     const handleResize = () => {
@@ -181,7 +183,7 @@ const Updates = () => {
                       >
                         {pdf.name}
                       </a>
-                      {daysOld(pdf.date) <= 20 && (
+                      {daysOld(pdf.date) <= 30 && (
                         <span className="ml-2 px-2 py-1 bg-[#ff0000] text-white text-xs rounded">New</span>
                       )}
                     </div>
@@ -306,7 +308,7 @@ const Updates = () => {
                         >
                           {pdf.name}
                         </a>
-                        {daysOld(pdf.date) <= 20 && (
+                        {daysOld(pdf.date) <= 30 && (
                           <span className="ml-2 px-2 py-1 bg-[#ff0000] text-white text-xs rounded">New</span>
                         )}
                       </div>
