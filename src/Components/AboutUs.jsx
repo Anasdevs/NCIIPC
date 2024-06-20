@@ -1,4 +1,5 @@
 import React, { useState, useRef } from 'react';
+import { motion } from 'framer-motion'; // Import motion from framer-motion
 
 const AboutUs = () => {
   const [activeSection, setActiveSection] = useState('vision');
@@ -16,20 +17,20 @@ const AboutUs = () => {
 
   return (
     <div className="bg-gray-100 py-12">
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div className="lg:text-center">
-        <h2 className="lg:text-4xl text-2xl text-titleColor font-bold md:text-center text-left mt-4 lg:mx-auto">
-          About Us
-        </h2>
-        <div className="lg:text-center md:text-left text-left">
-          <p className="mt-4 text-xl leading-8 font-extrabold text-gray-900 lg:text-4xl">
-            National Critical Information Infrastructure Protection Centre (NCIIPC)
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="lg:text-center">
+          <h2 className="lg:text-4xl text-2xl text-titleColor font-bold md:text-center text-left mt-4 lg:mx-auto">
+            About Us
+          </h2>
+          <div className="lg:text-center md:text-left text-left">
+            <p className="mt-4 text-xl leading-8 font-extrabold text-gray-900 lg:text-4xl">
+              National Critical Information Infrastructure Protection Centre (NCIIPC)
+            </p>
+          </div>
+          <p className="mt-4  text-lg md:text-xl text-gray-500 lg:mx-auto">
+            National Critical Information Infrastructure Protection Centre (NCIIPC), a unit of NTRO, is an organisation of the Government of India created under Sec 70A of the Information Technology Act, 2000 (amended 2008), through a gazette notification on 16th Jan 2014 based in New Delhi, India. It is designated as the National Nodal Agency in respect of Critical Information Infrastructure Protection.
           </p>
         </div>
-        <p className="mt-4  text-lg md:text-xl text-gray-500 lg:mx-auto">
-          National Critical Information Infrastructure Protection Centre (NCIIPC), a unit of NTRO, is an organisation of the Government of India created under Sec 70A of the Information Technology Act, 2000 (amended 2008), through a gazette notification on 16th Jan 2014 based in New Delhi, India. It is designated as the National Nodal Agency in respect of Critical Information Infrastructure Protection.
-        </p>
-      </div>
         <div className="mt-10 flex justify-center">
           <nav className="flex space-x-4">
             <a
@@ -61,25 +62,37 @@ const AboutUs = () => {
 
         <div ref={contentRef} className="mt-10">
           {activeSection === 'vision' && (
-            <div>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+            >
               <h2 className="text-lg leading-6 font-medium text-gray-900" id="vision">Our Vision</h2>
               <p className="mt-2 text-base text-gray-700">
                 To facilitate safe, secure and resilient Information Infrastructure for Critical Sectors of the Nation.
               </p>
-            </div>
+            </motion.div>
           )}
 
           {activeSection === 'mission' && (
-            <div>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+            >
               <h2 className="text-lg leading-6 font-medium text-gray-900" id="mission">Our Mission</h2>
               <p className="mt-2 text-base text-gray-700">
                 To take all necessary measures to facilitate protection of Critical Information Infrastructure, from unauthorized access, modification, use, disclosure, disruption, incapacitation or destruction through coherent coordination, synergy and raising information security awareness among all stakeholders.
               </p>
-            </div>
+            </motion.div>
           )}
 
           {activeSection === 'functions' && (
-            <div>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+            >
               <h2 className="text-lg leading-6 font-medium text-gray-900" id="functions">Functions and Duties</h2>
               <ul className="mt-2 text-base text-gray-700 list-disc pl-5">
                 <li>National nodal agency for all measures to protect nation's critical information infrastructure.</li>
@@ -97,27 +110,23 @@ const AboutUs = () => {
                     <li>Issuing guidelines, advisories and vulnerability or audit notes etc. relating to protection of critical information infrastructure and practices, procedures, prevention and response in consultation with the stake holders, in close coordination with Indian Computer Emergency Response Team and other organisations working in the field or related fields.</li>
                     <li>Exchanging cyber incidents and other information relating to attacks and vulnerabilities with Indian Computer Emergency Response Team and other concerned organisations in the field.</li>
                     <li>In the event of any threat to critical information infrastructure the National Critical Information Infrastructure Protection Centre may call for information and give directions to the critical sectors or persons serving or having a critical impact on Critical Information Infrastructure.</li>
-              
-                      <button
-                        onClick={toggleShowAllFunctions}
-                        className="text-blue-500 hover:underline focus:outline-none"
-                      >
-                        Read Less
-                      </button>
-                 
                   </>
-                ) : (
-                
-                    <button
-                      onClick={toggleShowAllFunctions}
-                      className="text-blue-500 hover:underline focus:outline-none"
-                    >
-                      Read More
-                    </button>
-               
-                )}
+                ) : null}
               </ul>
-            </div>
+            </motion.div>
+          )}
+
+          {/* Toggle button */}
+          {activeSection === 'functions' && (
+            <motion.button
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              onClick={toggleShowAllFunctions}
+              className="text-blue-500 hover:underline focus:outline-none mt-4"
+            >
+              {showAllFunctions ? 'Read Less' : 'Read More'}
+            </motion.button>
           )}
         </div>
       </div>

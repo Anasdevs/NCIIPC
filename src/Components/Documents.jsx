@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronDown, faChevronUp, faFileDownload, faEye, faTimes } from '@fortawesome/free-solid-svg-icons';
 import guidelinesImg from './Images/guidelines.webp';
-import { motion, useAnimation } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 
 const Documents = () => {
@@ -14,7 +14,6 @@ const Documents = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [isMobile, setIsMobile] = useState(false);
 
-  const controls = useAnimation();
   const { ref, inView } = useInView({
     threshold: 0.3,
     triggerOnce: true
@@ -35,10 +34,9 @@ const Documents = () => {
 
   useEffect(() => {
     if (inView) {
-      controls.start({ height: 'auto' });
       setIsAccordionOpen({ guidelines: true });
     }
-  }, [controls, inView]);
+  }, [inView]);
 
   const documents = [
     {
@@ -92,13 +90,10 @@ const Documents = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 className="lg:text-3xl text-xl text-titleColor font-bold text-center tracking-wide mt-6 lg:mt-10 mb-4">Documents</h2>
         {documents.map((document) => (
-          <motion.div
+          <div
             key={document.id}
             className="w-full bg-white rounded-lg shadow-md overflow-hidden mb-6"
             ref={ref}
-            initial={{ height: 0 }}
-            animate={controls}
-            transition={{ duration: 0.6 , ease: "easeInOut"}}
           >
             <div
               className="flex items-center p-[5px] md:p-4 bg-[#3F72AF] text-white cursor-pointer"
@@ -108,57 +103,59 @@ const Documents = () => {
               <h3 className="md:text-lg sm:text-md font-semibold flex-grow">{document.title}</h3>
               <FontAwesomeIcon className="mr-4" icon={isAccordionOpen[document.id] ? faChevronUp : faChevronDown} />
             </div>
-            {isAccordionOpen[document.id] && (
-           <motion.div
-           className="p-6 bg-gray-50"
-           initial={{ opacity: 0, height: 0 }}
-           animate={{ opacity: 1, height: 'auto' }}
-           exit={{ opacity: 0, height: 0 }}
-           transition={{ type: "spring", stiffness: 100, damping: 20, duration: 0.9, ease: "easeInOut" }}
-         >
-                <div className="mb-2 lg:mb-0 text-center">
-                  <input
-                    type="text"
-                    placeholder="Search..."
-                    value={searchTerm}
-                    onChange={handleSearchChange}
-                    className="px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
-                  />
-                </div>
-                <ul className="max-h-96 overflow-y-auto">
-                  {filteredPdfs.map((pdf, index) => (
-                    <li key={index} className="mb-2 flex justify-between items-center">
-                      <a
-                        href="#"
-                        onClick={(event) => handlePdfClick(event, pdf)}
-                        className="text-blue-500 md:text-md text-sm hover:text-blue-700"
-                      >
-                        {pdf.name}
-                      </a>
-                      <div className="flex space-x-2">
-                        <button
+            <AnimatePresence>
+              {isAccordionOpen[document.id] && (
+                <motion.div
+                  className="p-6 bg-gray-50"
+                  initial={{ opacity: 0, height: 0 }}
+                  animate={{ opacity: 1, height: 'auto' }}
+                  exit={{ opacity: 0, height: 0 }}
+                  transition={{ type: "spring", stiffness: 100, damping: 20, duration: 0.9, ease: "easeInOut" }}
+                >
+                  <div className="mb-2 lg:mb-0 text-center">
+                    <input
+                      type="text"
+                      placeholder="Search..."
+                      value={searchTerm}
+                      onChange={handleSearchChange}
+                      className="px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                    />
+                  </div>
+                  <ul className="max-h-96 overflow-y-auto">
+                    {filteredPdfs.map((pdf, index) => (
+                      <li key={index} className="mb-2 flex justify-between items-center">
+                        <a
+                          href="#"
                           onClick={(event) => handlePdfClick(event, pdf)}
-                          className="px-3 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500"
-                          aria-label="Preview PDF"
+                          className="text-blue-500 md:text-md text-sm hover:text-blue-700"
                         >
-                          <FontAwesomeIcon icon={faEye} />
-                        </button>
-                        {!isMobile && (
-                          <a
-                            href={pdf.url}
-                            download
-                            className="px-3 py-2 bg-green-600 text-white rounded-md hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500"
+                          {pdf.name}
+                        </a>
+                        <div className="flex space-x-2">
+                          <button
+                            onClick={(event) => handlePdfClick(event, pdf)}
+                            className="px-3 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                            aria-label="Preview PDF"
                           >
-                            <FontAwesomeIcon icon={faFileDownload} />
-                          </a>
-                        )}
-                      </div>
-                    </li>
-                  ))}
-                </ul>
-              </motion.div>
-            )}
-          </motion.div>
+                            <FontAwesomeIcon icon={faEye} />
+                          </button>
+                          {!isMobile && (
+                            <a
+                              href={pdf.url}
+                              download
+                              className="px-3 py-2 bg-green-600 text-white rounded-md hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500"
+                            >
+                              <FontAwesomeIcon icon={faFileDownload} />
+                            </a>
+                          )}
+                        </div>
+                      </li>
+                    ))}
+                  </ul>
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
         ))}
         {selectedPdf && (
           <div className="fixed inset-0 z-50 flex items-center justify-center bg-gray-900 bg-opacity-75">

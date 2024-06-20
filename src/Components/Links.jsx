@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React from 'react';
 import ntroImg from './Images/ntroLogo.webp';
 import digitalIndiaImg from './Images/digitalIndiaImg.webp';
 import dotImg from './Images/dotImg.webp';
@@ -7,6 +7,7 @@ import certinImg from './Images/certinImg.webp';
 import aadharImg from './Images/aadharImg.webp';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons';
+import "./Links.css"
 
 const linksData = [
   { title: 'Digital India', imageUrl: digitalIndiaImg, url: 'https://digitalindia.gov.in/' },
@@ -18,10 +19,6 @@ const linksData = [
 ];
 
 const Links = () => {
-  const linksRef = useRef(null);
-  const [isHovered, setIsHovered] = useState(false);
-  const [animationStyle, setAnimationStyle] = useState('animate-infinite-scroll');
-
   const handleExternalLinkClick = (event) => {
     const confirmationMessage = "You are now leaving an official website of the National Critical Information Infrastructure Protection Centre (NCIIPC). Links to non-NCIIPC sites are provided for the visitor's convenience and do not represent an endorsement by NCIIPC of any commercial or private issues, products, or services.";
     if (!window.confirm(confirmationMessage)) {
@@ -29,73 +26,30 @@ const Links = () => {
     }
   };
 
-  useEffect(() => {
-    const handleMouseEnter = () => {
-      setIsHovered(true);
-      setAnimationStyle('pause-infinite-scroll');
-    };
-
-    const handleMouseLeave = () => {
-      setIsHovered(false);
-      setAnimationStyle('animate-infinite-scroll');
-    };
-
-    const linksContainer = linksRef.current;
-    linksContainer.addEventListener('mouseenter', handleMouseEnter);
-    linksContainer.addEventListener('mouseleave', handleMouseLeave);
-
-    return () => {
-      linksContainer.removeEventListener('mouseenter', handleMouseEnter);
-      linksContainer.removeEventListener('mouseleave', handleMouseLeave);
-    };
-  }, []);
-
   return (
-    <div className="w-full max-w-5xl mx-auto px-4 md:px-6 py-8 bg-gray-100 mt-6">
-      <h2 className="lg:text-3xl text-2xl text-titleColor font-bold text-center tracking-wide lg:mt-10 mb-6">Links</h2>
-      <div className="text-center">
-        <div
-          ref={linksRef}
-          className="w-full inline-flex flex-nowrap overflow-hidden [mask-image:_linear-gradient(to_right,transparent_0,_black_128px,_black_calc(100%-128px),transparent_100%)]"
-        >
-          <ul
-            className={`flex items-center justify-start [&_li]:mx-8 [&_img]:max-w-none ${animationStyle}`}
-          >
-            {linksData.map((link, index) => (
-              <li key={index} className="flex flex-col items-center">
-                <a
-                  href={link.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={handleExternalLinkClick}
-                  className="flex flex-col items-center text-[#3F72AF]"
-                >
-                  <img src={link.imageUrl} alt={`${link.title} - ${index + 1}`} title={link.title} className="w-16 md:w-24" />
-                  <div className="flex items-center mt-2">
-                    <span className="text-sm md:text-base font-semibold text-[#3F72AF]">{link.title}</span>
-                    <FontAwesomeIcon icon={faExternalLinkAlt} className="ml-1 text-[#3F72AF]" />
-                  </div>
-                </a>
-              </li>
-            ))}
-            {linksData.map((link, index) => (
-              <li key={`clone-${index}`} className="flex flex-col items-center">
-                <a
-                  href={link.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={handleExternalLinkClick}
-                  className="flex flex-col items-center"
-                >
-                  <img src={link.imageUrl} alt={`${link.title} Image`} title={link.title} className="w-16 md:w-24" />
-                  <div className="flex items-center mt-2">
-                    <span className="text-sm md:text-base font-semibold text-[#3F72AF]">{link.title}</span>
-                    <FontAwesomeIcon icon={faExternalLinkAlt} className="ml-1 text-[#3F72AF]" />
-                  </div>
-                </a>
-              </li>
-            ))}
-          </ul>
+    <div className="links-section w-full max-w-7xl mx-auto px-4 md:px-6 py-8 bg-gray-100 mt-6">
+      <h2 className="links-title lg:text-3xl text-2xl text-titleColor font-bold text-center tracking-wide lg:mt-10 mb-6">Links</h2>
+      <div className="links-container">
+        <div className="links-scroll-wrapper">
+          {[...linksData, ...linksData].map((link, index) => (
+            <div key={index} className="link-element">
+              <a
+                href={link.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={handleExternalLinkClick}
+                className="flex flex-col items-center justify-center h-full"
+              >
+                <img src={link.imageUrl} alt={`${link.title} - ${index + 1}`} title={link.title} className="link-image" />
+                <div className="link-title">
+                  <span>{link.title}</span>
+                </div>
+                <div className="link-url">
+                  {link.url.replace('https://', '')} <FontAwesomeIcon icon={faExternalLinkAlt} className="ml-1" />
+                </div>
+              </a>
+            </div>
+          ))}
         </div>
       </div>
     </div>
