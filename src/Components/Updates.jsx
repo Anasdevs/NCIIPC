@@ -14,7 +14,7 @@ const Updates = () => {
   const [sortByDate, setSortByDate] = useState('');
   const [isMobile, setIsMobile] = useState(false);
 
-  const ITEMS_PER_PAGE = 7;
+  const ITEMS_PER_PAGE = 8;
   const [currentPage, setCurrentPage] = useState(1);
 
   const currentDate = new Date();
@@ -149,7 +149,7 @@ const Updates = () => {
 
   return (
     <div className="bg-gray-100">
-      <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-6 md:px-6 lg:px-0">
 
         <h2 className="lg:text-3xl text-2xl text-titleColor font-bold text-center tracking-wide lg:mt-8 mt-4 mb-2">Updates</h2>
         <div className="flex flex-col lg:flex-row items-center justify-center mb-6">
@@ -330,10 +330,13 @@ const Updates = () => {
                   >
                     Previous
                   </button>
-                  <button
-                    className={`px-3 py-2 bg-indigo-600 text-white text-sm rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 ${currentItems.length < ITEMS_PER_PAGE ? 'opacity-50 cursor-not-allowed' : ''}`}
+                  
+<button
                     onClick={() => handlePageChange(currentPage + 1)}
-                    disabled={currentItems.length < ITEMS_PER_PAGE}
+                    disabled={isNextButtonDisabled}
+                    className={`px-4 py-2 bg-indigo-500 text-white rounded-lg shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 ${
+                      isNextButtonDisabled ? 'opacity-50 cursor-not-allowed' : ''
+                    }`}
                   >
                     Next
                   </button>

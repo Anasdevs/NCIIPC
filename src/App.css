@@ -18,3 +18,30 @@
   .scroll-to-top:hover {
     opacity: 0.9;
   }
+
+
+/* scrollbar*/
+
+::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	background-color: #F5F5F5;
+	border-radius: 10px;
+}
+
+::-webkit-scrollbar
+{
+	width: 8px;
+	background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb
+{
+	border-radius: 10px;
+	background-image: -webkit-gradient(linear,
+									   left bottom,
+									   left top,
+									   color-stop(0.44, rgb(30, 79, 145)),
+									   color-stop(0.72, rgb(42, 89, 148)),
+									   color-stop(0.86, rgb(44, 88, 143)));
+}

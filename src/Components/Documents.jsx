@@ -87,7 +87,7 @@ const Documents = () => {
 
   return (
     <div className="bg-gray-100 py-4">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-6 lg:px-0">
         <h2 className="lg:text-3xl text-xl text-titleColor font-bold text-center tracking-wide mt-6 lg:mt-10 mb-4">Documents</h2>
         {documents.map((document) => (
           <div
@@ -131,10 +131,10 @@ const Documents = () => {
                         >
                           {pdf.name}
                         </a>
-                        <div className="flex space-x-2">
+                        <div className="flex space-x-2 lg:mr-2">
                           <button
                             onClick={(event) => handlePdfClick(event, pdf)}
-                            className="px-3 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                            className="px-3 py-2 mr-2 md:mr-0 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500"
                             aria-label="Preview PDF"
                           >
                             <FontAwesomeIcon icon={faEye} />
