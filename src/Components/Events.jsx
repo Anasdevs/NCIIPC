@@ -37,7 +37,6 @@ const Events = () => {
       setDragConstraints(newDragConstraints);
       const initialX = screenWidth <= 768 ? 1250 : 1200;
       x.set(initialX);
-      setScrollText('Scroll >');
     };
 
     handleResize();
@@ -58,21 +57,6 @@ const Events = () => {
       },
     });
   }, [controls]);
-
-  const handleScroll = () => {
-    const carouselWidth = carousel.current.offsetWidth;
-    const containerWidth = carousel.current.parentElement.offsetWidth;
-    const maxScrollWidth = carouselWidth - containerWidth;
-    const currentX = x.get();
-
-    if (currentX === 0) {
-      setScrollText('Scroll >');
-    } else if (currentX >= maxScrollWidth) {
-      setScrollText('< Scroll');
-    } else {
-      setScrollText('Scroll >');
-    }
-  };
 
   return (
     <div>
@@ -106,11 +90,10 @@ const Events = () => {
             display: 'flex',
             alignItems: 'center',
             pointerEvents: 'none',
-            zIndex: 10,
+            zIndex: 0
           }}
         >
           <motion.button
-            onClick={handleScroll}
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
             style={{
