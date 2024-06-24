@@ -5,7 +5,7 @@ import { faFileDownload, faExternalLinkAlt, faEye, faTimes } from '@fortawesome/
 import incidentReportingImg from './Images/incidentReporting.png';
 import vulnDisclosureImg from './Images/vulnDisclosure.webp';
 import malwareReporting from './Images/malwareReporting.png';
-import aboutBg from './Images/aboutBg.svg'
+// import aboutBg from './Images/aboutBg.svg'
 
 
 const forms = [
@@ -58,8 +58,7 @@ const Forms = () => {
   
 
   return (
-    <div className="py-4 relative" style={{
-      backgroundImage: `url(${aboutBg})`}}>
+    <div className="py-4 relative" style={{ backgroundImage: `url(/aboutBg.svg)` }}>
       <div className="relative max-w-7xl md:mx-auto px-4 sm:px-6 lg:px-8 bg-gray-100 p-4 mx-4 rounded-md">
         <h2 className="lg:text-xl text-titleColor font-bold text-left tracking-wide lg:mb-4">Engage with NCIIPC</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">

@@ -1,6 +1,6 @@
 import React, { useState, useRef } from 'react';
 import { motion } from 'framer-motion';
-import aboutBg from './Images/aboutBg.svg'
+// import aboutBg from './Images/aboutBg.svg'
 const AboutUs = () => {
   const [activeSection, setActiveSection] = useState('vision');
   const [showAllFunctions, setShowAllFunctions] = useState(false);
@@ -18,8 +18,7 @@ const AboutUs = () => {
 
 
   return (
-    <div className="bg-gray-100 py-12" style={{
-      backgroundImage: `url(${aboutBg})`}}>
+    <div className="bg-gray-100 py-12" style={{ backgroundImage: `url(/aboutBg.svg)` }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="lg:text-center">
           <h2 className="lg:text-4xl text-2xl text-titleColor font-bold md:text-center text-left mt-4 lg:mx-auto">

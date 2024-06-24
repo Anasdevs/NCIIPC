@@ -10,7 +10,7 @@ import eventImg7 from './Images/events/eventImg7.webp';
 import eventImg8 from './Images/events/eventImg8.webp';
 import eventImg9 from './Images/events/eventImg9.webp';
 import './Events.css';
-import aboutBg from './Images/aboutBg.svg'
+// import aboutBg from './Images/aboutBg.svg'
 
 
 const images = [
@@ -61,8 +61,7 @@ const Events = () => {
   }, [controls]);
 
   return (
-    <div style={{
-      backgroundImage: `url(${aboutBg})`}}>
+    <div style={{ backgroundImage: `url(/aboutBg.svg)` }}>
       <h2 className="lg:text-3xl text-2xl text-titleColor font-bold text-center tracking-wide lg:mt-[80px] mt-12 mb-3">
         Events
       </h2>

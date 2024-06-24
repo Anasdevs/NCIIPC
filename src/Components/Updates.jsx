@@ -3,9 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye, faFileDownload, faTimes } from '@fortawesome/free-solid-svg-icons';
 import cveImg from './Images/cve.png';
 import newslettersImg from './Images/newsletters.webp';
-import curvyBg from './Images/curvyBg.svg'
-import whirlBg from './Images/whirlBg.svg'
-import aboutBg from './Images/aboutBg.svg'
+// import aboutBg from './Images/aboutBg.svg'
 
 
 const Updates = () => {
@@ -152,9 +150,7 @@ const Updates = () => {
   }, []);
 
   return (
-    <div className="bg-gray-100" style={{
-      backgroundImage: `url(${aboutBg})`,
-   }}>
+    <div className="bg-gray-100" style={{ backgroundImage: `url(/aboutBg.svg)` }}>
       <div className="max-w-7xl mx-auto px-6 md:px-6 lg:px-0">
 
         <h2 className="lg:text-3xl text-2xl text-titleColor font-bold text-center tracking-wide lg:mt-8 mt-4 mb-2">Updates</h2>
