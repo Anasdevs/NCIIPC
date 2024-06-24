@@ -4,6 +4,8 @@ import { faChevronDown, faChevronUp, faFileDownload, faEye, faTimes } from '@for
 import guidelinesImg from './Images/guidelines.webp';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
+import aboutBg from './Images/aboutBg.svg'
+
 
 const Documents = () => {
   const [isAccordionOpen, setIsAccordionOpen] = useState({
@@ -86,7 +88,8 @@ const Documents = () => {
   );
 
   return (
-    <div className="bg-gray-100 py-4">
+    <div className="bg-gray-100 py-4" style={{
+      backgroundImage: `url(${aboutBg})`}}>
       <div className="max-w-7xl mx-auto px-6 lg:px-0">
         <h2 className="lg:text-3xl text-xl text-titleColor font-bold text-center tracking-wide mt-6 lg:mt-10 mb-4">Documents</h2>
         {documents.map((document) => (

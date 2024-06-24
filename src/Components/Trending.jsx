@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUpRightFromSquare } from '@fortawesome/free-solid-svg-icons';
+import fallingBg from './Images/fallingBg1.svg'
 
 const Trending = () => {
   const trendingLinks = [
@@ -24,6 +25,7 @@ const Trending = () => {
   };
 
   return (
+    <div >
     <div className="max-w-7xl md:mx-auto md-6 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-lg shadow-lg p-6 m-6 mt-[70px] relative">
       <h3 className="text-2xl font-bold text-white mb-4">New Initiatives</h3>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -53,6 +55,7 @@ const Trending = () => {
           </div>
         ))}
       </div>
+    </div>
     </div>
   );
 };

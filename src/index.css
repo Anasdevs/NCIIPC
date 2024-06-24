@@ -7,6 +7,6 @@
 body{
     margin: 0;
     color: black;
-    background-color:rgb(243, 244, 246);
+    background-color:rgba(243, 244, 246, 0.863);
     font-family: Poppins;
 }

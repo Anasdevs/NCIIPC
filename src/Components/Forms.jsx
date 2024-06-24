@@ -2,9 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFileDownload, faExternalLinkAlt, faEye, faTimes } from '@fortawesome/free-solid-svg-icons';
-import incidentReportingImg from './Images/incidentReporting.webp';
+import incidentReportingImg from './Images/incidentReporting.png';
 import vulnDisclosureImg from './Images/vulnDisclosure.webp';
-import malwareReporting from './Images/malwareReporting.webp';
+import malwareReporting from './Images/malwareReporting.png';
+import aboutBg from './Images/aboutBg.svg'
+
 
 const forms = [
   {
@@ -53,34 +55,36 @@ const Forms = () => {
   const handleModalClose = () => {
     setSelectedForm(null);
   };
+  
 
   return (
-    <div className="bg-gray-100 py-4">
-      <div className="max-w-7xl md:mx-auto px-4 sm:px-6 lg:px-8 bg-gray-200 p-4 mx-4 rounded-md">
+    <div className="py-4 relative" style={{
+      backgroundImage: `url(${aboutBg})`}}>
+      <div className="relative max-w-7xl md:mx-auto px-4 sm:px-6 lg:px-8 bg-gray-100 p-4 mx-4 rounded-md">
         <h2 className="lg:text-xl text-titleColor font-bold text-left tracking-wide lg:mb-4">Engage with NCIIPC</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {forms.map((form, index) => (
-            <div key={index} className="bg-white rounded-lg shadow-md overflow-hidden text-center">
-              <img src={form.imageUrl} alt={form.title} className="h-24 w-full object-contain p-2" loading="lazy" />
-              <div className="p-4">
+            <div key={index} className="relative bg-white rounded-lg shadow-md overflow-hidden text-center">
+              <div className="bg-gradient-to-b from-gray-200 to-transparent h-full w-full absolute top-0 left-0 z-0"></div>
+              <img src={form.imageUrl} alt={form.title} className="h-24 w-full object-contain p-2 relative z-10 bg-gray-200 rounded-md bg-clip-padding backdrop-filter backdrop-blur-3xl bg-opacity-10" loading="lazy" />
+              <div className="p-4 relative z-10">
                 <h3 className="text-lg font-semibold mb-2">{form.title}</h3>
                 <div className="flex justify-center items-center space-x-2">
-                <button
-                      onClick={(event) => handlePdfClick(event, form)}
-                      className="px-2 py-1 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 text-sm sm:text-base"
-                      aria-label="Preview PDF"
-                    >
-                      <FontAwesomeIcon icon={faEye} className="mr-2" /> View
-                    </button>
-                 
+                  <button
+                    onClick={(event) => handlePdfClick(event, form)}
+                    className="px-2 py-1 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 text-sm sm:text-base transition-colors"
+                    aria-label="Preview PDF"
+                  >
+                    <FontAwesomeIcon icon={faEye} className="mr-2" /> View
+                  </button>
                   {!isMobile && (
                     <a
-                    href={form.pdf.url}
-                    download
-                    className="px-2 py-1 bg-green-600 text-white rounded-md hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 text-sm sm:text-base"
-                  >
-                    <FontAwesomeIcon icon={faFileDownload} className="mr-2" /> Download
-                  </a>
+                      href={form.pdf.url}
+                      download
+                      className="px-2 py-1 bg-green-600 text-white rounded-md hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 text-sm sm:text-base transition-colors"
+                    >
+                      <FontAwesomeIcon icon={faFileDownload} className="mr-2" /> Download
+                    </a>
                   )}
                 </div>
               </div>
@@ -93,16 +97,16 @@ const Forms = () => {
               <div className="p-4 flex justify-between items-center">
                 <h4 className="text-lg font-semibold">{selectedForm.pdf.name}</h4>
                 <div className="flex space-x-4">
-                  <button
+                  <a
                     href={selectedForm.pdf.url}
                     download
-                    className="px-3 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 text-sm sm:text-base"
+                    className="px-3 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 text-sm sm:text-base transition-colors"
                   >
                     <FontAwesomeIcon icon={faFileDownload} />
-                  </button>
+                  </a>
                   <button
                     onClick={handleModalClose}
-                    className="text-gray-500 hover:text-gray-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 text-sm sm:text-base"
+                    className="text-gray-500 hover:text-gray-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 text-sm sm:text-base transition-colors"
                   >
                     <FontAwesomeIcon icon={faTimes} className="text-2xl" />
                   </button>
@@ -121,8 +125,8 @@ const Forms = () => {
           </div>
         )}
         <div className="flex justify-end mt-4">
-          <Link to="/engage-with-nciipc" className="px-4 py-2 text-indigo-800 rounded-md shadow-md flex items-center">
-            Engage with nciipc <FontAwesomeIcon icon={faExternalLinkAlt} className="ml-2" />
+          <Link to="/engage-with-nciipc" className="px-6 py-3 bg-indigo-600 text-white rounded-full shadow-lg hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 flex items-center transition-colors">
+            Engage with NCIIPC <FontAwesomeIcon icon={faExternalLinkAlt} className="ml-2" />
           </Link>
         </div>
       </div>

@@ -1,8 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye, faFileDownload, faTimes } from '@fortawesome/free-solid-svg-icons';
-import cveImg from './Images/cve.webp';
+import cveImg from './Images/cve.png';
 import newslettersImg from './Images/newsletters.webp';
+import curvyBg from './Images/curvyBg.svg'
+import whirlBg from './Images/whirlBg.svg'
+import aboutBg from './Images/aboutBg.svg'
+
 
 const Updates = () => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -148,7 +152,9 @@ const Updates = () => {
   }, []);
 
   return (
-    <div className="bg-gray-100">
+    <div className="bg-gray-100" style={{
+      backgroundImage: `url(${aboutBg})`,
+   }}>
       <div className="max-w-7xl mx-auto px-6 md:px-6 lg:px-0">
 
         <h2 className="lg:text-3xl text-2xl text-titleColor font-bold text-center tracking-wide lg:mt-8 mt-4 mb-2">Updates</h2>
@@ -165,12 +171,24 @@ const Updates = () => {
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-6">
           {filteredCategories.map(category => (
-            <div key={category.id} className="bg-white rounded-lg shadow-md p-4">
-              <div className="flex items-center mb-4">
+            <div key={category.id} className=" bg-[#ffffff] rounded-md  border p-4 shadow-sm border-gray-200">
+            <div
+  className="flex items-center mb-4"
+  style={{
+    background: 'rgba(255, 255, 255, 0.1)',
+    boxShadow: '0 2px 3px 0 rgba(161, 165, 209, 0.2)',
+    backdropFilter: 'blur(3px)',
+    WebkitBackdropFilter: 'blur(3px)',
+    borderRadius: '10px',
+    border: '1px solid rgba(255, 255, 255, 0.18)',
+  }}
+>
+
+
                 <img src={category.imageUrl} alt={category.title} className="h-14 w-14 object-contain mr-4" />
                 <h3 className="text-xl font-semibold">{category.title}</h3>
               </div>
-              <ul className="space-y-2">
+              <ul className="space-y-2 ">
                 {category.pdfs.slice(0, 4).map((pdf, index) => (
                   <li key={index} className="flex justify-between items-center">
                     <div>
