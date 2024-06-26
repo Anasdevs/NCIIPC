@@ -1,12 +1,15 @@
 import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft} from '@fortawesome/free-solid-svg-icons';
-
+import { Helmet } from 'react-helmet';
 
 export default function 
 () {
   return (
     <div>
+      <Helmet>
+      <title>404 Page not found | NCIIPC</title>
+    </Helmet>
         <div class="bg-gray-200 w-full px-16 md:px-0 h-screen flex items-center justify-center">
     <div class="bg-white border border-gray-200 flex flex-col items-center justify-center px-4 md:px-8 lg:px-24 py-8 rounded-lg shadow-2xl">
         <p class="text-6xl md:text-7xl lg:text-9xl font-bold tracking-wider text-gray-300">404</p>

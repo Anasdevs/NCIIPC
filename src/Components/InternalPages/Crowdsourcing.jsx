@@ -1,9 +1,13 @@
 import React from 'react';
 import crowdsourcingImg from '../Images/crowdsourcingImg.webp'
+import { Helmet } from 'react-helmet';
 
 const Crowdsourcing = () => {
   return (
     <div>
+      <Helmet>
+      <title>Crowdsourcing of Ethical Hackers | NCIIPC</title>
+    </Helmet>
     <div className="container mx-auto px-8 py-12">
   <img src={crowdsourcingImg} className='h-[200px] w-full lg:h-[400px] lg:w-full' alt="Crowdsourcing" srcSet="" />
       <h1 className="text-2xl md:text-3xl font-bold mb-6 text-center md:mt-8 mt-1">Crowdsourcing of Ethical Hackers</h1>

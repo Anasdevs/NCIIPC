@@ -1,11 +1,16 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons';
+import { Helmet } from 'react-helmet';
+
 
 
 const EngageWithUs = () => {
   return (
     <div>
+      <Helmet>
+      <title>Engage with NCIIPC | NCIIPC</title>
+    </Helmet>
     <div className="container mx-auto px-8 py-12">
       <h2 className="text-2xl md:text-3xl font-bold mb-6 text-center md:mt-4 mt-1">Engage With Us</h2>
       

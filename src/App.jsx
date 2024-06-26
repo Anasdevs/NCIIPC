@@ -23,6 +23,8 @@ import PentestingScheme from './Components/InternalPages/PentestingScheme';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleUp } from '@fortawesome/free-solid-svg-icons';
 import useScrollToTop from './Components/useScrollToTop';
+import { Helmet } from 'react-helmet';
+
 
 const Layout = ({ children }) => {
   const [showScroll, setShowScroll] = useState(false);
@@ -60,6 +62,9 @@ const Layout = ({ children }) => {
 
 const Home = () => (
   <div>
+    <Helmet>
+      <title>National Critical Information Infrastructure Protection Centre (NCIIPC)</title>
+    </Helmet>
     <div>
       <Marquee/>
     </div>
@@ -95,18 +100,74 @@ const App = () => {
     <Router>
       <Layout>
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/nciipc-internship" element={<Internship />} />
-          <Route path="/engage-with-nciipc" element={<EngageWithUs />} />
-          <Route path="/rvdp-nciipc" element={<Rvdp />} />
-          <Route path="/pentathon-2024" element={<Pentathon />} />
-          <Route path="/crowdsourcing" element={<Crowdsourcing />} />
-          <Route path="/sih-2023" element={<SIH />} />
-          <Route path="/forms-nciipc" element={<Forms/>}/>
-          <Route path="/nciipc-guidelines" element={<Documents/>}/>
-          <Route path="/about-nciipc" element={<AboutUs/>}/>
-          <Route path="/nciipc-updates" element={<Updates/>}/>
-          <Route path="/pentesting-scheme-cii" element={<PentestingScheme/>}/>
+          <Route path="/" element={
+            <>
+              <Helmet>
+                <title>National Critical Information Infrastructure Protection Centre (NCIIPC)</title>
+              </Helmet>
+              <Home />
+            </>
+          } />
+          <Route path="/nciipc-internship" element={
+
+            <Internship />
+          } />
+          <Route path="/engage-with-nciipc" element={
+
+            <EngageWithUs />
+          } />
+          <Route path="/rvdp-nciipc" element={
+
+            <Rvdp />
+          } />
+          <Route path="/pentathon-2024" element={
+
+            <Pentathon />
+          } />
+          <Route path="/crowdsourcing" element={
+
+            <Crowdsourcing />
+          } />
+          <Route path="/sih-2023" element={
+
+            <SIH />
+          } />
+          <Route path="/forms-nciipc" element={
+            <>
+              <Helmet>
+                <title>NCIIPC Forms | NCIIPC</title>
+              </Helmet>
+              <Forms />
+            </>
+          } />
+          <Route path="/nciipc-guidelines" element={
+            <>
+              <Helmet>
+                <title>NCIIPC Guidelines | NCIIPC</title>
+              </Helmet>
+              <Documents />
+            </>
+          } />
+          <Route path="/about-nciipc" element={
+            <>
+              <Helmet>
+                <title>About NCIIPC | NCIIPC</title>
+              </Helmet>
+              <AboutUs />
+            </>
+          } />
+          <Route path="/nciipc-updates" element={
+            <>
+              <Helmet>
+                <title>NCIIPC Updates | NCIIPC</title>
+              </Helmet>
+              <Updates />
+            </>
+          } />
+          <Route path="/pentesting-scheme-cii" element={
+            <PentestingScheme />
+
+          } />
           <Route path="*" element={<Error />} />
         </Routes>
       </Layout>

@@ -4,6 +4,7 @@ import { faChevronDown, faChevronUp, faFileDownload, faEye, faTimes } from '@for
 import guidelinesImg from './Images/guidelines.webp';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
+
 // import aboutBg from './Images/aboutBg.svg'
 
 
@@ -88,6 +89,7 @@ const Documents = () => {
   );
 
   return (
+    <div>
     <div className="bg-gray-100 py-4" style={{ backgroundImage: `url(/aboutBg.svg)` }}>
       <div className="max-w-7xl mx-auto px-6 lg:px-0">
         <h2 className="lg:text-3xl text-xl text-titleColor font-bold text-center tracking-wide mt-6 lg:mt-10 mb-4">Documents</h2>
@@ -96,11 +98,11 @@ const Documents = () => {
             key={document.id}
             className="w-full bg-white rounded-lg shadow-md overflow-hidden mb-6"
             ref={ref}
-          >
+            >
             <div
               className="flex items-center p-[5px] md:p-4 bg-[#3F72AF] text-white cursor-pointer"
               onClick={() => toggleAccordion(document.id)}
-            >
+              >
               <img src={document.imageUrl} alt={document.title} className="h-16 w-16 object-contain mr-4" />
               <h3 className="md:text-lg sm:text-md font-semibold flex-grow">{document.title}</h3>
               <FontAwesomeIcon className="mr-4" icon={isAccordionOpen[document.id] ? faChevronUp : faChevronDown} />
@@ -108,11 +110,11 @@ const Documents = () => {
             <AnimatePresence>
               {isAccordionOpen[document.id] && (
                 <motion.div
-                  className="p-6 bg-gray-50"
-                  initial={{ opacity: 0, height: 0 }}
-                  animate={{ opacity: 1, height: 'auto' }}
-                  exit={{ opacity: 0, height: 0 }}
-                  transition={{ type: "spring", stiffness: 100, damping: 20, duration: 0.9, ease: "easeInOut" }}
+                className="p-6 bg-gray-50"
+                initial={{ opacity: 0, height: 0 }}
+                animate={{ opacity: 1, height: 'auto' }}
+                exit={{ opacity: 0, height: 0 }}
+                transition={{ type: "spring", stiffness: 100, damping: 20, duration: 0.9, ease: "easeInOut" }}
                 >
                   <div className="mb-2 lg:mb-0 text-center">
                     <input
@@ -121,7 +123,7 @@ const Documents = () => {
                       value={searchTerm}
                       onChange={handleSearchChange}
                       className="px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
-                    />
+                      />
                   </div>
                   <ul className="max-h-96 overflow-y-auto">
                     {filteredPdfs.map((pdf, index) => (
@@ -130,7 +132,7 @@ const Documents = () => {
                           href="#"
                           onClick={(event) => handlePdfClick(event, pdf)}
                           className="text-blue-500 md:text-md text-sm hover:text-blue-700"
-                        >
+                          >
                           {pdf.name}
                         </a>
                         <div className="flex space-x-2 lg:mr-2">
@@ -138,14 +140,14 @@ const Documents = () => {
                             onClick={(event) => handlePdfClick(event, pdf)}
                             className="px-3 py-2 mr-2 md:mr-0 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500"
                             aria-label="Preview PDF"
-                          >
+                            >
                             <FontAwesomeIcon icon={faEye} />
                           </button>
                           {!isMobile && (
                             <a
-                              href={pdf.url}
-                              download
-                              className="px-3 py-2 bg-green-600 text-white rounded-md hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500"
+                            href={pdf.url}
+                            download
+                            className="px-3 py-2 bg-green-600 text-white rounded-md hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500"
                             >
                               <FontAwesomeIcon icon={faFileDownload} />
                             </a>
@@ -169,13 +171,13 @@ const Documents = () => {
                     href={selectedPdf.url}
                     download
                     className="px-3 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500"
-                  >
+                    >
                     <FontAwesomeIcon icon={faFileDownload} />
                   </a>
                   <button
                     onClick={handleModalClose}
                     className="text-gray-500 hover:text-gray-700 focus:outline-none focus:ring-2 focus:ring-indigo-500"
-                  >
+                    >
                     <FontAwesomeIcon icon={faTimes} className="text-2xl" />
                   </button>
                 </div>
@@ -186,13 +188,14 @@ const Documents = () => {
                     src={selectedPdf.url}
                     title={selectedPdf.name}
                     className="absolute inset-0 w-full h-full"
-                  ></iframe>
+                    ></iframe>
                 </div>
               </div>
             </div>
           </div>
         )}
       </div>
+        </div>
     </div>
   );
 };

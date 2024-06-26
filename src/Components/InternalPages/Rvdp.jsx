@@ -1,9 +1,14 @@
 import React from 'react';
 import rvdpImg from '../Images/rvdpImg.webp'
+import { Helmet } from 'react-helmet';
+
 
 const Rvdp = () => {
   return (
     <div>
+      <Helmet>
+      <title>Responsible Vulnerability Disclosure Program (RVDP) | NCIIPC</title>
+    </Helmet>
     <div className="container mx-auto px-8 py-12">
   <img src={rvdpImg} className='h-[200px] w-full lg:h-[400px] lg:w-full' alt="RVDP" srcSet="" />
 

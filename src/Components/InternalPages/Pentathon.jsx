@@ -1,9 +1,15 @@
 import React from 'react';
 import pentestingImg from '../Images/pentestingImg.webp'
+import { Helmet } from 'react-helmet';
+
+
 const Pentathon = () => {
   return (
     
     <div>
+      <Helmet>
+      <title>Pentathon | NCIIPC</title>
+    </Helmet>
       <div className='container mx-auto px-8 py-8 md:py-12'> 
   <img src={pentestingImg} className='h-[200px] w-full lg:h-[400px] lg:w-full' alt="Pentesting" srcSet="" />
 

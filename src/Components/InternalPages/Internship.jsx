@@ -1,9 +1,14 @@
 import React from 'react';
 import internshipImg from '../Images/internshipImg.webp'
+import { Helmet } from 'react-helmet';
+
 
 const Internship = () => {
   return (
     <div>
+      <Helmet>
+        <title>NCIIPC Internship Program | NCIIPC</title>
+      </Helmet>
       <style>{`
         .sticky-nav {
           position: -webkit-sticky;

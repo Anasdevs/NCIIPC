@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye, faFileDownload, faTimes } from '@fortawesome/free-solid-svg-icons';
 import cveImg from './Images/cve.png';
 import newslettersImg from './Images/newsletters.webp';
+
 // import aboutBg from './Images/aboutBg.svg'
 
 
@@ -151,6 +152,7 @@ const Updates = () => {
   }, []);
 
   return (
+    <div>
     <div className="bg-gray-100" style={{ backgroundImage: `url(/aboutBg.svg)` }}>
       <div className="max-w-7xl mx-auto px-6 md:px-6 lg:px-0">
 
@@ -361,6 +363,7 @@ const Updates = () => {
           </div>
         )}
       </div>
+    </div>
     </div>
   );
 };

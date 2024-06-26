@@ -5,6 +5,7 @@ import { faFileDownload, faExternalLinkAlt, faEye, faTimes } from '@fortawesome/
 import incidentReportingImg from './Images/incidentReporting.png';
 import vulnDisclosureImg from './Images/vulnDisclosure.webp';
 import malwareReporting from './Images/malwareReporting.png';
+
 // import aboutBg from './Images/aboutBg.svg'
 
 
@@ -58,6 +59,7 @@ const Forms = () => {
   
 
   return (
+    <div>
     <div className="py-4 relative" style={{ backgroundImage: `url(/aboutBg.svg)` }}>
       <div className="relative max-w-7xl md:mx-auto px-4 sm:px-6 lg:px-8 bg-gray-100 p-4 mx-4 rounded-md">
         <h2 className="lg:text-xl text-titleColor font-bold text-left tracking-wide lg:mb-4">Engage with NCIIPC</h2>
@@ -73,14 +75,14 @@ const Forms = () => {
                     onClick={(event) => handlePdfClick(event, form)}
                     className="px-2 py-1 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 text-sm sm:text-base transition-colors"
                     aria-label="Preview PDF"
-                  >
+                    >
                     <FontAwesomeIcon icon={faEye} className="mr-2" /> View
                   </button>
                   {!isMobile && (
                     <a
-                      href={form.pdf.url}
-                      download
-                      className="px-2 py-1 bg-green-600 text-white rounded-md hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 text-sm sm:text-base transition-colors"
+                    href={form.pdf.url}
+                    download
+                    className="px-2 py-1 bg-green-600 text-white rounded-md hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 text-sm sm:text-base transition-colors"
                     >
                       <FontAwesomeIcon icon={faFileDownload} className="mr-2" /> Download
                     </a>
@@ -100,13 +102,13 @@ const Forms = () => {
                     href={selectedForm.pdf.url}
                     download
                     className="px-3 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 text-sm sm:text-base transition-colors"
-                  >
+                    >
                     <FontAwesomeIcon icon={faFileDownload} />
                   </a>
                   <button
                     onClick={handleModalClose}
                     className="text-gray-500 hover:text-gray-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 text-sm sm:text-base transition-colors"
-                  >
+                    >
                     <FontAwesomeIcon icon={faTimes} className="text-2xl" />
                   </button>
                 </div>
@@ -117,7 +119,7 @@ const Forms = () => {
                     src={selectedForm.pdf.url}
                     title={selectedForm.pdf.name}
                     className="absolute inset-0 w-full h-full"
-                  ></iframe>
+                    ></iframe>
                 </div>
               </div>
             </div>
@@ -130,6 +132,7 @@ const Forms = () => {
         </div>
       </div>
     </div>
+   </div>
   );
 };
 
