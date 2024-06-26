@@ -100,7 +100,7 @@ const Documents = () => {
             ref={ref}
             >
             <div
-              className="flex items-center p-[5px] md:p-4 bg-[#3F72AF] text-white cursor-pointer"
+              className="flex items-center p-[5px] md:p-4 bg-[#2374B2] text-white cursor-pointer"
               onClick={() => toggleAccordion(document.id)}
               >
               <img src={document.imageUrl} alt={document.title} className="h-16 w-16 object-contain mr-4" />

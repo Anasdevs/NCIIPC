@@ -1,11 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye, faFileDownload, faTimes } from '@fortawesome/free-solid-svg-icons';
-import cveImg from './Images/cve.png';
+import cveImg from './Images/cve.webp';
 import newslettersImg from './Images/newsletters.webp';
-
-// import aboutBg from './Images/aboutBg.svg'
-
 
 const Updates = () => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -351,7 +348,7 @@ const Updates = () => {
 <button
                     onClick={() => handlePageChange(currentPage + 1)}
                     disabled={isNextButtonDisabled}
-                    className={`px-4 py-2 bg-indigo-500 text-white rounded-lg shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 ${
+                    className={`px-4 py-2 bg-indigo-600 text-white rounded-lg shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 ${
                       isNextButtonDisabled ? 'opacity-50 cursor-not-allowed' : ''
                     }`}
                   >

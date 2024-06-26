@@ -2,9 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFileDownload, faExternalLinkAlt, faEye, faTimes } from '@fortawesome/free-solid-svg-icons';
-import incidentReportingImg from './Images/incidentReporting.png';
+import incidentReportingImg from './Images/incidentReporting.webp';
 import vulnDisclosureImg from './Images/vulnDisclosure.webp';
-import malwareReporting from './Images/malwareReporting.png';
+import malwareReporting from './Images/malwareReporting.webp';
 
 // import aboutBg from './Images/aboutBg.svg'
 
