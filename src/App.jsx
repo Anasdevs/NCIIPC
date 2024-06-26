@@ -103,6 +103,9 @@ const App = () => {
           <Route path="/crowdsourcing" element={<Crowdsourcing />} />
           <Route path="/sih-2023" element={<SIH />} />
           <Route path="/forms-nciipc" element={<Forms/>}/>
+          <Route path="/nciipc-guidelines" element={<Documents/>}/>
+          <Route path="/about-nciipc" element={<AboutUs/>}/>
+          <Route path="/nciipc-updates" element={<Updates/>}/>
           <Route path="/pentesting-scheme-cii" element={<PentestingScheme/>}/>
           <Route path="*" element={<Error />} />
         </Routes>
