@@ -77,7 +77,7 @@ const Events = () => {
           <motion.div className="inner-carousel">
             {images.map((image, index) => (
               <motion.div className="item" key={index}>
-                <img src={image} alt={`Event ${index + 1}`} />
+                <img src={image} draggable="false" alt={`Event ${index + 1}`} />
               </motion.div>
             ))}
           </motion.div>

@@ -65,7 +65,7 @@ const Forms = () => {
           {forms.map((form, index) => (
             <div key={index} className="relative bg-white rounded-lg shadow-md overflow-hidden text-center">
               <div className="bg-gradient-to-b from-gray-200 to-transparent h-full w-full absolute top-0 left-0 z-0"></div>
-              <img src={form.imageUrl} alt={form.title} className="h-24 w-full object-contain p-2 relative z-10 bg-gray-200 rounded-md bg-clip-padding backdrop-filter backdrop-blur-3xl bg-opacity-10" loading="lazy" />
+              <img src={form.imageUrl} alt={form.title} draggable="false" className="h-24 w-full object-contain p-2 relative z-10 bg-gray-200 rounded-md bg-clip-padding backdrop-filter backdrop-blur-3xl bg-opacity-10" loading="lazy" />
               <div className="p-4 relative z-10">
                 <h3 className="text-lg font-semibold mb-2">{form.title}</h3>
                 <div className="flex justify-center items-center space-x-2">

@@ -40,7 +40,7 @@ const Links = () => {
                 onClick={handleExternalLinkClick}
                 className="flex flex-col items-center justify-center h-full"
               >
-                <img src={link.imageUrl} alt={`${link.title} - ${index + 1}`} title={link.title} className="link-image" />
+                <img src={link.imageUrl} draggable="false" alt={`${link.title} - ${index + 1}`} title={link.title} className="link-image" />
                 <div className="link-title">
                   <span>{link.title}</span>
                 </div>
