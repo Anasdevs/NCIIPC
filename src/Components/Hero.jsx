@@ -21,8 +21,19 @@ function Hero() {
   useEffect(() => {
     const handleResize = () => setWindowWidth(window.innerWidth);
     window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
+  
+    let interval;
+    if (windowWidth < 640) {
+      interval = setInterval(() => {
+        setCurrentIndex(prevIndex => (prevIndex + 1) % slidesSm.length);
+      }, 2000);
+    }
+  
+    return () => {
+      window.removeEventListener('resize', handleResize);
+      if (interval) clearInterval(interval);
+    };
+  }, [windowWidth, slidesSm.length]);
 
   useEffect(() => {
     const loadImages = async () => {
